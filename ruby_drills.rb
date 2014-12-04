@@ -3,6 +3,197 @@
 #----- PUT ON TIMER!
 
 
+# ------------ ONE LINE CLASS ---------
+# 1-Write the following class in one line.
+# class Monkey
+# end
+# Answer:
+#
+# class Monkey; end
+
+
+# -------- PROC VS LAMBDA -----------
+# def batman_ironman_proc
+# 	victor = Proc.new { return "Batman will win!" }
+# 	victor.call
+# 	"Iron Man will win!"
+# end
+#
+# puts batman_ironman_proc
+#
+# def batman_ironman_lambda
+# 	victor = lambda { return "Batman will win!" }
+# 	victor.call
+# 	"Iron Man will win!"
+# end
+#
+# puts batman_ironman_lambda
+
+
+# ------------- CREATE A LAMBDA ---------------
+# 1-Create a lambda, symbol_filter, that takes one parameter and checks to see if that parameter .is_a? Symbol.
+# 2-Create a new variable called symbols, and store the result of calling my_array.select and passing it your lambda.
+# my_array = ["raindrops", :kettles, "whiskers", :mittens, :packages]
+# Answer:
+#
+# # Add your code below!
+# symbol_filter = lambda { |x| x.is_a? Symbol }
+#
+# symbols = my_array.select(&symbol_filter)
+
+
+
+# --- iterating over hash
+# lunch_order = {
+#   "Ryan" => "wonton soup",
+#   "Eric" => "hamburger",
+#   "Jimmy" => "sandwich",
+#   "Sasha" => "salad",
+#   "Cole" => "taco"
+# }
+# lunch_order.each do |key, value|
+#     puts value
+# end
+
+# ------ nest each do loops iterating over multi dementional arrays
+#   s = [["ham", "swiss"], ["turkey", "cheddar"], ["roast beef", "gruyere"]]
+# s.each do |sub_array|
+#     sub_array.each do |y|
+#         puts y
+#     end
+# end
+
+# --------- Multi dimentional arrays
+# multi_d_array = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+# multi_d_array.each { |x| puts "#{x}\n" }
+
+#------------Redacted-------
+# puts "Text to search through: "
+# text = gets.chomp
+# puts "Word to redact: "
+# redact = gets.chomp
+#
+# words = text.split(" ")
+#
+# words.each do |word|
+#   if word != redact
+#     print word + " "
+#   else
+#     print "REDACTED "
+#   end
+# end
+
+#------------required and optional parameters and methods
+#this syntax does the same as...
+# def lunch (food, drink:"dew")
+#   puts "For lunch I'm eating #{food} drinking #{drink}"
+# end
+# lunch ("pizza", drink=>"coke")
+# #this syntax:
+# def lunch food, drink:"dew"
+#   puts "For lunch I'm eating #{food} drinking #{drink}"
+# end
+# lunch "pizza", drink:"coke"
+
+#-------------------string interpolation, include?, if else------
+# puts "what's ur name man?"
+# user_input = gets.chomp
+# user_input.downcase!
+#   if user_input.include? "s"
+#     user_input.gsub!(/s/, "th")
+#   else
+#     puts "nothing here"
+#   end
+#
+# puts "#{user_input}, do you like #{user_input.upcase} better or #{user_input.reverse} better?"
+# answer = gets.chomp
+# puts "me too. #{answer} is pretty cool"
+
+# print "Pick a number"
+# user_num = gets.to_i
+#
+# if user_num < 0
+# 	puts "You picked a negative number dude"
+# elsif user_num > 0
+# 	puts "You picked a pos num"
+# else
+# 	puts "You picked zero"
+# end
+#
+#### while loop ######
+# counter = 1
+# while counter < 5
+#   puts counter
+#   counter = counter + 1
+# end
+
+# for x in 2..12
+#   puts x
+# end
+
+# for k in 12..112
+#   puts k
+# end
+
+#-------using loop-----
+# k = 21
+# loop do
+#   k -= 1
+#   next if k % 2 != 0
+#   print "#{k} "
+#   break if k == 12
+# end
+
+# r = 0
+# loop do
+#     r += 1
+#     print "Ruby!"
+#     break if r == 30
+# end
+
+#print the numbers 1-50 using a while loop:
+# n = 1
+# while n < 51 do
+#     print n
+#     n += 1
+# end
+#do the same thing but using until:
+# n = 1
+# until n > 50 do
+#     print n
+#     n += 1
+# end
+#do the samething using 'for':
+# for n in 1..50
+#     print n
+# end
+
+#----------NEXT if--------
+# f = 0
+# loop do
+#   f += 1
+#   next if f % 2 != 0
+#   print "#{f} "
+#   break if f == 12
+# end
+
+#-------each do-------
+# odds = [1,3,5,7,9]
+#
+# # Add your code below!
+#
+# odds.each do |item|
+#     print item * 2
+# end
+
+#------------- .times ------
+# 5.times do
+#   puts "Kenny T rules!"
+# end
+#
+# 5.times {puts "Kenny T crushes code!"}
+
+
 #---------------- blocks -------------Kenny Trionfo---12/1/2014--------
 # blocks aren't _________. And they don't all the powers and abilities of an _________ and so therefor can't be saved as a ____________.
 # 	Answer:
@@ -11,8 +202,8 @@
 
 
 #---------------- yield -------------Kenny Trionfo---12/1/2014--------
-# 1-write a method that puts something yields to a block outside of it and then puts something else. 
-# 	Answer: 
+# 1-write a method that puts something yields to a block outside of it and then puts something else.
+# 	Answer:
 
 # def block_test
 #   puts "We're in the method!"
@@ -23,8 +214,8 @@
 
 # block_test { puts ">>> We're in the block!" }
 
-# 2-now say that you want to execute a block of code that is outside of a method that you want to run. Use yield that takes a param inside of a method. 
-# 	Answer: 
+# 2-now say that you want to execute a block of code that is outside of a method that you want to run. Use yield that takes a param inside of a method.
+# 	Answer:
 
 # def yield_with_param(word)
 # 	puts "before yield"
@@ -36,7 +227,7 @@
 
 #---------------- LAMBDAS -------------Kenny Trionfo---12/1/2014--------
 # What is the difference between a proc and a lambda?
-# 	Answer: 
+# 	Answer:
 
 # a lambda checks the number of arguments passed to it, while a proc does not. This means that a lambda will throw an error if you pass it the wrong number of arguments, whereas a proc will ignore unexpected arguments and assign nil to any that are missing.
 
@@ -65,9 +256,9 @@
 
 #---------------- .collect & lambda -------------Kenny Trionfo---12/1/2014--------
 # 1.create a hash of strings.
-# 2.capitalize each of them by using .collect and an do/end block that capitalizes each one. 
-# 3.Now do above but using .collect and pass it the collect lambda. 
-# 	Answer: 
+# 2.capitalize each of them by using .collect and an do/end block that capitalizes each one.
+# 3.Now do above but using .collect and pass it the collect lambda.
+# 	Answer:
 
 # >> ['a', 'b', 'c'].collect{|letter| letter.capitalize}
 # => ["A", "B", "C"]
@@ -78,7 +269,7 @@
 
 
 #---------------- RANGE -------------Kenny Trionfo---11/26/2014--------
-#Convert the alphabet range into an array and print each one. 
+#Convert the alphabet range into an array and print each one.
 #Answer:
 
 # ('A'..'Z').to_a.each { |letter| print letter }
@@ -86,7 +277,7 @@
 
 #----------------RICE ON SQUARES -------------Kenny Trionfo---11/26/2014--------
 #Create a method that starts by putting one grain of rice on a checkerboard square and then doubles it up to 64.
-# Answer: 
+# Answer:
 
 # rice_on_square = 1
 # 64.times do |square|
@@ -106,15 +297,15 @@
 # strings = ["HTML", "CSS", "JavaScript", "Python", "Ruby"]
 # symbols = []
 
-# strings.each do |s| 
-#     symbols.push(s.to_sym) 
+# strings.each do |s|
+#     symbols.push(s.to_sym)
 # end
 # puts symbols
 
 # #---------------- .select -------------Kenny Trionfo---11/24/2014--------
-#1-Create a new variable, good_movies, 
+#1-Create a new variable, good_movies,
 #2- set it equal to the result of calling .select on the movie_ratings hash below, selecting only movies with a rating strictly greater than 3.
-#3- Puts it to test it. 
+#3- Puts it to test it.
 # movie_ratings = {
 #   memento: 3,
 #   primer: 3.5,
@@ -142,17 +333,17 @@
 
 #---------------- HASH WITH A DEFAULT VALUE -------------Kenny Trionfo---11/21/2014--------
 #irb - Used when u try to pass a key that doesn't exist into a hash. or when you don't have anythign in a hash and you need to say that??
-#1-Create a hash using the constructor method and put a default key in it that will get returned if u try to access a key in the hash that doesn't exist. 
+#1-Create a hash using the constructor method and put a default key in it that will get returned if u try to access a key in the hash that doesn't exist.
 # Now try to pass something that doesn't exist into the hash & u should get your default back.
-#Answer: 
+#Answer:
 
 # mh = Hash.new("The key ur trying to access isn't in here")
 # mh[:friend]
 
 
 #---------------- IF TRUE THEN with =? -------------Kenny Trionfo---11/21/2014--------
-# .where("#{"api_name=?" if api_name}",api_name)  
-# Means 
+# .where("#{"api_name=?" if api_name}",api_name)
+# Means
 
 
 #---------------- passing multiple arguments -------------Kenny Trionfo---11/21/2014--------
@@ -184,31 +375,31 @@
 # 	if num % 2 == 0
 # 		puts "Great, #{num} is a great even number. Thank you."
 # 	else
-# 		throw "I'm sorry, that's not an even number." # a way to artificially kick to rescue block 
+# 		throw "I'm sorry, that's not an even number." # a way to artificially kick to rescue block
 # 	end
 # rescue Exception => e  #kind of like defining a param
-# 	puts e.message 
+# 	puts e.message
 # end
 
 
 #---------------- SUPER TO OVERLOAD METHODS -------------Kenny Trionfo---11/21/2014--------
-# 1. Create a Class with a method in it that puts something. 
-# 2. Create a 2nd Class that inherits from the first with a method in it that has the same name as the method in the first class and both prints something different than the previous method and calls super. 
-# 3. Create a 3rd Class that inherits from the 2nd one with no method in it. 
-# 4. Create an instance of the 3rd Class. 
-# 5. Call the method from the 2nd Class on it. 
+# 1. Create a Class with a method in it that puts something.
+# 2. Create a 2nd Class that inherits from the first with a method in it that has the same name as the method in the first class and both prints something different than the previous method and calls super.
+# 3. Create a 3rd Class that inherits from the 2nd one with no method in it.
+# 4. Create an instance of the 3rd Class.
+# 5. Call the method from the 2nd Class on it.
 # Answer:
 
-# class Laptop  
-# 	def create_first_user    
-# 		puts "Enter your username."    
-# 		puts "Enter your password."  
+# class Laptop
+# 	def create_first_user
+# 		puts "Enter your username."
+# 		puts "Enter your password."
 # 	end
 # end
-# class AppleComputers < Laptop  
-# 	def create_first_user    
-# 		puts "Take a photo of yourself."    
-# 		super  
+# class AppleComputers < Laptop
+# 	def create_first_user
+# 		puts "Take a photo of yourself."
+# 		super
 # 	end
 # end
 # class MacBookPro < AppleComputers
@@ -224,23 +415,23 @@
 # age = 10
 # puts "You are a " + (age < 18 ? "child" : "adult")
 
-	
+
 #---------------- RAISE EXCEPTION -------------------
-# def raise_exception  
+# def raise_exception
 # 	puts "I am before the raise"
 # 	raise "This is ur message that an error has occurred"
 # 	puts "I am after the raise"
 # end
-# raise_exception 
+# raise_exception
 
 
 # --------------------quick little method to show the components of a URL------------
-# test urls to play withtest 
+# test urls to play withtest
 # http://api.popshops.com/v3/deals.json?account=etl4xy4bqez70idzyypjwyfxn&catalog=dxeqyv83t3vcox7iztg9ufg16
 # http://www.ruby-doc.org/stdlib-1.9.3/libdoc/uri/rdoc/URI.html#method-c-parse
 
-# require 'net/http' # this automatically does a  require 'uri' 
-# def uri_tester 
+# require 'net/http' # this automatically does a  require 'uri'
+# def uri_tester
 # 	puts "Enter a full web address including the http:// part:"
 # 	address = gets.chomp
 # 	uri = URI(address)
@@ -259,11 +450,11 @@
 # uri_tester
 
 #------------- Super -------------------
-# Create a Class with a method in it that puts something. 
-# Create a 2nd Class that inherits from the first with a method in it that has the same name as the method in the first class and both prints something different than the previous method and calls super. 
-# Create a 3rd Class that inherits from the 2nd one with no method in it. 
-# Create an instance of the 3rd Class 
-# Call the method from the 2nd Class on it. 
+# Create a Class with a method in it that puts something.
+# Create a 2nd Class that inherits from the first with a method in it that has the same name as the method in the first class and both prints something different than the previous method and calls super.
+# Create a 3rd Class that inherits from the 2nd one with no method in it.
+# Create an instance of the 3rd Class
+# Call the method from the 2nd Class on it.
 
 # class Laptop
 #   def create_first_user
@@ -297,27 +488,27 @@
 #   puts counter
 #   counter = counter + 1
 # end
- 
+
 # For Loop
-# use for loops when you know how many times you'll be looping. 
+# use for loops when you know how many times you'll be looping.
 # iterate with a loop
 # i = 0
-# loop do 
+# loop do
 # 	i += 2
 # 	print "#{i} "
 # 	break if i == 24
 # end
 
 #---------------- hashes -------------------
-# - if you pass in a key with no value, it'll let you but will be nil. 
-# - call the value of a key/value pair of a hash by: 
+# - if you pass in a key with no value, it'll let you but will be nil.
+# - call the value of a key/value pair of a hash by:
 # my_path[:ack] = 12  #adds key ack w/ value 12 to hash my_path
 #  => 12
 # 2.1.1 :005 > my_path
 #  => {:ack=>12}
 #calls ack's value from the hash (but only if the format the hash was saved in was )
-# my_path[:ack]  
-#  => 12 
+# my_path[:ack]
+#  => 12
 
 
 #---------------- 2 ways to do hash syntax -------------------
@@ -497,32 +688,6 @@
 #
 # 5.times {puts "Kenny T crushes code!"}
 #
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
