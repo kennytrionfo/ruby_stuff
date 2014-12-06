@@ -3,6 +3,241 @@
 #----- PUT ON TIMER!
 
 
+
+#---------------- .self -------------Kenny Trionfo---12/5/2014--------
+# 1-Create a "self" method that only work on the Class itself and test it.
+# 	Answer: 
+
+#  class Square
+#  def self.test_method
+#  puts "Hello from the square class."
+#  end
+#  def test_method
+#  puts "Hello from an instance of the class Square."
+#  end
+#  end
+
+#  Square.test_method
+# Hello from the square class.
+#  Square.new.test_method
+# Hello from an instance of the class Square.
+#  box = Square.new
+#  box.test_method
+# Hello from an instance of the class Square.
+
+
+#---------------- |k,v| combo in a loop  -------------Kenny Trionfo---12/5/2014--------
+# 1 create a hash and assign it to an instance var
+# 2 create a method that loops through each item in the hash and puts the value of each hash
+# 3 call the method
+	# Answer: 
+
+
+#---------------- INITIALIZE A METHOD -------------Kenny Trionfo---12/5/2014--------
+# 	 class Fruit
+#     |   def initialize
+#     |     @kind = "apple"
+#     |     @condition = "ripe"
+#     |   end
+#     | end
+# f4 = Fruit.new
+#    "a ripe apple"
+# http://www.rubyist.net/~slagell/ruby/objinitialization.html
+
+
+# ------------- Super ------------------
+# Create a Class with a method in it that puts something. 
+# Create a 2nd Class that inherits from the first with a method in it that has the same name as the method in the first class and both prints something different than the previous method and calls super. 
+# Create a 3rd Class that inherits from the 2nd one with no method in it. 
+# Create an instance of the 3rd Class 
+# Call the method from the 2nd Class on it. 
+# 	Answer: 
+#  class Laptop
+#   def create_first_user
+#     puts "Enter your username."
+#     puts "Enter your password."
+#   end
+# end
+
+# class AppleComputers < Laptop
+#   def create_first_user
+#     puts "Take a photo of yourself."
+#     super
+#   end
+# end
+
+# class MacBookPro < AppleComputers
+# end
+
+# @my_new_macbook_pro = MacBookPro.new
+# @my_new_macbook_pro.create_first_user
+
+# => Take a photo of yourself.
+# => Enter your username.
+# => Enter your password.
+
+
+
+# ----------------Array & loop practice--------------------
+# -Create an array with two items in it that are each hashes with two items in it. 
+# -Loop through the items in the array, putsing each item in each hash. 
+# 	Answer: 
+
+#  meals = [{food: 'pizza', drink: 'oj'}, {food: 'burger', drink: 'water'}]
+
+#  meals.each do |x|
+#  	puts x[:food], x[:drink]
+#  end
+
+
+# ------------------- if ternury? maybe just if ---------------
+# can't find the syntax on this one, ask Sensei
+# Use the if method to call something? 
+# second_item = true 
+# third_item = "Third item here" 
+# first_item = "I'm the first item"
+# "If the second_item is true(exists), then set the first_item to the third_item"
+	# Answer: 
+
+# def if_thing
+# 	({first_item=? if second_item}, third_item)
+# 	p first_item
+# end
+
+
+# ------------Ruby's methods will return what? -------------------
+# Answer: 
+
+# the result of the last evaluated expression.
+
+
+# ---------------------.respond_to?------------------
+#  Remember when we mentioned that symbols are awesome for referencing method names? Well, .respond_to? takes a symbol and returns true if an object can receive that method and false otherwise. For example,
+# [1, 2, 3].respond_to?(:push)
+# would return true, since you can call .push on an array object. However,
+# [1, 2, 3].respond_to?(:to_sym)
+# would return false, since you can't turn an array into a symbol.
+
+
+# --------------Use + and << to add to a string ----------
+#  You can always use plain old + or << to add a variable value into a string:
+#  try both: 
+#  	Answer: 
+
+# drink = "espresso"
+# "I love " + drink
+# now try with << 
+
+# "I love " << drink
+
+
+# -----------The Symbol To Proc Trick---------------
+# Replace the .map { |string| string.upcase } way of upcasing each item in an array with passing &:upcase block to the .map method.
+# 	Answer: 
+# So replace this: 
+# p ["a", "b"].map{|string| string.upcase}
+# with this: 
+# p ["a", "b"].map(&:upcase)
+# We know that this is equivalent to:
+# But now we also make an educated guess as to why they are equivalent. We have a Symbol object (‘:upcase’), we put an ampersand in front of it and pass it to the map method. The map method takes a block, and by using the ampersand we’ve told Ruby that we want to convert our Symbol object to a Proc and associate it with the map method as its block. It turns out that Symbol implements to_proc in a special way, so that the resulting block becomes functionally equivalent to our second example above. Of course these days Ruby implements Symbol#to_proc using C, so it’s not quite as nice looking as the examples you’ll find around the web, but you get general idea.
+
+
+# ------------proc practice ------------------
+# 1-Create an array of floats called floats.
+# 2-create a proc to round down floats.
+# 3-Create a var that is the floats, rounded down by going through each one and passing the round_down proc to a method that iterates through each one.
+# The .floor method rounds a float (a number with a decimal) down to the nearest integer. Write a proc called round_down that will do this rounding (we've added the code to pass it to floats.collect).
+	# Answer: 
+
+# floats = [1.2, 3.45, 0.91, 7.727, 11.42, 482.911]
+# puts floats
+# round_down = Proc.new { |n| n.floor }
+# ints = floats.collect(&round_down)
+# puts ints
+
+
+# ---------------------------------
+# Define your own method, double, that accepts a single parameter and yields to a block. Then call it with a block that multiplies the number parameter by 2. You can double any number you like!
+# Answer:
+
+# def double(number)
+#     yield number
+# end
+# double(12) { |n| n * 2 }
+# -------------------------
+
+
+# practice turning if/else statements into ternury statements
+# -------------------------------------
+
+
+# practice using one line if and unless statments
+# -------------------------------------------
+# Create a movies hash that people can add, update display and delete from.
+# 1- Create a hash movies. 
+# 2- ask what the user would like to do and give 4 options. add, display, update or delete. 
+# 3- put their answer into var choice
+# 4- do a case for choice with each of the four options
+# 5- when adding a new movie, use an if/else to make sure that the movie isn't already in the hash(if so, tell them), if not, get the rating from them, add it to the movies hash and tell them you added it. 
+# 6- when updating, get the movie, check to see if it's there. if not, tell them, if so, ask for the rating, update it in the hash and tell them you did. 
+# 7- when displaying, do a .each on both key and value to puts them. 
+# 8- when deleting, take the one they give you out of the hash and tell them you took it out. 
+# 9- if they give you something other than the four, tell them they have to give you one of them. 
+
+# movies = {
+#   Memento: 3,
+#   Primer: 4,
+#   Ishtar: 1
+# }
+
+# puts "What would you like to do?"
+# puts "-- Type 'add' to add a movie."
+# puts "-- Type 'update' to update a movie."
+# puts "-- Type 'display' to display all movies."
+# puts "-- Type 'delete' to delete a movie."
+
+# choice = gets.chomp.downcase
+# case choice
+# when 'add'
+#   puts "What movie do you want to add?"
+#   title = gets.chomp
+#   if movies[title.to_sym].nil?
+#     puts "What's the rating? (Type a number 0 to 4.)"
+#     rating = gets.chomp
+#     movies[title.to_sym] = rating.to_i
+#     puts "#{title} has been added with a rating of #{rating}."
+#   else
+#     puts "That movie already exists! Its rating is #{movies[title.to_sym]}."
+#   end
+# when 'update'
+#   puts "What movie do you want to update?"
+#   title = gets.chomp
+#   if movies[title.to_sym].nil?
+#     puts "Movie not found!"
+#   else
+#     puts "What's the new rating? (Type a number 0 to 4.)"
+#     rating = gets.chomp
+#     movies[title.to_sym] = rating.to_i
+#     puts "#{title} has been updated with new rating of #{rating}."
+#   end
+# when 'display'
+#   movies.each do |movie, rating|
+#     puts "#{movie}: #{rating}"
+#   end
+# when 'delete'
+#   puts "What movie do you want to delete?"
+#   title = gets.chomp
+#   if movies[title.to_sym].nil?
+#     puts "Movie not found!"
+#   else
+#     movies.delete(title.to_sym)
+#     puts "#{title} has been removed."
+#   end
+# else
+#   puts "Sorry, I didn't understand you."
+# end
+
+
 # ------------ ONE LINE CLASS ---------
 # 1-Write the following class in one line.
 # class Monkey
