@@ -4,6 +4,40 @@
 
 
 
+#---------------- INITIALIZE, INSTANTIATION & ACCESSORS -------------Kenny Trionfo---12/9/2014--------
+# class Song
+# 	def initialize(length, type)
+# 		@length = length
+# 		@type = type
+# 	end
+# attr_accessor :length, :type
+	# def length
+	# 	@length
+	# end
+
+	# def type 
+	# 	@type
+	# end
+# end
+
+# fly = Song.new(5, "endearing")
+# puts fly.length
+# puts fly.type
+
+# http://rubylearning.com/satishtalim/ruby_access_control.html
+
+# From tryruby.org:
+# Did you see how inside the class we used the at-symbols? Like this: @time = Time.now
+# Outside the class, we use accessors: entry.time = Time.now
+# But inside we use instance variables: @time = Time.now They're the exact same thing, but expressed in two different places of your program.
+
+# Accessors are variables attached to an object which can be used outside the object. (entry.time = Time.now)
+# Instance variables are the same variables you're using for accessors when inside the object. Like in a method definition. (@time = Time.now)
+
+# instance variables maintain state
+#  The @bark instance variable is set to the value "ruff ruff" in the initialize() method. Instance variables can be accessed by any instance methods in a class and are used to maintain "state" (state is the data that objects "know").
+
+
 #---------------- .self -------------Kenny Trionfo---12/5/2014--------
 # 1-Create a "self" method that only work on the Class itself and test it.
 # 	Answer: 
@@ -459,6 +493,12 @@
 # end
 # yield_with_param("shalasium") { |x| puts "#{x} is my word."}
 
+#---------------- Object variables -------------Kenny Trionfo---12/9/2014--------
+# What's an object variable? 
+# 	Answer: 
+
+#  object variables (also known as instance variables) are so named because they have scope within, and are associated to, the current object. 
+
 
 #---------------- LAMBDAS -------------Kenny Trionfo---12/1/2014--------
 # What is the difference between a proc and a lambda?
@@ -644,6 +684,7 @@
 # @my_new_macbook_pro.create_first_user
 # # => Take a photo of yourself.
 # # => Enter your username.# => Enter your password.
+# http://rubylearning.com/satishtalim/ruby_overriding_methods.html
 
 
 #---------------- TERNARY OPERATOR -------------Kenny Trionfo---11/14/2014--------
