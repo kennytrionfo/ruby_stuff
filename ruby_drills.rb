@@ -4,6 +4,30 @@
 
 
 
+#---------------- .is_a? -------------Kenny Trionfo---12/9/2014--------
+# is_a? to check if something exists or not
+#  Checks class. 
+# A good way to see if an object inherits from another class. 
+
+# module M;    end
+# class A
+#   include M
+# end
+# class B < A; end
+# class C < B; end
+
+# b = B.new
+# b.is_a? A          #=> true
+# b.is_a? B          #=> true
+# b.is_a? C          #=> false
+# b.is_a? M          #=> true
+
+# b.kind_of? A       #=> true
+# b.kind_of? B       #=> true
+# b.kind_of? C       #=> false
+# b.kind_of? M       #=> true
+
+
 #---------------- INITIALIZE, INSTANTIATION & ACCESSORS -------------Kenny Trionfo---12/9/2014--------
 # class Song
 # 	def initialize(length, type)
@@ -687,7 +711,7 @@
 # http://rubylearning.com/satishtalim/ruby_overriding_methods.html
 
 
-#---------------- TERNARY OPERATOR -------------Kenny Trionfo---11/14/2014--------
+#---------------- TERNARY ("Conditional") OPERATOR -------------Kenny Trionfo---11/14/2014--------
 # age = 10
 # puts "You are a " + (age < 18 ? "child" : "adult")
 
