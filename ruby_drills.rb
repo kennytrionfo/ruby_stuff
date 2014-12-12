@@ -1,20 +1,36 @@
 
-def nothing
-	#what about his? 
-	# stuff here
-
-end 
-
-
-	
 
 #----- PUT ON TIMER!
 
+#---------------- =~ operator "has any of" -------------Kenny Trionfo---12/12/2014--------
+# Returns the position of the first match,if any, declaring that its true. 
+# ex: puts "String has vowels" if "This is a test" =~ /[aeiou]/
+# =~: Matches a supplied regular expression against the string. The position of the first match is returned, otherwise nil. This technique is commonly used as a comparison expression to see if a string matches a regular expression.
+# Answer: 
 
 
 
+#---------------- Constructor -------------Kenny Trionfo---12/12/2014--------
+# The Constructor in Ruby Is the xxxxx method. 
+# - It is automatically called when an object is xxxxx. 
+# - Constructors do not return xxxxx. 
+# - The purpose of the constructor is to xxxxx the state of an object. 
+# - Constructors cannot be inherited. 
+# - The constructor of a parent object is called with a xxxxx method. 
+# - They are called in the order of xxxxx.
+# Answer: 
 
-#def nothing
+# The constructor the initialize method. 
+# - It is automatically called when an object is created. 
+# - Constructors do not return values. 
+# - The purpose of the constructor is to initiate the state of an object. 
+# - Constructors cannot be inherited. 
+# - The constructor of a parent object is called with a super method. 
+# - They are called in the order of inheritance.
+# Ref:  http://zetcode.com/lang/rubytutorial/oop/    and 
+# http://www.slideshare.net/ciscoleal/constructors-28459017
+
+
 #---------------- Action Controller -------------Kenny Trionfo---12/12/2014--------
 # Action Controllers are the core of a XXXX XXXX in \Rails. They are made up of one or more XXXX that are executed
 # on request and then either it renders a template or redirects to another action. An action is defined as a public XXXX
