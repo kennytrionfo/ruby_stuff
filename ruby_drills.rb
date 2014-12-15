@@ -8,7 +8,6 @@
 	# =~: Matches a supplied regular expression against the string. The position of the first match is returned, otherwise nil. This technique is commonly used as a comparison expression to see if a string matches a regular expression.
 	# Answer: 
 
-
 #---------------- Constructor -------------Kenny Trionfo---12/12/2014--------
 	# The Constructor in Ruby Is the xxxxx method. 
 	# - It is automatically called when an object is xxxxx. 
@@ -28,7 +27,6 @@
 	# - They are called in the order of inheritance.
 	# Ref:  http://zetcode.com/lang/rubytutorial/oop/    and 
 	# http://www.slideshare.net/ciscoleal/constructors-28459017
-
 
 #---------------- Action Controller -------------Kenny Trionfo---12/12/2014--------
 	# Action Controllers are the core of a XXXX XXXX in \Rails. They are made up of one or more XXXX that are executed
@@ -224,7 +222,6 @@
 	#   end
 	#REf: https://www.omniref.com/ruby/gems/actionpack/4.1.6/symbols/ActionController::Base#line=176
 
-
 #---------------- .is_a? -------------Kenny Trionfo---12/9/2014--------
 	# is_a? to check if something exists or not
 	#  Checks class. 
@@ -247,7 +244,6 @@
 	# b.kind_of? B       #=> true
 	# b.kind_of? C       #=> false
 	# b.kind_of? M       #=> true
-
 
 #---------------- INITIALIZE, INSTANTIATION & ACCESSORS -------------Kenny Trionfo---12/9/2014--------
 # class Song
@@ -888,19 +884,42 @@
 # frequencies.reverse!
 # frequencies.each { |word, frequency| puts word + " " + frequency.to_s }
 
-#---------------- BEGIN RESCUE -------------Kenny Trionfo---11/13/2014--------
-# puts "Please type in an even number"
-# num = gets.chomp.to_i
-# begin
-# 	if num % 2 == 0
-# 		puts "Great, #{num} is a great even number. Thank you."
-# 	else
-# 		throw "I'm sorry, that's not an even number." # a way to artificially kick to rescue block
-# 	end
-# rescue Exception => e  #kind of like defining a param
-# 	puts e.message
-# end
+#---------------- BEGIN RESCUE RAISE EXCEPTION -------------Kenny Trionfo---11/13/2014--------
+	#1 Create an exception using the begin end clause. 
+	#I don't understand this first one. It's from center canyon. ask Sensei for help.
+	# puts "Please type in an even number"
+	# num = gets.chomp.to_i
+	# begin
+	# 	if num % 2 == 0
+	# 		puts "Great, #{num} is a great even number. Thank you."
+	# 	else
+	# 		throw "I'm sorry, that's not an even number." # a way to artificially kick to rescue block
+	# 	end
+	# rescue Exception => e  #kind of like defining a param
+	# 	puts e.message
+	# end
 
+	#Another example: 
+	# def raise_exception  
+	# 		puts 'I am before the raise.'  
+	# 		raise 'An error has occured'  
+	# 	  puts 'I am after the raise'  
+	# end  
+	# raise_exception  
+	#Another example: 
+	# def raise_and_rescue  
+	#   begin  
+	#     puts 'I am before the raise.'  
+	#     raise 'An error has occured.'  
+	#     puts 'I am after the raise.'  
+	#   rescue  
+	#     puts 'I am rescued.'  
+	#   end  
+	#   puts 'I am after the begin block.'  
+	# end  
+	# raise_and_rescue   
+	
+	# Ref: http://rubylearning.com/satishtalim/ruby_exceptions.html
 
 #---------------- SUPER TO OVERLOAD METHODS -------------Kenny Trionfo---11/21/2014--------
 # 1. Create a Class with a method in it that puts something.
