@@ -35,7 +35,7 @@
 	# boss.new_ruler
 
 #---------------- =~ operator "has any of" -------------Kenny Trionfo---12/12/2014--------
-	# Returns the position of the first match,if any, declaring that its true. 
+	# The =~ operator returns the position of the first match, if any, declaring that its true. 
 	# ex: puts "String has vowels" if "This is a test" =~ /[aeiou]/
 	# =~: Matches a supplied regular expression against the string. The position of the first match is returned, otherwise nil. This technique is commonly used as a comparison expression to see if a string matches a regular expression.
 	# Answer: 
@@ -384,11 +384,11 @@
 	# -Loop through the items in the array, putsing each item in each hash. 
 	# 	Answer: 
 
-	#  meals = [{food: 'pizza', drink: 'oj'}, {food: 'burger', drink: 'water'}]
+	 # meals = [{food: 'pizza', drink: 'oj'}, {food: 'burger', drink: 'water'}]
 
-	#  meals.each do |x|
-	#  	puts x[:food], x[:drink]
-	#  end
+	 # meals.each do |x|
+	 # 	puts x[:food], x[:drink]
+	 # end
 
 # ------------------- if ternury? maybe just if ---------------
 	# can't find the syntax on this one, ask Sensei
