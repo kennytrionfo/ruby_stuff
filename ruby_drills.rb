@@ -35,10 +35,13 @@
 	# boss.new_ruler
 
 #---------------- =~ operator "has any of" -------------Kenny Trionfo---12/12/2014--------
-	# The =~ operator returns the position of the first match, if any, declaring that its true. 
-	# ex: puts "String has vowels" if "This is a test" =~ /[aeiou]/
-	# =~: Matches a supplied regular expression against the string. The position of the first match is returned, otherwise nil. This technique is commonly used as a comparison expression to see if a string matches a regular expression.
+	# What does the =~ operator do? 
 	# Answer: 
+	# The =~ operator returns the position of the first match, if any, declaring that its true. 
+	# =~: Matches a supplied regular expression against the string. The position of the first match is returned, otherwise nil. This technique is commonly used as a comparison expression to see if a string matches a regular expression.
+	# Write a one line "do this if that" expression that checks some string to see if it has any vowels.
+	# Answer: 
+	# ex: puts "This string has vowels" if "This is a test" =~ /[aeiou]/
 
 #---------------- Constructor -------------Kenny Trionfo---12/12/2014--------
 	# The Constructor in Ruby Is the xxxxx method. 
@@ -61,16 +64,11 @@
 	# http://www.slideshare.net/ciscoleal/constructors-28459017
 
 #---------------- Action Controller -------------Kenny Trionfo---12/12/2014--------
-	# Action Controllers are the core of a XXXX XXXX in \Rails. They are made up of one or more XXXX that are executed
-	# on request and then either it renders a template or redirects to another action. An action is defined as a public XXXX
+	# Action Controllers are the core of a XXXX XXXX in \Rails. They are made up of one or more XXXX that are executed on request and then either it renders a template or redirects to another action. An action is defined as a public XXXX
 	# on the controller, which will automatically be made accessible to the XXXX through \Rails Routes.
-	#
 	# By default, only the ApplicationController in a \Rails application inherits from <tt>XXXX</tt>. All other
-	# controllers in turn inherit from ApplicationController. This gives you one class to configure things such as
-	# request forgery protection and filtering of sensitive request parameters.
-	#end
+	# controllers in turn inherit from ApplicationController. This gives you one class to configure things such as request forgery protection and filtering of sensitive request parameters.
 	# A sample controller could look like this:
-	#
 	#   class PostsController < ApplicationController
 	#     def index
 	#       @posts = Post.all
@@ -82,19 +80,13 @@
 	#     end
 	#   end
 	#
-	# XXXX, by default, render a template in the <tt>app/views</tt> directory corresponding to the name of the controller and action
-	# after executing code in the action. For example, the +index+ action of the PostsController would render the
+	# XXXX, by default, render a template in the <tt>app/views</tt> directory corresponding to the name of the controller and action after executing code in the action. For example, the +index+ action of the PostsController would render the
 	# template <tt>app/views/posts/index.html.erb</tt> by default after populating the <tt>@posts</tt> instance variable.
-	#
-	# Unlike index, the XXXX action will not render a template. After performing its main purpose (creating a
-	# new post), it initiates a XXXX instead. This redirect works by returning an external
+	# Unlike index, the XXXX action will not render a template. After performing its main purpose (creating a new post), it initiates a XXXX instead. This redirect works by returning an external
 	# "302 Moved" HTTP response that takes the user to the XXXX action.
-	#
-	# These two methods represent the two basic action archetypes used in Action Controllers. Get-and-show and do-and-redirect.
+	# These two methods represent the two basic action archetypes used in Action Controllers. XXX-and-XXX and XXX-and-XXX.
 	# Most actions are variations on these themes.
-
 	# 	Answer: 
-
 	# Action Controllers are the core of a web request in \Rails. They are made up of one or more actions that are executed
 	# on request and then either it renders a template or redirects to another action. An action is defined as a public method
 	# on the controller, which will automatically be made accessible to the web-server through \Rails Routes.
@@ -126,69 +118,63 @@
 	#
 	# These two methods represent the two basic action archetypes used in Action Controllers. Get-and-show and do-and-redirect.
 	# Most actions are variations on these themes.
-	#
-	# == Requests
-	#
-	# For every request, the router determines the value of the +controller+ and +action+ keys. These determine which controller
-	# and action are called. The remaining request parameters, the session (if one is available), and the full request with
-	# all the HTTP headers are made available to the action through accessor methods. Then the action is performed.
-	#
-	# The full request object is available via the request accessor and is primarily used to query for HTTP headers:
-	#
+
+#-------Requests in Action Controller -------------Kenny Trionfo---12/24/2014--------
+	# REview this one with sensei.
+	# For every XXXX, the XXXX determines the XXXX of the +XXXX+ and +XXXX+ keys. These determine which controller and action are called. The remaining request parameters, the XXXX (if one is available), and the full XXXX with all the HTTP headers are made available to the XXXX through XXXX methods. Then the action is performed.
+	# The full request object is available via the XXXX accessor and is primarily used to query for HTTP headers. Look at the following example: 
+	# Write an example method here: 
+	#Answer: 
+
+	# For every request, the router determines the value of the +controller+ and +action+ keys. These determine which controller and action are called. The remaining request parameters, the session (if one is available), and the full request with all the HTTP headers are made available to the action through accessor methods. Then the action is performed.
+	# The full request object is available via the request accessor and is primarily used to query for HTTP headers. Look at the following example: 
+	# Write an example method here: 
+	#Answer: 
 	#   def server_ip
 	#     location = request.env["SERVER_ADDR"]
 	#     render plain: "This server hosted at #{location}"
 	#   end
-	#
-	# == Parameters
-	#
-	# All request parameters, whether they come from a GET or POST request, or from the URL, are available through the params method
-	# which returns a hash. For example, an action that was performed through <tt>/posts?category=All&limit=5</tt> will include
-	# <tt>{ "category" => "All", "limit" => "5" }</tt> in params.
-	#
+
+#-------Parameter in Action Controller-------------Kenny Trionfo---12/24/2014--------
+	# All request parameters, whether they come from a XXX or XXX request, or from the XXX, are available through the XXX method which returns a hash. For example, an action that was performed through <tt>/posts?category=All&limit=5</tt> will include <tt>{ "category" => "All", "limit" => "5" }</tt> in params.
 	# It's also possible to construct multi-dimensional parameter hashes by specifying keys using brackets, such as:
-	#
 	#   <input type="text" name="post[name]" value="david">
 	#   <input type="text" name="post[address]" value="hyacintvej">
-	#
 	# A request stemming from a form holding these inputs will include <tt>{ "post" => { "name" => "david", "address" => "hyacintvej" } }</tt>.
 	# If the address input had been named <tt>post[address][street]</tt>, the params would have included
 	# <tt>{ "post" => { "address" => { "street" => "hyacintvej" } } }</tt>. There's no limit to the depth of the nesting.
-	#
-	# == Sessions
-	#
-	# Sessions allow you to store objects in between requests. This is useful for objects that are not yet ready to be persisted,
-	# such as a Signup object constructed in a multi-paged process, or objects that don't change much and are needed all the time, such
-	# as a User object for a system that requires login. The session should not be used, however, as a cache for objects where it's likely
-	# they could be changed unknowingly. It's usually too much work to keep it all synchronized -- something databases already excel at.
-	#
+	#Answers:
+
+	# All request parameters, whether they come from a GET or POST request, or from the URL, are available through the params method which returns a hash. For example, an action that was performed through <tt>/posts?category=All&limit=5</tt> will include <tt>{ "category" => "All", "limit" => "5" }</tt> in params.
+	# It's also possible to construct multi-dimensional parameter hashes by specifying keys using brackets, such as:
+	#   <input type="text" name="post[name]" value="david">
+	#   <input type="text" name="post[address]" value="hyacintvej">
+	# A request stemming from a form holding these inputs will include <tt>{ "post" => { "name" => "david", "address" => "hyacintvej" } }</tt>.
+	# If the address input had been named <tt>post[address][street]</tt>, the params would have included
+	# <tt>{ "post" => { "address" => { "street" => "hyacintvej" } } }</tt>. There's no limit to the depth of the nesting.
+
+#------------ Sessions in ActionController ----------Kenny Trionfo---12/24/2014--------
+	# Sessions allow you to store objects in between requests. This is useful for objects that are not yet ready to be persisted, such as a Signup object constructed in a multi-paged process, or objects that don't change much and are needed all the time, such as a User object for a system that requires login. The session should not be used, however, as a cache for objects where it's likely they could be changed unknowingly. It's usually too much work to keep it all synchronized -- something databases already excel at.
 	# You can place objects in the session by using the <tt>session</tt> method, which accesses a hash:
-	#
 	#   session[:person] = Person.authenticate(user_name, password)
-	#
+
 	# And retrieved again through the same hash:
-	#
 	#   Hello #{session[:person]}
 	#
 	# For removing objects from the session, you can either assign a single key to +nil+:
-	#
 	#   # removes :person from session
 	#   session[:person] = nil
 	#
 	# or you can remove the entire session with +reset_session+.
-	#
 	# Sessions are stored by default in a browser cookie that's cryptographically signed, but unencrypted.
 	# This prevents the user from tampering with the session but also allows them to see its contents.
-	#
 	# Do not put secret information in cookie-based sessions!
-	#
-	# == Responses
-	#
+
+#------------ Responses in ActionController ----------Kenny Trionfo---12/24/2014--------
 	# Each action results in a response, which holds the headers and document to be sent to the user's browser. The actual response
 	# object is generated automatically through the use of renders and redirects and requires no user intervention.
-	#
-	# == Renders
-	#
+
+#------------ Renders in Action Conroller ----------Kenny Trionfo---12/24/2014--------
 	# Action Controller sends content to the user by using one of five rendering methods. The most versatile and common is the rendering
 	# of a template. Included in the Action Pack is the Action View, which enables rendering of ERB templates. It's automatically configured.
 	# The controller passes objects to the view by assigning instance variables:
@@ -214,9 +200,8 @@
 	#   end
 	#
 	# Read more about writing ERB and Builder templates in ActionView::Base.
-	#
-	# == Redirects
-	#
+
+#------------ Redirects in ActionController ----------Kenny Trionfo---12/24/2014--------
 	# Redirects are used to move from one action to another. For example, after a <tt>create</tt> action, which stores a blog entry to the
 	# database, we might like to show the user the new entry. Because we're following good DRY principles (Don't Repeat Yourself), we're
 	# going to reuse (and redirect to) a <tt>show</tt> action that we'll assume has already been created. The code might look like this:
@@ -254,7 +239,7 @@
 	#   end
 	#REf: https://www.omniref.com/ruby/gems/actionpack/4.1.6/symbols/ActionController::Base#line=176
 
-#---------------- .is_a? -------------Kenny Trionfo---12/9/2014--------
+#------------ .is_a? kind_of? & instance_of? ---------Kenny Trionfo---12/9/2014--------
 	# is_a? to check if something exists or not
 	#  Checks class. 
 	# A good way to see if an object inherits from another class. 
@@ -276,6 +261,10 @@
 	# b.kind_of? B       #=> true
 	# b.kind_of? C       #=> false
 	# b.kind_of? M       #=> true
+
+	# Also kind_of? and is_a? are synonymous. instance_of? is different from the other two in that it only returns true if the object is an instance of that exact class, not a subclass.
+
+	# Example: 5.is_a? Integer and 5.kind_of? Integer return true because 5 is a Fixnum and Fixnum is a subclass of Integer. However 5.instance_of? Integer returns false.
 
 #---------------- INITIALIZE, INSTANTIATION & ACCESSORS -------------Kenny Trionfo---12/9/2014--------
 	# class Song
@@ -311,39 +300,47 @@
 	#  The @bark instance variable is set to the value "ruff ruff" in the initialize() method. Instance variables can be accessed by any instance methods in a class and are used to maintain "state" (state is the data that objects "know").
 
 #---------------- .self -------------Kenny Trionfo---12/5/2014--------
-	# 1-Create a "self" method that only work on the Class itself and test it.
+	# 1-Create a "self" method that only work on the Class itself and a another method of the same name that is only an instance method inside the class and test them both by calling the same method name on the class and then on an instance of the class that you create.
 	# 	Answer: 
 
 	#  class Square
-	#  def self.test_method
-	#  puts "Hello from the square class."
-	#  end
-	#  def test_method
-	#  puts "Hello from an instance of the class Square."
-	#  end
+	# 	 def self.test_method
+	# 		 puts "Hello from the square class."
+	# 	 end
+
+	# 	 def test_method
+	# 		 puts "Hello from an instance of the class Square."
+	# 	 end
 	#  end
 
 	#  Square.test_method
-	# Hello from the square class.
+	# # Hello from the square class.
 	#  Square.new.test_method
-	# Hello from an instance of the class Square.
+	# # Hello from an instance of the class Square.
 	#  box = Square.new
 	#  box.test_method
-	# Hello from an instance of the class Square.
+	# # Hello from an instance of the class Square.
 
 #---------------- |k,v| combo in a loop  -------------Kenny Trionfo---12/5/2014--------
-	# 1 create a hash and assign it to an instance var
-	# 2 create a method that loops through each item in the hash and puts the value of each hash
+	# 1 create a method that:
+	# -creates a hash and assign it to an instance var
+	# -loops through each item in the hash and puts the value of each hash
 	# 3 call the method
-		# Answer: 
+	# Answer: 
+
+	# def hashy_loopy_test
+	# 	hashy = {first_name: "Bily", age: 342, color: "Pinkish"} 
+	# 	hashy.each { |x,y| puts y }
+	# end
+	# hashy_loopy_test
 
 #---------------- INITIALIZE A METHOD -------------Kenny Trionfo---12/5/2014--------
 	# 	 class Fruit
-	#     |   def initialize
-	#     |     @kind = "apple"
-	#     |     @condition = "ripe"
-	#     |   end
-	#     | end
+	#       def 
+	#         @kind = "apple"
+	#        @condition = "ripe"
+	#       end
+	#     end
 	# f4 = Fruit.new
 	#    "a ripe apple"
 	# http://www.rubyist.net/~slagell/ruby/objinitialization.html
