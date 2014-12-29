@@ -2,6 +2,205 @@
 
 #----- PUT ON TIMER!
 
+#------------ build Pinboard site ----------Kenny Trionfo---12/24/2014--------
+	# rails new pin_board -d postgresql
+	# gem 'haml', '~> 4.0.6' to gemfile
+	# gem 'bootstrap-sass', '~> 3.2.0.2'
+	# gem 'simple_form', '~> 3.0.2'
+	# -in gemfile and bundle
+	# rails g model Pin title:string description:text 	
+	# rake db:migrate
+	# rails g controller Pins 
+	# -in pins_controller.rb:
+	# 	def index
+	# 	end
+	# -in routes.rb 
+	#   resources :pins
+	#   root 'pins#index'
+	# -in app/views/pin create new file: 
+	# index.html.haml
+	# -Create CRUD in pins_controller.rb 
+	# -Start wtih this: 
+	# 	def new
+	# 		@pin = Pin.new
+	# 	end
+
+	# 	def create
+	# 		@pin = Pin.new(pin_params)
+	# 	end
+
+
+
+	# 	private
+
+	# 	def pin_params
+	# 		params.require(:pin).permit(:title, :description)
+	# 	end
+	# new.html.haml
+	# -in view/pins 
+	# -and add following: 
+	# 	%h1 New Form
+
+	# 	= render 'form'
+
+	# 	= link_to "Back", root_path
+	# -in view/pin create the form partial _form.html.haml
+	# -read documentation on simple_form
+	# rails g simple_form:install --bootstrap  
+	# -in the form partial: 
+	# = simple_form_for @pin, html: {multipart: true} do |f|
+	# 	- if @pin.errors.any? 
+	# 		#errors
+	# 		%h2
+	# 		= pluralize(@pin.errors.count, "error")
+	# 		prevented this Pin from saving
+	# 		%ul
+	# 		- @pin.errors.full_messages.each do |msg|
+	# 			%li = msg
+
+	# 	.form-group
+	# 		= f.input :title, input_html: { class: 'form-control'}
+
+	# 	.form-group
+	# 		= f.input :description, input_html: { class: 'form-control'}
+
+	# 	= f.button :submit, class: "btn btn-primary"
+	# -add to crate method: 
+	# 		if @pin.save 
+	# 			redirect_to @pin, notice: "Successfully created new Pin" 
+	# 		else 
+	# 			render 'new'
+	# 		end
+	# -in view/layouts, change application.html.erb to .haml
+	# and above existing code add: 
+	# !!! 5
+	# %html
+	# %head
+	# 	%title Pin Board
+	# 	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+	# 	= javascript_include_tag 'application', 'data-turbolinks-track' => tru
+	# 	= csrf_meta_tags
+	# %body
+	# 	= yield
+	# -then delete the existing 
+	# -change the language setting in bottom right of sublime to ruby haml
+	# - under %body and above = yield add flash message in application.html.haml file: 
+	# 	- flash.each do |name, msg|
+	# 		= content_tag :div, msg, class: "alert alert-info" # this is bootstrap
+	# refresh and get unknow action errror
+	# -create a private method called find_pin for a few of the crud actions in pins_controller: 
+	# 	def find_pin
+	# 		@pin = Pin.find(params[:id])
+	# 	end
+	# -Then at top add following before action: 
+	# 	before_action :find_pin, only: [:show, :edit, :update, :destroy]
+	# -Create a view for the show action with a new view file in views/pin: 
+	# show.html.haml
+	# -Add following to file and refresh: 
+	# %h1= @pin.title
+	# %p= @pin.description
+	# -also add: 
+	# = link_to "Back", root_path
+	# -add update and destroy actions/methods to pin controller: 
+	# 		def update
+	# 			if @pin.update(pin_params)
+	# 				redirect_to @pin, notice: "Pin was Successfully updated"
+	# 			else
+	# 				render 'edit'
+	# 			end
+	# 		end
+
+	# 		def destroy
+
+	# 		end
+	# -create a new file for the edit page called: edit.html.haml in views/pin:
+	# -and add: 
+	# %h1 Edit Pin
+	#  = render 'form'
+
+	#  = link_to "Cancel", pin
+	#  -on show page add link_to form like this: 
+	#  = link_to "Edit", edit_pin_path
+	# -add code in the destroy action to delete a pin & redirect to main index page: 
+	# 		@pin.destroy
+	# 		redirect_to root_path
+	# -add delete button on show page: 
+	# = link_to "Delete", pin_path, method: :delete, data: {confirm: "Are you sure?"}
+	# -add a "new" button on the index page: 
+	# = link_to "New Pin", new_pin_path
+	# -add devise gem: 
+	# gem 'devise', '~> 3.4.1'
+	# -follow devise documentation instructions online: 
+	# rails g devise:install
+	# 1. in development.rb file: 
+	# config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+	# 2. & 3. are done 
+	# 5. run: 
+	# rails g devise:view
+	# rails g devise User
+	# rake db:migrate
+	# restart server
+	# try localhost:3000/users/sign_up
+	# -Make sure that each pin will be assigned to a user. 
+	# Create associations in models pin.rb and user.rb 
+	# has_many & belongs_to
+	# -Generate a migration so that the pin table has a user_id column: 
+	# rails g migration add_user_id_to_pins user_id:integer:index
+	# -check migration
+	# rake db:migrate
+	# -Connect our existing pins to a user by going into rails c and doing something like:
+	# @pin = Pin.first
+	# @user = User.first 
+	# @pin = @user
+	# @pin.save 
+	# -Then check it by adding code to display the user's email to each pin. in show.html.haml file: 
+	# %p
+	# Submitted by
+	# = @pin.user.email
+
+	# %br/
+	# -refresh and see. 
+	# -In pins_controller, change the @pin.new in both the new and the create actions to: 
+	# current_user.pins.build
+
+	# #----------------Start bootstrap stuff here: 
+
+	# -Follow online documentation and Configure bootstrap:
+	# -Add .scss to app/assests/stylesheets/application.css  
+	# -Add this to the file: 
+	# @import "bootstrap-sprockets";
+	# @import "bootstrap"; 
+	# -refresh to see new styling 
+	# -Add this to the application.js file: 
+	# //= require bootstrap-sprockets
+	# -add navigation to application.html.haml file. Below body tag and tabbed once: 
+	# %nav.navbar.navbar-default
+	# 		.container
+	# 			.navbar-brand= link_to "Pin Board", root_path
+
+	# 			- if user_signed_in?
+	# 				%ul.nav.navbar-nav.navbar-right
+	# 					%li= link_to "New Pin", new_pin_path
+	# 					%li= link_to "Account", edit_user_registration_path
+	# 					%li= link_to "Sign Out", destroy_user_session_path, method: :delete
+	# 			- else
+	# 				%ul.nav.navbar-nav.navbar-right
+	# 					%li= link_to "Sign Up", new_user_registration_path
+	# 					%li= link_to "Sign In", new_user_session_path
+	# -Add .container above the flash message, one tab in and lined with the first nav.bar above.  
+	# -Add a wrapper around the new pin form. In new.html.haml, add:
+	# .col-md-6.col-md-offset-3
+	# at top and tab in rest one tab. 
+	# -Do same thing to edit page.
+	# -Add the ability to upload images. 
+	# -Add paperclip gem:
+	# gem 'paperclip', '~> 4.2.0'
+	# -bundle install and restart server
+	# -read paperclip documentation
+	# -install imagemagic
+
+
+
 #---------------- Create a Module as Namespace -------------Kenny Trionfo---12/16/2014--------
 	# 1 Create and initialize a class Ruler that creates a new 12 inch ruler. 
 	# 2 Create a module called PeopleRuler that has the same class in it with the same class Ruler in it with a method of the same name but that puts something about a ruler over the people. 
@@ -154,6 +353,20 @@
 	# <tt>{ "post" => { "address" => { "street" => "hyacintvej" } } }</tt>. There's no limit to the depth of the nesting.
 
 #------------ Sessions in ActionController ----------Kenny Trionfo---12/24/2014--------
+	# Sessions allow you to store XXX in between XXX. This is useful for objects that are not yet ready to be XXX, such as a Signup object constructed in a multi-paged process, or objects that don't change much and are needed all the time, such as a User object for a system that requires login. The session should not be used, however, as a cache for objects where it's likely they could be changed unknowingly. It's usually too much work to keep it all synchronized -- something databases already excel at.
+	# You can place objects in the session by using the <tt>session</tt> method, which accesses a hash:
+	#   session[:person] = Person.authenticate(user_name, password)
+	# And retrieved again through the same hash:
+	#   Hello #{session[:person]}
+	# For removing objects from the session, you can either assign a single key to +nil+:
+	#   # removes :person from session
+	#   session[:person] = nil
+	# or you can remove the entire session with +reset_session+.
+	# Sessions are stored by default in a browser cookie that's cryptographically signed, but unencrypted.
+	# This prevents the user from tampering with the session but also allows them to see its contents.
+	# Do not put secret information in cookie-based sessions!
+	#Answer:
+
 	# Sessions allow you to store objects in between requests. This is useful for objects that are not yet ready to be persisted, such as a Signup object constructed in a multi-paged process, or objects that don't change much and are needed all the time, such as a User object for a system that requires login. The session should not be used, however, as a cache for objects where it's likely they could be changed unknowingly. It's usually too much work to keep it all synchronized -- something databases already excel at.
 	# You can place objects in the session by using the <tt>session</tt> method, which accesses a hash:
 	#   session[:person] = Person.authenticate(user_name, password)
@@ -171,25 +384,23 @@
 	# Do not put secret information in cookie-based sessions!
 
 #------------ Responses in ActionController ----------Kenny Trionfo---12/24/2014--------
+	# Each XXX results in a XXX, which holds the headers and document to be sent to the user's browser. The actual response object is generated automatically through the use of XXXXXX and XXXXXX and requires no user intervention.
+	#Answer: 
+
 	# Each action results in a response, which holds the headers and document to be sent to the user's browser. The actual response
 	# object is generated automatically through the use of renders and redirects and requires no user intervention.
 
 #------------ Renders in Action Conroller ----------Kenny Trionfo---12/24/2014--------
-	# Action Controller sends content to the user by using one of five rendering methods. The most versatile and common is the rendering
-	# of a template. Included in the Action Pack is the Action View, which enables rendering of ERB templates. It's automatically configured.
+	# XXXXX Controller sends content to the user by using one of five XXXXX methods. The most versatile and common is the rendering of a XXXXX. Included in the Action Pack is the Action XXXXX, which enables rendering of ERB templates. It's automatically configured.
 	# The controller passes objects to the view by assigning instance variables:
-	#
 	#   def show
 	#     @post = Post.find(params[:id])
 	#   end
 	#
 	# Which are then automatically available to the view:
-	#
 	#   Title: <%= @post.title %>
 	#
-	# You don't have to rely on the automated rendering. For example, actions that could result in the rendering of different templates
-	# will use the manual rendering methods:
-	#
+	# You don't have to rely on the automated rendering. For example, actions that could result in the rendering of different templates will use the manual rendering methods:
 	#   def search
 	#     @results = Search.find(params[:query])
 	#     case @results.count
@@ -198,13 +409,33 @@
 	#       when 2..10 then render action: "show_many"
 	#     end
 	#   end
+	# Read more about writing ERB and Builder templates in ActionView::Base.
+	#Answer: 
+
+	# Action Controller sends content to the user by using one of five rendering methods. The most versatile and common is the rendering
+	# of a template. Included in the Action Pack is the Action View, which enables rendering of ERB templates. It's automatically configured.
+	# The controller passes objects to the view by assigning instance variables:
+	#   def show
+	#     @post = Post.find(params[:id])
+	#   end
 	#
+	# Which are then automatically available to the view:
+	#   Title: <%= @post.title %>
+	#
+	# You don't have to rely on the automated rendering. For example, actions that could result in the rendering of different templates
+	# will use the manual rendering methods:
+	#   def search
+	#     @results = Search.find(params[:query])
+	#     case @results.count
+	#       when 0 then render action: "no_results"
+	#       when 1 then render action: "show"
+	#       when 2..10 then render action: "show_many"
+	#     end
+	#   end
 	# Read more about writing ERB and Builder templates in ActionView::Base.
 
 #------------ Redirects in ActionController ----------Kenny Trionfo---12/24/2014--------
-	# Redirects are used to move from one action to another. For example, after a <tt>create</tt> action, which stores a blog entry to the
-	# database, we might like to show the user the new entry. Because we're following good DRY principles (Don't Repeat Yourself), we're
-	# going to reuse (and redirect to) a <tt>show</tt> action that we'll assume has already been created. The code might look like this:
+	# Redirects are used to move from one action to another. For example, after a <tt>create</tt> action, which stores a blog entry to the database, we might like to show the user the new entry. Because we're following good DRY principles (Don't Repeat Yourself), we're going to reuse (and redirect to) a <tt>show</tt> action that we'll assume has already been created. The code might look like this:
 	#
 	#   def create
 	#     @entry = Entry.new(params[:entry])
@@ -217,13 +448,11 @@
 	#   end
 	#
 	# In this case, after saving our new entry to the database, the user is redirected to the <tt>show</tt> method, which is then executed.
-	# Note that this is an external HTTP-level redirection which will cause the browser to make a second request (a GET to the show action),
-	# and not some internal re-routing which calls both "create" and then "show" within one request.
-	#
+	# Note that this is an external HTTP-level redirection which will cause the browser to make a second request (a GET to the show action), and not some internal re-routing which calls both "create" and then "show" within one request.
+	
 	# Learn more about <tt>redirect_to</tt> and what options you have in ActionController::Redirecting.
-	#
-	# == Calling multiple redirects or renders
-	#
+
+#------------ Calling multiipole redirects or renders ----------Kenny Trionfo---12/26/2014------
 	# An action may contain only a single render or a single redirect. Attempting to try to do either again will result in a DoubleRenderError:
 	#
 	#   def do_something
@@ -266,36 +495,35 @@
 
 	# Example: 5.is_a? Integer and 5.kind_of? Integer return true because 5 is a Fixnum and Fixnum is a subclass of Integer. However 5.instance_of? Integer returns false.
 
-#---------------- INITIALIZE, INSTANTIATION & ACCESSORS -------------Kenny Trionfo---12/9/2014--------
+#------------ INITIALIZE, INSTANTIATION & ACCESSORS -------------Kenny Trionfo---12/9/2014--------
 	# class Song
 	# 	def initialize(length, type)
 	# 		@length = length
 	# 		@type = type
 	# 	end
-	# attr_accessor :length, :type
-	# def length
-	# 	@length
-	# end
 
-	# def type 
-	# 	@type
-	# end
+
+	# # attr_accessor :length, :type
+	# 	def length
+	# 		@length
+	# 	end
+
+	# 	def type 
+	# 		@type
+	# 	end
 	# end
 
 	# fly = Song.new(5, "endearing")
-	# puts fly.length
-	# puts fly.type
+	# puts fly.length 
+	# puts fly.type 
 
 	# http://rubylearning.com/satishtalim/ruby_access_control.html
-
 	# From tryruby.org:
 	# Did you see how inside the class we used the at-symbols? Like this: @time = Time.now
 	# Outside the class, we use accessors: entry.time = Time.now
 	# But inside we use instance variables: @time = Time.now They're the exact same thing, but expressed in two different places of your program.
-
 	# Accessors are variables attached to an object which can be used outside the object. (entry.time = Time.now)
 	# Instance variables are the same variables you're using for accessors when inside the object. Like in a method definition. (@time = Time.now)
-
 	# instance variables maintain state
 	#  The @bark instance variable is set to the value "ruff ruff" in the initialize() method. Instance variables can be accessed by any instance methods in a class and are used to maintain "state" (state is the data that objects "know").
 
@@ -334,24 +562,15 @@
 	# end
 	# hashy_loopy_test
 
-#---------------- INITIALIZE A METHOD -------------Kenny Trionfo---12/5/2014--------
-	# 	 class Fruit
-	#       def 
-	#         @kind = "apple"
-	#        @condition = "ripe"
-	#       end
-	#     end
-	# f4 = Fruit.new
-	#    "a ripe apple"
-	# http://www.rubyist.net/~slagell/ruby/objinitialization.html
-
 # ------------- Super ------------------
 	# Create a Class with a method in it that puts something. 
 	# Create a 2nd Class that inherits from the first with a method in it that has the same name as the method in the first class and both prints something different than the previous method and calls super. 
 	# Create a 3rd Class that inherits from the 2nd one with no method in it. 
 	# Create an instance of the 3rd Class 
 	# Call the method from the 2nd Class on it. 
+	# You should see BOTH your puts statements print. 
 	# 	Answer: 
+
 	#  class Laptop
 	#   def create_first_user
 	#     puts "Enter your username."
@@ -376,16 +595,16 @@
 	# => Enter your username.
 	# => Enter your password.
 
-# ----------------Array & loop practice--------------------
-	# -Create an array with two items in it that are each hashes with two items in it. 
-	# -Loop through the items in the array, putsing each item in each hash. 
+# --X--------------Array & loop practice--------------------
+	# -Create an array with two hashes in it them with two values in them. 
+	# -Loop through the items in the array, put each of the keys for values in each hash. 
 	# 	Answer: 
 
-	 # meals = [{food: 'pizza', drink: 'oj'}, {food: 'burger', drink: 'water'}]
-
-	 # meals.each do |x|
-	 # 	puts x[:food], x[:drink]
-	 # end
+	# meals = [{food: 'pizza', drink: 'oj'}, {music: 'Rock n Roll', lighting: 'low'}]
+	
+	# meals.each do |x|
+	# 	puts x.values 
+	# end
 
 # ------------------- if ternury? maybe just if ---------------
 	# can't find the syntax on this one, ask Sensei
@@ -401,19 +620,18 @@
 	# 	p first_item
 	# end
 
-# ------------Ruby's methods will return what? -------------------
-	# Answer: 
+# --X----------Ruby's methods will return what? -------------------
+	
+		# the result of the last evaluated expression.
 
-	# the result of the last evaluated expression.
-
-# ---------------------.respond_to?------------------
+# --X-------------------.respond_to?------------------
 	#  Remember when we mentioned that symbols are awesome for referencing method names? Well, .respond_to? takes a symbol and returns true if an object can receive that method and false otherwise. For example,
 	# [1, 2, 3].respond_to?(:push)
 	# would return true, since you can call .push on an array object. However,
 	# [1, 2, 3].respond_to?(:to_sym)
 	# would return false, since you can't turn an array into a symbol.
 
-# --------------Use + and << to add to a string ----------
+# ---X-----------Use + and << to add to a string ----------
 	#  You can always use plain old + or << to add a variable value into a string:
 	#  try both: 
 	#  	Answer: 
@@ -432,8 +650,8 @@
 	# with this: 
 	# p ["a", "b"].map(&:upcase)
 	# We know that this is equivalent to:
-	# But now we also make an educated guess as to why they are equivalent. We have a Symbol object (‘:upcase’), we put an ampersand in front of it and pass it to the map method. The map method takes a block, and by using the ampersand we’ve told Ruby that we want to convert our Symbol object to a Proc and associate it with the map method as its block. It turns out that Symbol implements to_proc in a special way, so that the resulting block becomes functionally equivalent to our second example above. Of course these days Ruby implements Symbol#to_proc using C, so it’s not quite as nice looking as the examples you’ll find around the web, but you get general idea.
-
+	# But now we also make an educated guess as to why they are equivalent. We have a Symbol object (‘:upcase’), we put an ampersand in front of it and pass it to the map method. The map method takes a block, and by using the ampersand we’ve told Ruby that we want to convert our Symbol object to a Proc and associate it with the map method as its block. It turns out that Symbol implements to_proc in a special way, so that the resulting block becomes functionally equivalent to our second example above. Of course these days Ruby implements Symbol#to_proc using C, so it’s not quite as nice looking as the examples you’ll find around the web, but you get general idea.  
+ 
 # ------------proc practice ------------------
 	# 1-Create an array of floats called floats.
 	# 2-create a proc to round down floats.
