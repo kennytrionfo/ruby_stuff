@@ -2,6 +2,10 @@
 
 #----- PUT ON TIMER!
 
+#------------ echo ----------Kenny Trionfo---1/2/2015--------
+	#answer: 
+	# http://www.linfo.org/echo.html
+
 #------------ man & -h ----------Kenny Trionfo---12/31/2014--------
 	# man = manual 
 	# ie:
@@ -702,344 +706,330 @@
 	# ints = floats.collect(&round_down)
 	# puts ints
 
+# -------Creating a method with params ---------------
+	# Define your own method, double, that accepts a single parameter and yields to a block. Then call it with a block that multiplies the number parameter by 2. You can double any number you like!
+	# Answer:
 
-# ---------------------------------
-# Define your own method, double, that accepts a single parameter and yields to a block. Then call it with a block that multiplies the number parameter by 2. You can double any number you like!
-# Answer:
+	# def double(number)
+	#     yield number
+	# end
+	# double(12) { |n| n * 2 }
 
-# def double(number)
-#     yield number
-# end
-# double(12) { |n| n * 2 }
-# -------------------------
+# -------- turn if/else statements into ternury statements ---------------
 
+# -----------create a  one line if and unless statments ---------------
 
-# practice turning if/else statements into ternury statements
-# -------------------------------------
+# ---------Interactive Movie creating program ------------
+	# Create a movies hash that people can add, update display and delete from.
+	# 1- Create a hash movies. 
+	# 2- ask what the user would like to do and give 4 options. add, display, update or delete. 
+	# 3- put their answer into var choice
+	# 4- do a case for choice with each of the four options
+	# 5- when adding a new movie, use an if/else to make sure that the movie isn't already in the hash(if so, tell them), if not, get the rating from them, add it to the movies hash and tell them you added it. 
+	# 6- when updating, get the movie, check to see if it's there. if not, tell them, if so, ask for the rating, update it in the hash and tell them you did. 
+	# 7- when displaying, do a .each on both key and value to puts them. 
+	# 8- when deleting, take the one they give you out of the hash and tell them you took it out. 
+	# 9- if they give you something other than the four, tell them they have to give you one of them. 
 
+	# movies = {
+	#   Memento: 3,
+	#   Primer: 4,
+	#   Ishtar: 1
+	# }
 
-# practice using one line if and unless statments
-# -------------------------------------------
-# Create a movies hash that people can add, update display and delete from.
-# 1- Create a hash movies. 
-# 2- ask what the user would like to do and give 4 options. add, display, update or delete. 
-# 3- put their answer into var choice
-# 4- do a case for choice with each of the four options
-# 5- when adding a new movie, use an if/else to make sure that the movie isn't already in the hash(if so, tell them), if not, get the rating from them, add it to the movies hash and tell them you added it. 
-# 6- when updating, get the movie, check to see if it's there. if not, tell them, if so, ask for the rating, update it in the hash and tell them you did. 
-# 7- when displaying, do a .each on both key and value to puts them. 
-# 8- when deleting, take the one they give you out of the hash and tell them you took it out. 
-# 9- if they give you something other than the four, tell them they have to give you one of them. 
+	# puts "What would you like to do?"
+	# puts "-- Type 'add' to add a movie."
+	# puts "-- Type 'update' to update a movie."
+	# puts "-- Type 'display' to display all movies."
+	# puts "-- Type 'delete' to delete a movie."
 
-# movies = {
-#   Memento: 3,
-#   Primer: 4,
-#   Ishtar: 1
-# }
-
-# puts "What would you like to do?"
-# puts "-- Type 'add' to add a movie."
-# puts "-- Type 'update' to update a movie."
-# puts "-- Type 'display' to display all movies."
-# puts "-- Type 'delete' to delete a movie."
-
-# choice = gets.chomp.downcase
-# case choice
-# when 'add'
-#   puts "What movie do you want to add?"
-#   title = gets.chomp
-#   if movies[title.to_sym].nil?
-#     puts "What's the rating? (Type a number 0 to 4.)"
-#     rating = gets.chomp
-#     movies[title.to_sym] = rating.to_i
-#     puts "#{title} has been added with a rating of #{rating}."
-#   else
-#     puts "That movie already exists! Its rating is #{movies[title.to_sym]}."
-#   end
-# when 'update'
-#   puts "What movie do you want to update?"
-#   title = gets.chomp
-#   if movies[title.to_sym].nil?
-#     puts "Movie not found!"
-#   else
-#     puts "What's the new rating? (Type a number 0 to 4.)"
-#     rating = gets.chomp
-#     movies[title.to_sym] = rating.to_i
-#     puts "#{title} has been updated with new rating of #{rating}."
-#   end
-# when 'display'
-#   movies.each do |movie, rating|
-#     puts "#{movie}: #{rating}"
-#   end
-# when 'delete'
-#   puts "What movie do you want to delete?"
-#   title = gets.chomp
-#   if movies[title.to_sym].nil?
-#     puts "Movie not found!"
-#   else
-#     movies.delete(title.to_sym)
-#     puts "#{title} has been removed."
-#   end
-# else
-#   puts "Sorry, I didn't understand you."
-# end
-
+	# choice = gets.chomp.downcase
+	# case choice
+	# when 'add'
+	#   puts "What movie do you want to add?"
+	#   title = gets.chomp
+	#   if movies[title.to_sym].nil?
+	#     puts "What's the rating? (Type a number 0 to 4.)"
+	#     rating = gets.chomp
+	#     movies[title.to_sym] = rating.to_i
+	#     puts "#{title} has been added with a rating of #{rating}."
+	#   else
+	#     puts "That movie already exists! Its rating is #{movies[title.to_sym]}."
+	#   end
+	# when 'update'
+	#   puts "What movie do you want to update?"
+	#   title = gets.chomp
+	#   if movies[title.to_sym].nil?
+	#     puts "Movie not found!"
+	#   else
+	#     puts "What's the new rating? (Type a number 0 to 4.)"
+	#     rating = gets.chomp
+	#     movies[title.to_sym] = rating.to_i
+	#     puts "#{title} has been updated with new rating of #{rating}."
+	#   end
+	# when 'display'
+	#   movies.each do |movie, rating|
+	#     puts "#{movie}: #{rating}"
+	#   end
+	# when 'delete'
+	#   puts "What movie do you want to delete?"
+	#   title = gets.chomp
+	#   if movies[title.to_sym].nil?
+	#     puts "Movie not found!"
+	#   else
+	#     movies.delete(title.to_sym)
+	#     puts "#{title} has been removed."
+	#   end
+	# else
+	#   puts "Sorry, I didn't understand you."
+	# end
 
 # ------------ ONE LINE CLASS ---------
-# 1-Write the following class in one line.
-# class Monkey
-# end
-# Answer:
-#
-# class Monkey; end
-
+	# 1-Write the following class in one line.
+	# class Monkey
+	# end
+	# Answer:
+	#
+	# class Monkey; end
 
 # -------- PROC VS LAMBDA -----------
-# def batman_ironman_proc
-# 	victor = Proc.new { return "Batman will win!" }
-# 	victor.call
-# 	"Iron Man will win!"
-# end
-#
-# puts batman_ironman_proc
-#
-# def batman_ironman_lambda
-# 	victor = lambda { return "Batman will win!" }
-# 	victor.call
-# 	"Iron Man will win!"
-# end
-#
-# puts batman_ironman_lambda
-
+	# def batman_ironman_proc
+	# 	victor = Proc.new { return "Batman will win!" }
+	# 	victor.call
+	# 	"Iron Man will win!"
+	# end
+	#
+	# puts batman_ironman_proc
+	#
+	# def batman_ironman_lambda
+	# 	victor = lambda { return "Batman will win!" }
+	# 	victor.call
+	# 	"Iron Man will win!"
+	# end
+	#
+	# puts batman_ironman_lambda
 
 # ------------- CREATE A LAMBDA ---------------
-# 1-Create a lambda, symbol_filter, that takes one parameter and checks to see if that parameter .is_a? Symbol.
-# 2-Create a new variable called symbols, and store the result of calling my_array.select and passing it your lambda.
-# my_array = ["raindrops", :kettles, "whiskers", :mittens, :packages]
-# Answer:
-#
-# # Add your code below!
-# symbol_filter = lambda { |x| x.is_a? Symbol }
-#
-# symbols = my_array.select(&symbol_filter)
-
-
+	# 1-Create a lambda, symbol_filter, that takes one parameter and checks to see if that parameter .is_a? Symbol.
+	# 2-Create a new variable called symbols, and store the result of calling my_array.select and passing it your lambda.
+	# my_array = ["raindrops", :kettles, "whiskers", :mittens, :packages]
+	# Answer:
+	#
+	# # Add your code below!
+	# symbol_filter = lambda { |x| x.is_a? Symbol }
+	#
+	# symbols = my_array.select(&symbol_filter)
 
 # --- iterating over hash
-# lunch_order = {
-#   "Ryan" => "wonton soup",
-#   "Eric" => "hamburger",
-#   "Jimmy" => "sandwich",
-#   "Sasha" => "salad",
-#   "Cole" => "taco"
-# }
-# lunch_order.each do |key, value|
-#     puts value
-# end
+	# lunch_order = {
+	#   "Ryan" => "wonton soup",
+	#   "Eric" => "hamburger",
+	#   "Jimmy" => "sandwich",
+	#   "Sasha" => "salad",
+	#   "Cole" => "taco"
+	# }
+	# lunch_order.each do |key, value|
+	#     puts value
+	# end
 
 # ------ nest each do loops iterating over multi dementional arrays
-#   s = [["ham", "swiss"], ["turkey", "cheddar"], ["roast beef", "gruyere"]]
-# s.each do |sub_array|
-#     sub_array.each do |y|
-#         puts y
-#     end
-# end
+	#   s = [["ham", "swiss"], ["turkey", "cheddar"], ["roast beef", "gruyere"]]
+	# s.each do |sub_array|
+	#     sub_array.each do |y|
+	#         puts y
+	#     end
+	# end
 
 # --------- Multi dimentional arrays
-# multi_d_array = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
-# multi_d_array.each { |x| puts "#{x}\n" }
+	# multi_d_array = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+	# multi_d_array.each { |x| puts "#{x}\n" }
 
 #------------Redacted-------
-# puts "Text to search through: "
-# text = gets.chomp
-# puts "Word to redact: "
-# redact = gets.chomp
-#
-# words = text.split(" ")
-#
-# words.each do |word|
-#   if word != redact
-#     print word + " "
-#   else
-#     print "REDACTED "
-#   end
-# end
+	# puts "Text to search through: "
+	# text = gets.chomp
+	# puts "Word to redact: "
+	# redact = gets.chomp
+	#
+	# words = text.split(" ")
+	#
+	# words.each do |word|
+	#   if word != redact
+	#     print word + " "
+	#   else
+	#     print "REDACTED "
+	#   end
+	# end
 
 #------------required and optional parameters and methods
-#this syntax does the same as...
-# def lunch (food, drink:"dew")
-#   puts "For lunch I'm eating #{food} drinking #{drink}"
-# end
-# lunch ("pizza", drink=>"coke")
-# #this syntax:
-# def lunch food, drink:"dew"
-#   puts "For lunch I'm eating #{food} drinking #{drink}"
-# end
-# lunch "pizza", drink:"coke"
+	#this syntax does the same as...
+	# def lunch (food, drink:"dew")
+	#   puts "For lunch I'm eating #{food} drinking #{drink}"
+	# end
+	# lunch ("pizza", drink=>"coke")
+	# #this syntax:
+	# def lunch food, drink:"dew"
+	#   puts "For lunch I'm eating #{food} drinking #{drink}"
+	# end
+	# lunch "pizza", drink:"coke"
 
 #-------------------string interpolation, include?, if else------
-# puts "what's ur name man?"
-# user_input = gets.chomp
-# user_input.downcase!
-#   if user_input.include? "s"
-#     user_input.gsub!(/s/, "th")
-#   else
-#     puts "nothing here"
-#   end
-#
-# puts "#{user_input}, do you like #{user_input.upcase} better or #{user_input.reverse} better?"
-# answer = gets.chomp
-# puts "me too. #{answer} is pretty cool"
+	# puts "what's ur name man?"
+	# user_input = gets.chomp
+	# user_input.downcase!
+	#   if user_input.include? "s"
+	#     user_input.gsub!(/s/, "th")
+	#   else
+	#     puts "nothing here"
+	#   end
+	#
+	# puts "#{user_input}, do you like #{user_input.upcase} better or #{user_input.reverse} better?"
+	# answer = gets.chomp
+	# puts "me too. #{answer} is pretty cool"
 
-# print "Pick a number"
-# user_num = gets.to_i
-#
-# if user_num < 0
-# 	puts "You picked a negative number dude"
-# elsif user_num > 0
-# 	puts "You picked a pos num"
-# else
-# 	puts "You picked zero"
-# end
-#
-#### while loop ######
-# counter = 1
-# while counter < 5
-#   puts counter
-#   counter = counter + 1
-# end
+	# print "Pick a number"
+	# user_num = gets.to_i
+	#
+	# if user_num < 0
+	# 	puts "You picked a negative number dude"
+	# elsif user_num > 0
+	# 	puts "You picked a pos num"
+	# else
+	# 	puts "You picked zero"
+	# end
 
-# for x in 2..12
-#   puts x
-# end
+#---------- while loop -------------------
+	# counter = 1
+	# while counter < 5
+	#   puts counter
+	#   counter = counter + 1
+	# end
 
-# for k in 12..112
-#   puts k
-# end
+	# for x in 2..12
+	#   puts x
+	# end
+
+	# for k in 12..112
+	#   puts k
+	# end
 
 #-------using loop-----
-# k = 21
-# loop do
-#   k -= 1
-#   next if k % 2 != 0
-#   print "#{k} "
-#   break if k == 12
-# end
+	# k = 21
+	# loop do
+	#   k -= 1
+	#   next if k % 2 != 0
+	#   print "#{k} "
+	#   break if k == 12
+	# end
 
-# r = 0
-# loop do
-#     r += 1
-#     print "Ruby!"
-#     break if r == 30
-# end
-
-#print the numbers 1-50 using a while loop:
-# n = 1
-# while n < 51 do
-#     print n
-#     n += 1
-# end
-#do the same thing but using until:
-# n = 1
-# until n > 50 do
-#     print n
-#     n += 1
-# end
-#do the samething using 'for':
-# for n in 1..50
-#     print n
-# end
+	# r = 0
+	# loop do
+	#     r += 1
+	#     print "Ruby!"
+	#     break if r == 30
+	# end
+	#print the numbers 1-50 using a while loop:
+	# n = 1
+	# while n < 51 do
+	#     print n
+	#     n += 1
+	# end
+	#do the same thing but using until:
+	# n = 1
+	# until n > 50 do
+	#     print n
+	#     n += 1
+	# end
+	#do the samething using 'for':
+	# for n in 1..50
+	#     print n
+	# end
 
 #----------NEXT if--------
-# f = 0
-# loop do
-#   f += 1
-#   next if f % 2 != 0
-#   print "#{f} "
-#   break if f == 12
-# end
+	# f = 0
+	# loop do
+	#   f += 1
+	#   next if f % 2 != 0
+	#   print "#{f} "
+	#   break if f == 12
+	# end
 
 #-------each do-------
-# odds = [1,3,5,7,9]
-#
-# # Add your code below!
-#
-# odds.each do |item|
-#     print item * 2
-# end
+	# odds = [1,3,5,7,9]
+	#
+	# # Add your code below!
+	#
+	# odds.each do |item|
+	#     print item * 2
+	# end
 
 #------------- .times ------
-# 5.times do
-#   puts "Kenny T rules!"
-# end
-#
-# 5.times {puts "Kenny T crushes code!"}
-
+	# 5.times do
+	#   puts "Kenny T rules!"
+	# end
+	#
+	# 5.times {puts "Kenny T crushes code!"}
 
 #---------------- blocks -------------Kenny Trionfo---12/1/2014--------
-# blocks aren't _________. And they don't all the powers and abilities of an _________ and so therefor can't be saved as a ____________.
-# 	Answer:
+	# blocks aren't _________. And they don't all the powers and abilities of an _________ and so therefor can't be saved as a ____________.
+	# 	Answer:
 
-# ojects. object. variables.
-
+	# ojects. object. variables.
 
 #---------------- yield -------------Kenny Trionfo---12/1/2014--------
-# 1-write a method that puts something yields to a block outside of it and then puts something else.
-# 	Answer:
+	# 1-write a method that puts something yields to a block outside of it and then puts something else.
+	# 	Answer:
 
-# def block_test
-#   puts "We're in the method!"
-#   puts "Yielding to the block..."
-#   yield
-#   puts "We're back in the method!"
-# end
+	# def block_test
+	#   puts "We're in the method!"
+	#   puts "Yielding to the block..."
+	#   yield
+	#   puts "We're back in the method!"
+	# end
 
-# block_test { puts ">>> We're in the block!" }
+	# block_test { puts ">>> We're in the block!" }
 
-# 2-now say that you want to execute a block of code that is outside of a method that you want to run. Use yield that takes a param inside of a method.
-# 	Answer:
+	# 2-now say that you want to execute a block of code that is outside of a method that you want to run. Use yield that takes a param inside of a method.
+	# 	Answer:
 
-# def yield_with_param(word)
-# 	puts "before yield"
-# 	yield(word)
-# 	puts "after yield"
-# end
-# yield_with_param("shalasium") { |x| puts "#{x} is my word."}
+	# def yield_with_param(word)
+	# 	puts "before yield"
+	# 	yield(word)
+	# 	puts "after yield"
+	# end
+	# yield_with_param("shalasium") { |x| puts "#{x} is my word."}
 
 #---------------- Object variables -------------Kenny Trionfo---12/9/2014--------
-# What's an object variable? 
-# 	Answer: 
+	# What's an object variable? 
+	# 	Answer: 
 
-#  object variables (also known as instance variables) are so named because they have scope within, and are associated to, the current object. 
-
+	#  object variables (also known as instance variables) are so named because they have scope within, and are associated to, the current object. 
 
 #---------------- LAMBDAS -------------Kenny Trionfo---12/1/2014--------
-# What is the difference between a proc and a lambda?
-# 	Answer:
+	# What is the difference between a proc and a lambda?
+	# 	Answer:
 
-# a lambda checks the number of arguments passed to it, while a proc does not. This means that a lambda will throw an error if you pass it the wrong number of arguments, whereas a proc will ignore unexpected arguments and assign nil to any that are missing.
+	# a lambda checks the number of arguments passed to it, while a proc does not. This means that a lambda will throw an error if you pass it the wrong number of arguments, whereas a proc will ignore unexpected arguments and assign nil to any that are missing.
 
-# Second, when a lambda returns, it passes control back to the calling method; when a proc returns, it does so immediately, without going back to the calling method.
-
+	# Second, when a lambda returns, it passes control back to the calling method; when a proc returns, it does so immediately, without going back to the calling method.
 
 #---------------- Lambda proc puts -------------Kenny Trionfo---12/1/2014--------
-#   why do we have to use "puts" here to call these methods and not just call them with their name? ?
-# def batman_ironman_proc
-#   victor = Proc.new { return "Batman will win!" }
-#   victor.call
-#   "Iron Man will win!"
-# end
+	#   why do we have to use "puts" here to call these methods and not just call them with their name? ?
+	# def batman_ironman_proc
+	#   victor = Proc.new { return "Batman will win!" }
+	#   victor.call
+	#   "Iron Man will win!"
+	# end
 
-# puts batman_ironman_proc
+	# puts batman_ironman_proc
 
 
-# def batman_ironman_lambda
-#   victor = lambda { return "Batman will win!" }
-#   victor.call
-#   "Iron Man will win!"
-# end
+	# def batman_ironman_lambda
+	#   victor = lambda { return "Batman will win!" }
+	#   victor.call
+	#   "Iron Man will win!"
+	# end
 
-# puts batman_ironman_lambda
+	# puts batman_ironman_lambda
 
 
 #---------------- .collect & lambda -------------Kenny Trionfo---12/1/2014--------
@@ -1371,137 +1361,138 @@
 # end
 
 # --------- Multi dimentional arrays
-# multi_d_array = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
-# multi_d_array.each { |x| puts "#{x}\n" }
+	# multi_d_array = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+	# multi_d_array.each { |x| puts "#{x}\n" }
 
 #------------Redacted-------
-# puts "Text to search through: "
-# text = gets.chomp
-# puts "Word to redact: "
-# redact = gets.chomp
-#
-# words = text.split(" ")
-#
-# words.each do |word|
-#   if word != redact
-#     print word + " "
-#   else
-#     print "REDACTED "
-#   end
-# end
+	# puts "Text to search through: "
+	# text = gets.chomp
+	# puts "Word to redact: "
+	# redact = gets.chomp
+	#
+	# words = text.split(" ")
+	#
+	# words.each do |word|
+	#   if word != redact
+	#     print word + " "
+	#   else
+	#     print "REDACTED "
+	#   end
+	# end
 
 #------------required and optional parameters and methods
-#this syntax does the same as...
-# def lunch (food, drink:"dew")
-#   puts "For lunch I'm eating #{food} drinking #{drink}"
-# end
-# lunch ("pizza", drink=>"coke")
-# #this syntax:
-# def lunch food, drink:"dew"
-#   puts "For lunch I'm eating #{food} drinking #{drink}"
-# end
-# lunch "pizza", drink:"coke"
+	#this syntax does the same as...
+	# def lunch (food, drink:"dew")
+	#   puts "For lunch I'm eating #{food} drinking #{drink}"
+	# end
+	# lunch ("pizza", drink=>"coke")
+	# #this syntax:
+	# def lunch food, drink:"dew"
+	#   puts "For lunch I'm eating #{food} drinking #{drink}"
+	# end
+	# lunch "pizza", drink:"coke"
 
 #-------------------string interpolation, include?, if else------
-# puts "what's ur name man?"
-# user_input = gets.chomp
-# user_input.downcase!
-#   if user_input.include? "s"
-#     user_input.gsub!(/s/, "th")
-#   else
-#     puts "nothing here"
-#   end
-#
-# puts "#{user_input}, do you like #{user_input.upcase} better or #{user_input.reverse} better?"
-# answer = gets.chomp
-# puts "me too. #{answer} is pretty cool"
+	# puts "what's ur name man?"
+	# user_input = gets.chomp
+	# user_input.downcase!
+	#   if user_input.include? "s"
+	#     user_input.gsub!(/s/, "th")
+	#   else
+	#     puts "nothing here"
+	#   end
+	#
+	# puts "#{user_input}, do you like #{user_input.upcase} better or #{user_input.reverse} better?"
+	# answer = gets.chomp
+	# puts "me too. #{answer} is pretty cool"
 
-# print "Pick a number"
-# user_num = gets.to_i
-#
-# if user_num < 0
-# 	puts "You picked a negative number dude"
-# elsif user_num > 0
-# 	puts "You picked a pos num"
-# else
-# 	puts "You picked zero"
-# end
-#
-#### while loop ######
-# counter = 1
-# while counter < 5
-#   puts counter
-#   counter = counter + 1
-# end
+	# print "Pick a number"
+	# user_num = gets.to_i
+	#
+	# if user_num < 0
+	# 	puts "You picked a negative number dude"
+	# elsif user_num > 0
+	# 	puts "You picked a pos num"
+	# else
+	# 	puts "You picked zero"
+	# end
+	#
+	#### while loop ######
+	# counter = 1
+	# while counter < 5
+	#   puts counter
+	#   counter = counter + 1
+	# end
 
-# for x in 2..12
-#   puts x
-# end
+	# for x in 2..12
+	#   puts x
+	# end
 
-# for k in 12..112
-#   puts k
-# end
+	# for k in 12..112
+	#   puts k
+	# end
 
 #-------using loop-----
-# k = 21
-# loop do
-#   k -= 1
-#   next if k % 2 != 0
-#   print "#{k} "
-#   break if k == 12
-# end
+	# k = 21
+	# loop do
+	#   k -= 1
+	#   next if k % 2 != 0
+	#   print "#{k} "
+	#   break if k == 12
+	# end
 
-# r = 0
-# loop do
-#     r += 1
-#     print "Ruby!"
-#     break if r == 30
-# end
+	# r = 0
+	# loop do
+	#     r += 1
+	#     print "Ruby!"
+	#     break if r == 30
+	# end
 
-#print the numbers 1-50 using a while loop:
-# n = 1
-# while n < 51 do
-#     print n
-#     n += 1
-# end
-#do the same thing but using until:
-# n = 1
-# until n > 50 do
-#     print n
-#     n += 1
-# end
-#do the samething using 'for':
-# for n in 1..50
-#     print n
-# end
+	#print the numbers 1-50 using a while loop:
+	# n = 1
+	# while n < 51 do
+	#     print n
+	#     n += 1
+	# end
+	#do the same thing but using until:
+	# n = 1
+	# until n > 50 do
+	#     print n
+	#     n += 1
+	# end
+	#do the samething using 'for':
+	# for n in 1..50
+	#     print n
+	# end
 
 #----------NEXT if--------
-# f = 0
-# loop do
-#   f += 1
-#   next if f % 2 != 0
-#   print "#{f} "
-#   break if f == 12
-# end
+	# f = 0
+	# loop do
+	#   f += 1
+	#   next if f % 2 != 0
+	#   print "#{f} "
+	#   break if f == 12
+	# end
 
 #-------each do-------
-# odds = [1,3,5,7,9]
-#
-# # Add your code below!
-#
-# odds.each do |item|
-#     print item * 2
-# end
+	# odds = [1,3,5,7,9]
+	#
+	# # Add your code below!
+	#
+	# odds.each do |item|
+	#     print item * 2
+	# end
 
 #------------- .times ------
-# 5.times do
-#   puts "Kenny T rules!"
-# end
-#
-# 5.times {puts "Kenny T crushes code!"}
-#
+	# 5.times do
+	#   puts "Kenny T rules!"
+	# end
+	#
+	# 5.times {puts "Kenny T crushes code!"}
 
+#------------ review blocks, procs and lambdas section in codecadamy  -------Kenny Trionfo---1/2/2015--------
 
+#------------ Finish Rails course on Codecadamy ----------Kenny Trionfo---1/2/2015--------
 
+#------------ review dpl vids ----------Kenny Trionfo---1/2/2015--------
 
-# end ----------
