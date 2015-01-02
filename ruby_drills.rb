@@ -2,6 +2,24 @@
 
 #----- PUT ON TIMER!
 
+#------------ man & -h ----------Kenny Trionfo---12/31/2014--------
+	# man = manual 
+	# ie:
+	# man rm = manual for rm command line syntax
+	# man ls = manual for ls
+	# -h = help (may only be for rails), ie: 
+	# rails -h 
+
+#------------ rm -rfv ./RubyMine* ----------Kenny Trionfo---12/31/2014--------
+	# rm = remove 
+	# -rfv = recursive force verbose 
+	# ./ = in this file
+	# RubyMine* = All file with filename that begins with RubyMine
+
+#------------ .tar files ----------Kenny Trionfo---12/31/2014--------
+	#Anwer:
+	# Source code is often packed for download as a TAR (Tape ARchive) file, that is a standard format in the unix/Linux world. These files have a .tar extension; they can also be compressed, the extension is .tar.gz or .tar.bz2
+
 #------------ build Pinboard site ----------Kenny Trionfo---12/24/2014--------
 	# rails new pin_board -d postgresql
 	# gem 'haml', '~> 4.0.6' to gemfile
@@ -198,8 +216,6 @@
 	# -bundle install and restart server
 	# -read paperclip documentation
 	# -install imagemagic
-
-
 
 #---------------- Create a Module as Namespace -------------Kenny Trionfo---12/16/2014--------
 	# 1 Create and initialize a class Ruler that creates a new 12 inch ruler. 
@@ -469,8 +485,7 @@
 	#REf: https://www.omniref.com/ruby/gems/actionpack/4.1.6/symbols/ActionController::Base#line=176
 
 #------------ .is_a? kind_of? & instance_of? ---------Kenny Trionfo---12/9/2014--------
-	# is_a? to check if something exists or not
-	#  Checks class. 
+	# is_a? Checks class. 
 	# A good way to see if an object inherits from another class. 
 
 	# module M;    end
@@ -528,7 +543,7 @@
 	#  The @bark instance variable is set to the value "ruff ruff" in the initialize() method. Instance variables can be accessed by any instance methods in a class and are used to maintain "state" (state is the data that objects "know").
 
 #---------------- .self -------------Kenny Trionfo---12/5/2014--------
-	# 1-Create a "self" method that only work on the Class itself and a another method of the same name that is only an instance method inside the class and test them both by calling the same method name on the class and then on an instance of the class that you create.
+	# 1-Create a "self" method that only works on the Class itself and a another method of the same name that is only an instance method inside the class and test them both by calling the same method name on the class and then on an instance of the class that you create.
 	# 	Answer: 
 
 	#  class Square
@@ -596,12 +611,11 @@
 	# => Enter your password.
 
 # --X--------------Array & loop practice--------------------
-	# -Create an array with two hashes in it them with two values in them. 
+	# -Create an array with two hashes in it with two values in each of them. 
 	# -Loop through the items in the array, put each of the keys for values in each hash. 
 	# 	Answer: 
 
 	# meals = [{food: 'pizza', drink: 'oj'}, {music: 'Rock n Roll', lighting: 'low'}]
-	
 	# meals.each do |x|
 	# 	puts x.values 
 	# end
@@ -620,8 +634,31 @@
 	# 	p first_item
 	# end
 
+#------------ INterpreter ----------Kenny Trionfo---12/31/2014--------
+	# A program that executes instructions written in a high-level language. There are two ways to run programs written in a high-level language. The most common is to compile the program; the other method is to pass the program through an interpreter.
+	# An interpreter translates high-level instructions into an intermediate form, which it then executes. In contrast, a compiler translates high-level instructions directly into machine language. Compiled programs generally run faster than interpreted programs. The advantage of an interpreter, however, is that it does not need to go through the compilation stage during which machine instructions are generated. 
+	# This process can be time-consuming if the program is long. The interpreter, on the other hand, can immediately execute high-level programs. For this reason, interpreters are sometimes used during the development of a program, when a programmer wants to add small sections at a time and test them quickly. In addition, interpreters are often used in education because they allow students to program interactively.
+
+#------------ Ruby Implmentation ----------Kenny Trionfo---12/31/2014--------
+	# Answer: 
+	# A version of Ruby. ie. MRI, Mruby, Jruby, RubyMotion etc. 
+
+#------------ Runtime Library ----------Kenny Trionfo---12/31/2014--------
+	#Answer: 
+	# In computer programming, a runtime library is a set of low-level routines used by a compiler to invoke some of the behaviors of a runtime environment, by inserting calls to the runtime library into compiled executable binary.
+
+#------------ Reference Implementation ----------Kenny Trionfo---12/31/2014--------
+	# In the software development process, a reference implementation (or, less frequently, sample implementation or model implementation) is the standard from which all other implementations, with their attendant customizations, are measured, and to which all improvements are added.
+	# A reference implementation is, in general, an implementation of a specification to be used as a definitive interpretation for that specification. 
+
+#------------ MRI ----------Kenny Trionfo---12/31/2014--------
+	# Asnswer: 
+
+	# Matz's Ruby Interpreter is the reference implementation of the Ruby programming language named after Ruby creator Yukihiro Matsumoto ("Matz").
+
 # --X----------Ruby's methods will return what? -------------------
-	
+		# Ansser: 
+
 		# the result of the last evaluated expression.
 
 # --X-------------------.respond_to?------------------
