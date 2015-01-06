@@ -2,6 +2,13 @@
 
 #----- PUT ON TIMER!
 
+#------------ Add memory to Vagrant box ----------Kenny Trionfo---1/5/2015--------
+	# open the vagrant file found here c/virtualmachine/icdevbox in submlime and change the vb.memory in this block:
+	#   config.vm.provider :virtualbox do |vb|
+	#   	vb.gui = false
+	#     vb.memory = 2048
+	#   end
+
 #------------ echo ----------Kenny Trionfo---1/2/2015--------
 	#answer: 
 	# http://www.linfo.org/echo.html
@@ -353,6 +360,12 @@
 	#     location = request.env["SERVER_ADDR"]
 	#     render plain: "This server hosted at #{location}"
 	#   end
+
+#------------ Add Port Forworded ----------Kenny Trionfo---1/5/2015--------
+	# open the vagrant file found here c/virtualmachine/icdevbox in submlime and add to this block:
+	# config.vm.network :forwarded_port, guest: 3000, host: 3000
+	# config.vm.network :forwarded_port, guest: 8111, host: 8111
+	# config.vm.network :forwarded_port, guest: 9090, host: 9090 
 
 #-------Parameter in Action Controller-------------Kenny Trionfo---12/24/2014--------
 	# All request parameters, whether they come from a XXX or XXX request, or from the XXX, are available through the XXX method which returns a hash. For example, an action that was performed through <tt>/posts?category=All&limit=5</tt> will include <tt>{ "category" => "All", "limit" => "5" }</tt> in params.
@@ -1031,98 +1044,102 @@
 
 	# puts batman_ironman_lambda
 
+#---------------- .collect -------------Kenny Trionfo---12/1/2014--------
+	# 1.create an array of strings.
+	# 2. Use .collect and an do/end block that capitalizes each one.
+	# 	Answer:
 
-#---------------- .collect & lambda -------------Kenny Trionfo---12/1/2014--------
-# 1.create a hash of strings.
-# 2.capitalize each of them by using .collect and an do/end block that capitalizes each one.
-# 3.Now do above but using .collect and pass it the collect lambda.
-# 	Answer:
-
-# >> ['a', 'b', 'c'].collect{|letter| letter.capitalize}
-# => ["A", "B", "C"]
-# But it looks so much nicer this way:
-
-# >> ['a', 'b', 'c'].collect(&:capitalize)
-# => ["A", "B", "C"]
-
+	# string_hash = ["this", "that", "the other"]
+	# string_hash.collect { |x| puts x.capitalize }
 
 #---------------- RANGE -------------Kenny Trionfo---11/26/2014--------
-#Convert the alphabet range into an array and print each one.
-#Answer:
+	#Convert the alphabet range into an array and print each one.
+	#Answer:
 
-# ('A'..'Z').to_a.each { |letter| print letter }
+	# ('A'..'Z').to_a.each { |letter| print letter }
 
+#--X--------------RICE ON SQUARES -------------Kenny Trionfo---11/26/2014--------
+	#Use .times to create a do/end loop that starts by putting one grain of rice on a checkerboard square and then doubles it up to 12.
+	# Answer:
 
-#----------------RICE ON SQUARES -------------Kenny Trionfo---11/26/2014--------
-#Create a method that starts by putting one grain of rice on a checkerboard square and then doubles it up to 64.
-# Answer:
+	# x = 1
+	# 12.times { puts "#{x} grains of rice here"; x *= 2 }
+	# or
+	# rice_on_square = 1
+	# 12.times do |square|
+	#  puts "On square #{square + 1} are #{rice_on_square} grain(s)"
+	#  rice_on_square *= 2
+	# end
 
-# rice_on_square = 1
-# 64.times do |square|
-#  puts "On square #{square + 1} are #{rice_on_square} grain(s)"
-#  rice_on_square *= 2
-# end
+#---X------------- .push -------------Kenny Trionfo---11/24/2014--------
+	#.5-Create an array of strings called strings that we'd like to later use as hash keys, but we'd rather they be symbols.
+	# 1-Create a new variable, symbols, and store an empty array in it.
+	# 2-Use .each to iterate over the strings array.
+	# 3-For each s in strings, use .to_sym to convert s to a symbol and use .push to add that new symbol to the symbols array.
+	# 4-Puts symbols
+	# Answer:
 
+	# strings = ["HTML", "CSS", "JavaScript", "Python", "Ruby"]
+	# symbols = []
 
-#----------------  -------------Kenny Trionfo---11/24/2014--------
-#.5-Create an array of strings called strintgs that we'd like to later use as hash keys, but we'd rather they be symbols.
-# 1-Create a new variable, symbols, and store an empty array in it.
-# 2-Use .each to iterate over the strings array.
-# 3-For each s in strings, use .to_sym to convert s to a symbol and use .push to add that new symbol to the symbols array.
-# 4-Puts symbols
-# Answer:
+	# strings.each do |s|
+	#     symbols.push(s.to_sym)
+	# end
+	# puts symbols
 
-# strings = ["HTML", "CSS", "JavaScript", "Python", "Ruby"]
-# symbols = []
+#-----X----------- .select -------------Kenny Trionfo---11/24/2014--------
+	#1-Create a new variable, good_movies,
+	#2- set it equal to the result of calling .select on the movie_ratings hash below, selecting only movies with a rating strictly greater than 3.
+	#3- Puts it to test it.
+	# movie_ratings = {
+	#   memento: 3,
+	#   primer: 3.5,
+	#   the_matrix: 5,
+	#   truman_show: 4,
+	#   red_dawn: 1.5,
+	#   skyfall: 4,
+	#   alex_cross: 2,
+	#   uhf: 1,
+	#   lion_king: 3.5
+	# }
+	# Answer:
 
-# strings.each do |s|
-#     symbols.push(s.to_sym)
-# end
-# puts symbols
+	# good_movies = movie_ratings.select { |k,v| v > 3.0 }
+	# puts good_movies
 
-# #---------------- .select -------------Kenny Trionfo---11/24/2014--------
-#1-Create a new variable, good_movies,
-#2- set it equal to the result of calling .select on the movie_ratings hash below, selecting only movies with a rating strictly greater than 3.
-#3- Puts it to test it.
-# movie_ratings = {
-#   memento: 3,
-#   primer: 3.5,
-#   the_matrix: 5,
-#   truman_show: 4,
-#   red_dawn: 1.5,
-#   skyfall: 4,
-#   alex_cross: 2,
-#   uhf: 1,
-#   lion_king: 3.5
-# }
+# X---------------- .each_key & .each_value -------------Kenny Trionfo---11/24/2014--------
+	# Use .each_key or .each_value to print out just the titles of the movies hash below using puts.
+	# movie_ratings = {
+	#   memento: 3,
+	#   primer: 3.5,
+	#   the_matrix: 5,
+	#   truman_show: 4,
+	#   red_dawn: 1.5,
+	#   skyfall: 4,
+	#   alex_cross: 2,
+	#   uhf: 1,
+	#   lion_king: 3.5
+	# }
+	# Answer:
 
-# Answer:
+	# movie_ratings.each_key { |k| puts k }
 
-# good_movies = movie_ratings.select { |k,v| v > 3.0 }
-# print good_movies
+#---X------------- HASH WITH A DEFAULT VALUE -------------Kenny Trionfo---11/21/2014--------
+	# In irb:
+	#1-Create a hash using the constructor method (.new) and put a default key in it that will get returned if u try to access a key in the hash that doesn't exist.
+	# 2-Create another hash without passing in a default method but then use .default to give it a default value. 
+	# Now try to pass something that doesn't exist into the hashes & u should get your defaults back.
+	#Answer:
 
-
-# #---------------- .each_key & .each_value -------------Kenny Trionfo---11/24/2014--------
-# Use .each_key or .each_value to Go ahead and print out just the titles of the movies hash above using puts.
-# Answer:
-
-# movie_ratings.each_key { |k| puts k }
-
-
-#---------------- HASH WITH A DEFAULT VALUE -------------Kenny Trionfo---11/21/2014--------
-#irb - Used when u try to pass a key that doesn't exist into a hash. or when you don't have anythign in a hash and you need to say that??
-#1-Create a hash using the constructor method and put a default key in it that will get returned if u try to access a key in the hash that doesn't exist.
-# Now try to pass something that doesn't exist into the hash & u should get your default back.
-#Answer:
-
-# mh = Hash.new("The key ur trying to access isn't in here")
-# mh[:friend]
-
-
-#---------------- IF TRUE THEN with =? -------------Kenny Trionfo---11/21/2014--------
-# .where("#{"api_name=?" if api_name}",api_name)
-# Means
-
+	# hash_one = Hash.new("I'm the default")
+	# hash_two = Hash.new
+	# hash_two.default = "I'm the other default"
+	# hash_one
+	# hash_one()
+	# hash_one("Is this a key?")
+	# hash_two
+	# hash_two()
+	# hash_two("Is this a key?")
 
 #---------------- passing multiple arguments -------------Kenny Trionfo---11/21/2014--------
 # def what_up(greeting, *bros)
