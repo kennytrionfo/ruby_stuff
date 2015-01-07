@@ -1141,27 +1141,46 @@
 	# hash_two()
 	# hash_two("Is this a key?")
 
-#---------------- passing multiple arguments -------------Kenny Trionfo---11/21/2014--------
-# def what_up(greeting, *bros)
-#   bros.each { |bro| puts "#{greeting} #{bro}" }
-# end
-#  what_up("What up", "Justin", "Ben", "Kevin Sorbo")
+#----X------------ passing multiple arguments -------------Kenny Trionfo---11/21/2014--------
+	# 1-Greet each of the different people that might be coming to an event. 
+	# 2-Create a method that has two parmaters, a greeting and a names that is can take multiple arguments and inside the method you iterate through multiple args using the same 
+	# Answer: 
 
-#----------------print / list all items in a list  -------------Kenny Trionfo---11/19/2014--------
-# def puts_1_to_10
-# 	  (1..10).each { |i| puts i }
-# end
+	# def what_up(greeting, *names)
+	#   names.each { |name| puts "#{greeting} #{name}" }
+	# end
+	#  what_up("What up", "Justin", "Ben", "Kevin Sorbo")
 
-#---------------- Manipulate tesxt split frequency -------------Kenny Trionfo---11/18/2014--------
-# puts "Text please: "
-# text = gets.chomp
+#---X-------------print / list all items in a list using .each -------------Kenny Trionfo---11/19/2014--------
+	# 1-Create a method that puts all each item in a range of 1..12 using .each
+	#Answer: 
 
-# words = text.split(" ")
-# frequencies = Hash.new(0)
-# words.each { |word| frequencies[word] += 1 }
-# frequencies = frequencies.sort_by {|a, b| b }
-# frequencies.reverse!
-# frequencies.each { |word, frequency| puts word + " " + frequency.to_s }
+	# def puts_1_to_10
+	# 	  (1..10).each { |i| puts i }
+	# end
+	# puts_1_to_10
+
+#---X------------- Manipulate text split frequency -------------Kenny Trionfo---11/18/2014--------
+	# create a text analyzer that takes text input from a user and analyzes how many of each word are in the block of text and returns the stats in order of most to least. 
+	# 1-Ask the user for some input and gather into a var. 
+	# 2-put the text from that var into an array using .split and put that into a new var. 
+	# 3-Create a new hash called frequencies that takes one param zero. 
+	# 4-iterate through the words array, taking each word and putting it into the frequencies hash and adding 1 to it. 
+	# 5-sort the words in the frequencies var by using .sort_by on frequencies and passing in a do/end block that for the key, value pair of the frequencies hash, it sorts the value. 
+	# 6- reverse the items in the hash. 
+	# 7- iterate through the words and frequencies in the hash and puts the word plus ...
+	# Answer: 
+
+	# puts "Welcome to frequentizer. "
+	# puts "A program that will analyze text and tell you how many of each word are in a block of text."
+	# puts "Please input some text here: "
+	# text = gets.chomp 
+	# words = text.split(" ") 
+	# frequencies = Hash.new(0) 
+	# words.each { |word| frequencies[word] += 1 }
+	# frequencies = frequencies.sort_by {|a, b| b }
+	# frequencies.reverse!
+	# frequencies.each { |word, frequency| puts word + " " + frequency.to_s } 
 
 #---------------- BEGIN RESCUE RAISE EXCEPTION -------------Kenny Trionfo---11/13/2014--------
 	#1 Create an exception using the begin end clause. 
