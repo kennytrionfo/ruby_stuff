@@ -1220,181 +1220,185 @@
 	# Ref: http://rubylearning.com/satishtalim/ruby_exceptions.html
 
 #---------------- SUPER TO OVERLOAD METHODS -------------Kenny Trionfo---11/21/2014--------
-# 1. Create a Class with a method in it that puts something.
-# 2. Create a 2nd Class that inherits from the first with a method in it that has the same name as the method in the first class and both prints something different than the previous method and calls super.
-# 3. Create a 3rd Class that inherits from the 2nd one with no method in it.
-# 4. Create an instance of the 3rd Class.
-# 5. Call the method from the 2nd Class on it.
-# Answer:
+	# 1. Create a Class with a method in it that puts something.
+	# 2. Create a 2nd Class that inherits from the first with a method in it that has the same name as the method in the first class and both prints something different than the previous method and calls super.
+	# 3. Create a 3rd Class that inherits from the 2nd one with no method in it.
+	# 4. Create an instance of the 3rd Class.
+	# 5. Call the method from the 2nd Class on it.
+	# Answer:
 
-# class Laptop
-# 	def create_first_user
-# 		puts "Enter your username."
-# 		puts "Enter your password."
-# 	end
-# end
-# class AppleComputers < Laptop
-# 	def create_first_user
-# 		puts "Take a photo of yourself."
-# 		super
-# 	end
-# end
-# class MacBookPro < AppleComputers
-# end
+	# class Laptop
+	# 	def create_first_user
+	# 		puts "Enter your username."
+	# 		puts "Enter your password."
+	# 	end
+	# end
+	# class AppleComputers < Laptop
+	# 	def create_first_user
+	# 		puts "Take a photo of yourself."
+	# 		super
+	# 	end
+	# end
+	# class MacBookPro < AppleComputers
+	# end
 
-# @my_new_macbook_pro = MacBookPro.new
-# @my_new_macbook_pro.create_first_user
-# # => Take a photo of yourself.
-# # => Enter your username.# => Enter your password.
-# http://rubylearning.com/satishtalim/ruby_overriding_methods.html
+	# @my_new_macbook_pro = MacBookPro.new
+	# @my_new_macbook_pro.create_first_user
+	# # => Take a photo of yourself.
+	# # => Enter your username.# => Enter your password.
 
+	# http://rubylearning.com/satishtalim/ruby_overriding_methods.html
 
-#---------------- TERNARY ("Conditional") OPERATOR -------------Kenny Trionfo---11/14/2014--------
-# age = 10
-# puts "You are a " + (age < 18 ? "child" : "adult")
+#---X------------- TERNARY ("Conditional") OPERATOR -------------Kenny Trionfo---11/14/2014--------
+	# 1 Ask the user to imput their age and capture their response in a var.
+	# 2 puts that the person is a "child" if the age is under 18 and an "adult" if not. 
+	#Answer: 
 
+	# puts "Please input your age here:"
+	# age = gets.chomp.to_i
+	# puts "You are a " + (age < 18 ? "child" : "adult")
 
 #---------------- RAISE EXCEPTION -------------------
-# def raise_exception
-# 	puts "I am before the raise"
-# 	raise "This is ur message that an error has occurred"
-# 	puts "I am after the raise"
-# end
-# raise_exception
-
+	# def raise_exception
+	# 	puts "I am before the raise"
+	# 	raise "This is ur message that an error has occurred"
+	# 	puts "I am after the raise"
+	# end
+	# raise_exception
 
 # --------------------quick little method to show the components of a URL------------
-# test urls to play withtest
-# http://api.popshops.com/v3/deals.json?account=etl4xy4bqez70idzyypjwyfxn&catalog=dxeqyv83t3vcox7iztg9ufg16
-# http://www.ruby-doc.org/stdlib-1.9.3/libdoc/uri/rdoc/URI.html#method-c-parse
+	# test urls to play withtest
+	# http://api.popshops.com/v3/deals.json?account=etl4xy4bqez70idzyypjwyfxn&catalog=dxeqyv83t3vcox7iztg9ufg16
+	# http://www.ruby-doc.org/stdlib-1.9.3/libdoc/uri/rdoc/URI.html#method-c-parse
 
-# require 'net/http' # this automatically does a  require 'uri'
-# def uri_tester
-# 	puts "Enter a full web address including the http:// part:"
-# 	address = gets.chomp
-# 	uri = URI(address)
-# 	puts "Here are the URL component details:"
-# 	puts "uri scheme(protocol) ie-http, https, ftp, file : #{uri.scheme}"
-# 	puts "uri userinfo: #{uri.userinfo}" # something wrong with Userinfo. "undefined method"
-# 	puts "uri host(domain name): #{uri.host}"
-# 	puts "uri port: #{uri.port}"
-# 	puts "uri registry: #{uri.registry}"
-# 	puts "uri path: #{uri.path}"
-# 	puts "uri opaque: #{uri.opaque}"
-# 	puts "uri query: #{uri.query}"
-# 	puts "uri fragment: #{uri.fragment}"
-# 	puts URI.split(address)
-# end
-# uri_tester
+	# require 'net/http' # this automatically does a  require 'uri'
+	# def uri_tester
+	# 	puts "Enter a full web address including the http:// part:"
+	# 	address = gets.chomp
+	# 	uri = URI(address)
+	# 	puts "Here are the URL component details:"
+	# 	puts "uri scheme(protocol) ie-http, https, ftp, file : #{uri.scheme}"
+	# 	puts "uri userinfo: #{uri.userinfo}" # something wrong with Userinfo. "undefined method"
+	# 	puts "uri host(domain name): #{uri.host}"
+	# 	puts "uri port: #{uri.port}"
+	# 	puts "uri registry: #{uri.registry}"
+	# 	puts "uri path: #{uri.path}"
+	# 	puts "uri opaque: #{uri.opaque}"
+	# 	puts "uri query: #{uri.query}"
+	# 	puts "uri fragment: #{uri.fragment}"
+	# 	puts URI.split(address)
+	# end
+	# uri_tester
 
 #------------- Super -------------------
-# Create a Class with a method in it that puts something.
-# Create a 2nd Class that inherits from the first with a method in it that has the same name as the method in the first class and both prints something different than the previous method and calls super.
-# Create a 3rd Class that inherits from the 2nd one with no method in it.
-# Create an instance of the 3rd Class
-# Call the method from the 2nd Class on it.
+	# Create a Class with a method in it that puts something.
+	# Create a 2nd Class that inherits from the first with a method in it that has the same name as the method in the first class and both prints something different than the previous method and calls super.
+	# Create a 3rd Class that inherits from the 2nd one with no method in it.
+	# Create an instance of the 3rd Class
+	# Call the method from the 2nd Class on it.
 
-# class Laptop
-#   def create_first_user
-#     puts "Enter your username."
-#     puts "Enter your password."
-#   end
-# end
+	# class Laptop
+	#   def create_first_user
+	#     puts "Enter your username."
+	#     puts "Enter your password."
+	#   end
+	# end
 
-# class AppleComputers < Laptop
-#   def create_first_user
-#     puts "Take a photo of yourself."
-#     super
-#   end
-# end
+	# class AppleComputers < Laptop
+	#   def create_first_user
+	#     puts "Take a photo of yourself."
+	#     super
+	#   end
+	# end
 
-# class MacBookPro < AppleComputers
-# end
+	# class MacBookPro < AppleComputers
+	# end
 
-# @my_new_macbook_pro = MacBookPro.new
-# @my_new_macbook_pro.create_first_user
+	# @my_new_macbook_pro = MacBookPro.new
+	# @my_new_macbook_pro.create_first_user
 
-# => Take a photo of yourself.
-# => Enter your username.
-# => Enter your password.
-
+	# => Take a photo of yourself.
+	# => Enter your username.
+	# => Enter your password.
 
 #-----------Loops -------------------
-# While loop
-# counter = 1
-# while counter < 11
-#   puts counter
-#   counter = counter + 1
-# end
+	# While loop
+	# counter = 1
+	# while counter < 11
+	#   puts counter
+	#   counter = counter + 1
+	# end
 
-# For Loop
-# use for loops when you know how many times you'll be looping.
-# iterate with a loop
-# i = 0
-# loop do
-# 	i += 2
-# 	print "#{i} "
-# 	break if i == 24
-# end
+	# For Loop
+	# use for loops when you know how many times you'll be looping.
+	# iterate with a loop
+	# i = 0
+	# loop do
+	# 	i += 2
+	# 	print "#{i} "
+	# 	break if i == 24
+	# end
 
 #---------------- hashes -------------------
-# - if you pass in a key with no value, it'll let you but will be nil.
-# - call the value of a key/value pair of a hash by:
-# my_path[:ack] = 12  #adds key ack w/ value 12 to hash my_path
-#  => 12
-# 2.1.1 :005 > my_path
-#  => {:ack=>12}
-#calls ack's value from the hash (but only if the format the hash was saved in was )
-# my_path[:ack]
-#  => 12
+	# 1-create a new hash with the contructor method
+	#2- pass in a new key/value pair
+	#3-access just the value.
+	# Answer: 
 
+	# my_path[:ack] = 12  #adds key ack w/ value 12 to hash my_path
+	#  => 12
+	# 2.1.1 :005 > my_path
+	#  => {:ack=>12}
+	#calls ack's value from the hash (but only if the format the hash was saved in was )
+	# my_path[:ack]
+	#  => 12
 
 #---------------- 2 ways to do hash syntax -------------------
-#create:
-# hash = {"name" => "David", "age" => 49 }
-# hash = { name: "David", age: 49 }
-# #call a value:
-# hash[:name]
-# #create the new k/v pair too I think)
-# hash[:eye_color] = "Brown"
+	#create a hash with a couple of key/value pairs in it with the rocket syntax.
+	#2- create a hash with a couple of key/value pairs in it using the 
+	# hash = {"name" => "David", "age" => 49 }
+	# hash = { name: "David", age: 49 }
+	# #call a value:
+	# hash[:name]
+	# #create the new k/v pair too I think)
+	# hash[:eye_color] = "Brown"
 
+#------------ Proc and Lambda practice ----------Kenny Trionfo---1/8/2015--------
+	# def batman_ironman_proc
+	#   victor = Proc.new { return "Batman will win!" }
+	#   victor.call
+	#   "Iron Man will win!"
+	# end
 
-# def batman_ironman_proc
-#   victor = Proc.new { return "Batman will win!" }
-#   victor.call
-#   "Iron Man will win!"
-# end
+	# puts batman_ironman_proc
 
-# puts batman_ironman_proc
+	# def batman_ironman_lambda
+	#   victor = lambda { return "Batman will win!" }
+	#   victor.call
+	#   "Iron Man will win!"
+	# end
 
-# def batman_ironman_lambda
-#   victor = lambda { return "Batman will win!" }
-#   victor.call
-#   "Iron Man will win!"
-# end
+	# puts batman_ironman_lambda
 
-# puts batman_ironman_lambda
+# ---------------- iterating over hash -------------------------
+	# lunch_order = {
+	#   "Ryan" => "wonton soup",
+	#   "Eric" => "hamburger",
+	#   "Jimmy" => "sandwich",
+	#   "Sasha" => "salad",
+	#   "Cole" => "taco"
+	# }
+	# lunch_order.each do |key, value|
+	#     puts value
+	# end
 
-
-# --- iterating over hash
-# lunch_order = {
-#   "Ryan" => "wonton soup",
-#   "Eric" => "hamburger",
-#   "Jimmy" => "sandwich",
-#   "Sasha" => "salad",
-#   "Cole" => "taco"
-# }
-# lunch_order.each do |key, value|
-#     puts value
-# end
-
-# ------ nest each do loops iterating over multi dementional arrays
-#   s = [["ham", "swiss"], ["turkey", "cheddar"], ["roast beef", "gruyere"]]
-# s.each do |sub_array|
-#     sub_array.each do |y|
-#         puts y
-#     end
-# end
+# ------ nest each do loops iterating over multi dementional arrays ----------------
+	#   s = [["ham", "swiss"], ["turkey", "cheddar"], ["roast beef", "gruyere"]]
+	# s.each do |sub_array|
+	#     sub_array.each do |y|
+	#         puts y
+	#     end
+	# end
 
 # --------- Multi dimentional arrays
 	# multi_d_array = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
