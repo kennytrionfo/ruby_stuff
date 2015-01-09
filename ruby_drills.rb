@@ -1119,7 +1119,6 @@
 
 	# strings = ["HTML", "CSS", "JavaScript", "Python", "Ruby"]
 	# symbols = []
-
 	# strings.each do |s|
 	#     symbols.push(s.to_sym)
 	# end
@@ -1234,7 +1233,7 @@
 	# rescue Exception => e  #kind of like defining a param
 	# 	puts e.message
 	# end
-
+;
 	#Another example: 
 	# def raise_exception  
 	# 		puts 'I am before the raise.'  
