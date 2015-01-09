@@ -1,6 +1,28 @@
 
 
-#----- PUT ON TIMER!
+#----- PUT ON TIMER!   ctrl + K to fold. 
+
+#------------  Controller methods ----------Kenny Trionfo---1/8/2015--------
+	# Controllers make decisions in our application through methods. 
+	# In Rails, there are eight methods that let us Create, Read, Update, and Delete information in our application. These methods are commonly known as CRUD.
+
+#------------ DB Schema ----------Kenny Trionfo---1/8/2015--------
+	# The schema file represents the current XXXXX of the database. The migrations explain XXXXX XXXXX XXXXX XXXXX XXXXX from somewhere else. 
+	# A schema is a collection of database XXXXX (tables) associated with one particular database username. This username is called the schema owner, or the owner of the related group of objects. You may have one or multiple schemas in a database. Basically, any user who creates an object has just created his or her own schema. So, based on a user's privileges within the database, the user has control over objects that are created, manipulated, and deleted. 
+	# Answer: 
+	# The schema file represents the current state of the database. The migrations explain how to reach that state from somewhere else. 
+	# A schema is a collection of database objects (tables) associated with one particular database username. This username is called the schema owner, or the owner of the related group of objects. You may have one or multiple schemas in a database. Basically, any user who creates an object has just created his or her own schema. So, based on a user's privileges within the database, the user has control over objects that are created, manipulated, and deleted. 
+
+	# http://technotes.iangreenleaf.com/posts/2013-09-10-rails-migrations-and-schema.html
+
+#------------ Migrations ----------Kenny Trionfo---1/8/2015--------
+	# Migrations are a convenient way to alter your XXXX XXXXX over time.
+	# Answer: 
+
+	# Migrations are a convenient way to alter your database schema over time.
+
+	# exp:
+	# Migrations can manage the evolution of a schema used by several physical databases. It's a solution to the common problem of adding a field to make a new feature work in your local database, but being unsure of how to push that change to other developers and to the production server. With migrations, you can describe the transformations in self-contained classes that can be checked into version control systems and executed against another database that might be one, two, or five versions behind.
 
 #------------ Add memory to Vagrant box ----------Kenny Trionfo---1/5/2015--------
 	# open the vagrant file found here c/virtualmachine/icdevbox in submlime and change the vb.memory in this block:
@@ -221,12 +243,28 @@
 	# .col-md-6.col-md-offset-3
 	# at top and tab in rest one tab. 
 	# -Do same thing to edit page.
-	# -Add the ability to upload images. 
+	# -----ADD THE ABILITY TO UPLOAD IMAGES.
 	# -Add paperclip gem:
 	# gem 'paperclip', '~> 4.2.0'
 	# -bundle install and restart server
 	# -read paperclip documentation
 	# -install imagemagic
+	# - in quickstart section, add the has_attached_file and validates_attachment_content_type to the pin: 
+	# -add following to pin.rb (this is copied from paperclip gem but changed for our needs):
+	# has_attached_file :image, styles: { :medium => "300x300>" }
+ 	#  	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+ 	#  	-run the migration that it tells you to in gem: 
+	#   	rails g paperclip pin image
+	# -add paperclip to form also. under views/pin/_form.html.haml:
+	# 	.form-group
+	# 		= f.input :image, input_html: { class: 'form-control'}	
+	# above the other ones. 
+	# rake db:migrate
+	# in pins controller add: 
+	# :image
+	# to the pin_params behind :description
+
+
 
 #---------------- Create a Module as Namespace -------------Kenny Trionfo---12/16/2014--------
 	# 1 Create and initialize a class Ruler that creates a new 12 inch ruler. 
@@ -365,7 +403,7 @@
 	# open the vagrant file found here c/virtualmachine/icdevbox in submlime and add to this block:
 	# config.vm.network :forwarded_port, guest: 3000, host: 3000
 	# config.vm.network :forwarded_port, guest: 8111, host: 8111
-	# config.vm.network :forwarded_port, guest: 9090, host: 9090 
+	# config.vm.network :forwarded_port, guest: 9090, host: 9090  
 
 #-------Parameter in Action Controller-------------Kenny Trionfo---12/24/2014--------
 	# All request parameters, whether they come from a XXX or XXX request, or from the XXX, are available through the XXX method which returns a hash. For example, an action that was performed through <tt>/posts?category=All&limit=5</tt> will include <tt>{ "category" => "All", "limit" => "5" }</tt> in params.
@@ -1049,8 +1087,8 @@
 	# 2. Use .collect and an do/end block that capitalizes each one.
 	# 	Answer:
 
-	# string_hash = ["this", "that", "the other"]
-	# string_hash.collect { |x| puts x.capitalize }
+	# string_array = ["this", "that", "the other"]
+	# string_array.collect { |x| puts x.capitalize }
 
 #---------------- RANGE -------------Kenny Trionfo---11/26/2014--------
 	#Convert the alphabet range into an array and print each one.
