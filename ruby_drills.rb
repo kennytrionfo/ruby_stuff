@@ -1,6 +1,75 @@
 
 
-#----- PUT ON TIMER!   ctrl + K to fold. 
+#----- PUT ON TIMER!   ctrl + K, ctrl + 1 to fold. 
+
+#------------ environmental variables ----------Kenny Trionfo---1/13/2015--------
+	#Answer: 
+	# http://en.wikipedia.org/wiki/Environment_variable
+
+#------------ echo cat touch ----------Kenny Trionfo---1/13/2015--------
+	# 1-cd to home drive in one command
+	# 2-cd to gemsets in .rvm
+	# 3-show the results in the gemset file
+	# 4-get back to the home drive
+	# 5-show the results of the file above without cd ing to it. 
+	# 6-create a new file on some safe directory and put something into it, replace it, add to it and show it. 
+	# 7-delete the temp file. 
+	# Answer: 
+
+	# vagrant@ic-dev-box:~$ cat ~/.rvm/gemsets/global.gems
+	# gem-wrappers
+	# rubygems-bundler
+	# bundler
+	# rake
+	# rvm
+	# vagrant@ic-dev-box:~$ touch delete_me
+	# vagrant@ic-dev-box:~$ echo "hi kenny" > delete_me
+	# vagrant@ic-dev-box:~$ cat delete_me
+	# hi kenny
+	# vagrant@ic-dev-box:~$ cd ~/.rvm/gemsets/
+	# vagrant@ic-dev-box:~/.rvm/gemsets$ cat global.gems
+	# gem-wrappers
+	# rubygems-bundler
+	# bundler
+	# rake
+	# rvm
+	# vagrant@ic-dev-box:~/.rvm/gemsets$ man cat
+	# vagrant@ic-dev-box:~/.rvm/gemsets$ cd ~
+	# vagrant@ic-dev-box:~$ ls
+	# delete_me  projects  spring_tmp  team_city
+	# vagrant@ic-dev-box:~$ touch d2
+	# vagrant@ic-dev-box:~$ echo "this is Nathan" > d2
+	# vagrant@ic-dev-box:~$ cat d2
+	# this is Nathan
+	# vagrant@ic-dev-box:~$ cat delete_me d2
+	# hi kenny
+	# this is Nathan
+	# vagrant@ic-dev-box:~$ cat delete_me
+	# hi kenny
+	# vagrant@ic-dev-box:~$ cat d2
+	# this is Nathan
+	# vagrant@ic-dev-box:~$ echo "this is hedgehog" > d2
+	# vagrant@ic-dev-box:~$ cat d2
+	# this is hedgehog
+	# vagrant@ic-dev-box:~$ echo "this is hedgehog" >> d2
+	# vagrant@ic-dev-box:~$ cat d2
+	# this is hedgehog
+	# this is hedgehog
+	# vagrant@ic-dev-box:~$ nano d2
+	# vagrant@ic-dev-box:~$ cat d2
+	# this is hedgehog
+	# this is hedgehog
+	# testing
+	# vagrant@ic-dev-box:~$ vi d2
+	# vagrant@ic-dev-box:~$ vi ~/.rvm/gemsets/global.gems
+	# vagrant@ic-dev-box:~$ cat ~/.rvm/gemsets/global.gems
+	# gem-wrappers
+	# rubygems-bundler
+	# bundler
+	# rake
+	# rvm
+	# awesome print
+	# vagrant@ic-dev-box:~$
 
 #------------  Controller methods ----------Kenny Trionfo---1/8/2015--------
 	# Controllers make decisions in our application through methods. 
@@ -10,6 +79,7 @@
 	# The schema file represents the current XXXXX of the database. The migrations explain XXXXX XXXXX XXXXX XXXXX XXXXX from somewhere else. 
 	# A schema is a collection of database XXXXX (tables) associated with one particular database username. This username is called the schema owner, or the owner of the related group of objects. You may have one or multiple schemas in a database. Basically, any user who creates an object has just created his or her own schema. So, based on a user's privileges within the database, the user has control over objects that are created, manipulated, and deleted. 
 	# Answer: 
+
 	# The schema file represents the current state of the database. The migrations explain how to reach that state from somewhere else. 
 	# A schema is a collection of database objects (tables) associated with one particular database username. This username is called the schema owner, or the owner of the related group of objects. You may have one or multiple schemas in a database. Basically, any user who creates an object has just created his or her own schema. So, based on a user's privileges within the database, the user has control over objects that are created, manipulated, and deleted. 
 
@@ -33,7 +103,7 @@
 
 #------------ echo ----------Kenny Trionfo---1/2/2015--------
 	#answer: 
-	# http://www.linfo.org/echo.html
+	# http://www.linfo.org/echo.html 
 
 #------------ man & -h ----------Kenny Trionfo---12/31/2014--------
 	# man = manual 
@@ -263,8 +333,6 @@
 	# in pins controller add: 
 	# :image
 	# to the pin_params behind :description
-
-
 
 #---------------- Create a Module as Namespace -------------Kenny Trionfo---12/16/2014--------
 	# 1 Create and initialize a class Ruler that creates a new 12 inch ruler. 
