@@ -2,9 +2,104 @@
 
 #----- PUT ON TIMER!   ctrl + K, ctrl + 1 to fold. 
 
+#------------ Review how RVM works ----------Kenny Trionfo---1/19/2015--------
+	# Answer: 
+	# Ref: https://rvm.io/
+	#ref: http://watirmelon.com/2011/01/17/easily-manage-your-rubies-with-rvm-bundler-and-pik/
+
+#------------ in the console, get into root ----------Kenny Trionfo---1/19/2015--------
+	# Answer: 
+	# sudo -s to get into root
+
+#------------ refactor excercise ----------Kenny Trionfo---1/19/2015--------
+	# refactor the first into something like the second.
+	# Also indentify the expressions in each of these blocks. 
+
+	# print "Hello. Please enter a Celsius value: "
+	# celsius = gets
+	# fahrenheit = (celsius.to_i * 9 / 5) + 32
+	# print "The Fahrenheit equivalent is: "
+	# print fahrenheit
+	# puts "."
+
+	# print "Hello. Please enter a Celsius vlaue: "
+	# print "The Fahrenheit equivalent is ", gets.to_i * 9 / 5 + 32, ".\n"
+
+#------------ bundle and all it's glory ----------Kenny Trionfo---1/15/2015--------
+	# bundle exec rake -T  = will give you a list of available rake tasks.
+	#
+
+#------------ Rake shortcuts etc ----------Kenny Trionfo---1/15/2015--------
+	# rake -D = to list a bunch of stuff about rake. 
+	# rake -T   to get all rake commands
+	# rake -T test: 
+
+#------------ terminal, console, shell, command line ----------Kenny Trionfo---1/14/2015--------
+	# What is this? 
+	# $ ls /bin 
+	# ls is a program
+	# /bin is an absolute path that is used as an argument to the ls program in this example
+
+	# Explain what the following command prints to the shell: 
+	# $ echo $HOME
+	# Anwer: 
+
+	# $HOME is an environment variable that is assigned to the absolute pathname of the home directory. Previously, we've used ~ to navigate to the $HOME directory, but both ~ and $HOME reference the absolute pathname of the home directory. cd $HOME/Desktop and cd ~/Desktop can both be used to navigate to the Desktop directory.
+
+	# Explain what the following command prints to the shell. What is the significance of this output?
+	# $ echo $PATH
+	# Answer:
+
+	# The $PATH environment variable stores a list of directories, separated by colons. When a shell program is run, the shell looks for the program in these directories. All the programs we've been using thus far (cd, cat, touch, ls) are all defined in one of the directories listed in the $PATH environment variable.
+
+	# In this command:
+	# $ cd ~
+	# what is the '~'? 
+	# Answer: 
+	# A variable for HOME (same as $HOME?)
+
+	# In this command: 
+	# $ cd /
+	# what is the '/'?
+	# Answer: 
+
+	# The path. 
+
+	# What file is ls program file defined in? 
+	# Answer: 
+
+	# which ls
+	# The which command returns the location of executable files. On my machine, the ls file is located in /bin/ls. /bin/ is the directory and ls is the executable file.
+
+	# The command $ ls -l provides a long listing of the files in a directory. Alias longls so it can be used in place of $ ls -l
+	# Answer: 
+	# alias longls='ls -l'
+	# # now the following command line works
+	# longls # same as ls -l
+
+	# Is $HOME/Desktop/ an absolute or relative path? Explain.
+	# Answer: 
+	# $HOME/Desktop/ is an absolute path because it is specified relative to the root directory.
+
+	# Is /bin/ an absolute or relative path? Explain.
+	# Answer: 
+	# /bin/ is an absolute path because it's specified relative to the / (root) directory.
+
+	# What's the difference between absolute and relative paths?
+	# Answer: 
+	# Absolute paths are specified relative to the root directory. Relative paths are specified relative to the current working directory.
+
+	#more: 
+	#http://www.codequizzes.com/learn-bash/redirection-grep-pipelines
+
 #------------ environmental variables ----------Kenny Trionfo---1/13/2015--------
 	#Answer: 
 	# http://en.wikipedia.org/wiki/Environment_variable
+
+#------------ vi ----------Kenny Trionfo---1/13/2015--------
+	# 1-Open a file with it. 
+	# 2-add to the file? 
+	# 3-close the file? 
 
 #------------ echo cat touch ----------Kenny Trionfo---1/13/2015--------
 	# 1-cd to home drive in one command
@@ -333,8 +428,70 @@
 	# in pins controller add: 
 	# :image
 	# to the pin_params behind :description
+	# -add this to top of show.html.haml: 
+	# = image_tag @pin.image.url(:medium)
+	# -change index view to this: 
+	# - @pins.each do |pin|
+	# 	= link_to (image_tag pin.image.url(:medium)), pin
+	# 	%h2= link_to pin.title, pin
+	# -Show the user which image they are editing when they are editing it. 
+	#   	-In edit.html.haml, above = render 'form' add: 
+ 	#   	= image_tag @pin.image.url(:medium)
+ 	# -Put the jquery masonry in place to auto stack things upon resizing screen: 
+	# in gemfile, put 
+	# gem 'masonry-rails', '~> 0.2.1'
+	# and bundle
+	# in documentation: add line from the JavaScript section in JS file under jquery: 
+	# //= require masonry/jquery.masonry
+	# put this in pins.js.coffee:
+	# ->
+	# $('#pins').imagesLoaded ->
+	#   $('#pins').masonry
+	#     itemsSelector: '.box'
+	#     isFitWidth: true
+	# -enable transitions in index: 
+	# -should end up like this: 
+	# #pins.transitions-enabled
+	# - @pins.each do |pin|
+	# 	.box.panel.panel-default
+	# 		= link_to (image_tag pin.image.url(:medium)), pin
+	# 		.panel-body	 
+	# 			%h2= link_to pin.title, pin
 
-#---------------- Create a Module as Namespace -------------Kenny Trionfo---12/16/2014--------
+	# -add: 
+	#  *= require 'masonry/transitions'
+	# to application.css.scss file above require tree 
+
+	# -style up the show page with various. should look like this:
+	# #pin_show.row
+	# 	.col-md-8.col-md-offset-2
+	# 		.panel.panel-default
+	# 			.panel-heading.pin_image
+	# 				= image_tag @pin.image.url
+	# 			.panel-body
+	# 				%h1= @pin.title
+	# 				%p.description= @pin.description
+	# 				%p
+	# 				Submitted by
+	# 				= @pin.user.email
+	# 			.panel-footer
+	# 				.row
+	# 					.col-md-6
+	# 						%p.user
+	# 						Submitted by
+	# 						= @pin.user.email
+	# 					.col-md-6
+	# 						.btn-group.pull-right
+	# 							= link_to "Edit", edit_pin_path, class: "btn btn-default"
+	# 							= link_to "Delete", pin_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default"
+	# -Add teh ability to vote on a pin. insert acts-as-votable gem: 
+	# gem 'acts_as_votable', '~> 0.10.0'
+	# bundle install
+
+
+
+
+#----X------------ Create a Module as Namespace -------------Kenny Trionfo---12/16/2014--------
 	# 1 Create and initialize a class Ruler that creates a new 12 inch ruler. 
 	# 2 Create a module called PeopleRuler that has the same class in it with the same class Ruler in it with a method of the same name but that puts something about a ruler over the people. 
 	# 3 call each of the methods from the classes. be sure to namespace the one. 
@@ -1301,7 +1458,7 @@
 	# rescue Exception => e  #kind of like defining a param
 	# 	puts e.message
 	# end
-;
+
 	#Another example: 
 	# def raise_exception  
 	# 		puts 'I am before the raise.'  
@@ -1313,7 +1470,7 @@
 	# def raise_and_rescue  
 	#   begin  
 	#     puts 'I am before the raise.'  
-	#     raise 'An error has occured.'  
+	#     raise  
 	#     puts 'I am after the raise.'  
 	#   rescue  
 	#     puts 'I am rescued.'  
