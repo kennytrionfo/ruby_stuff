@@ -2,14 +2,30 @@
 
 #----- PUT ON TIMER!   ctrl + K, ctrl + 1 to fold. 
 
-#------------ Review how RVM works ----------Kenny Trionfo---1/19/2015--------
-	# Answer: 
-	# Ref: https://rvm.io/
-	#ref: http://watirmelon.com/2011/01/17/easily-manage-your-rubies-with-rvm-bundler-and-pik/
+# some bash stuff
+# http://cbednarski.com/articles/understanding-environment-variables-and-the-unix-path/
+ 
+#------------ irb and stuff ----------Kenny Trionfo---1/30/2015--------
+	#  http://www.justinweiss.com/blog/2014/11/17/what-are-the-differences-between-irb/
+	# source to run a file in your app from in irb. ie source "some_file_name.rb" 
 
-#------------ in the console, get into root ----------Kenny Trionfo---1/19/2015--------
-	# Answer: 
-	# sudo -s to get into root
+
+xgo_order_variable = File.open("xgo_order.xml", "r").read 
+hash_result = Hash.from_xml(xgo_order_variable)
+
+# json_var = File.open("json_var", "r")
+
+# puts JSON.parse(json_var) 
+puts hash_result
+
+
+
+#------------ RVM stuff ----------Kenny Trionfo---1/19/2015--------
+	# hotkeys: 
+	# rvm info = to display all rvm info
+	# $ rvm gemdir to see the gem directory
+	# Ref: https://rvm.io/ 
+	#ref: http://watirmelon.com/2011/01/17/easily-manage-your-rubies-with-rvm-bundler-and-pik/
 
 #------------ refactor excercise ----------Kenny Trionfo---1/19/2015--------
 	# refactor the first into something like the second.
@@ -21,20 +37,28 @@
 	# print "The Fahrenheit equivalent is: "
 	# print fahrenheit
 	# puts "."
+	#Answer:  
+		# print "Hello. Please enter a Celsius vlaue: "
+		# print "The Fahrenheit equivalent is ", (gets.to_i * 9 / 5 + 32), ".\n"
 
-	# print "Hello. Please enter a Celsius vlaue: "
-	# print "The Fahrenheit equivalent is ", gets.to_i * 9 / 5 + 32, ".\n"
 
 #------------ bundle and all it's glory ----------Kenny Trionfo---1/15/2015--------
 	# bundle exec rake -T  = will give you a list of available rake tasks.
-	#
+	# bundle help  for help on commands. 
 
-#------------ Rake shortcuts etc ----------Kenny Trionfo---1/15/2015--------
+#------------ Rake commands, shortcuts etc ----------Kenny Trionfo---1/15/2015--------
 	# rake -D = to list a bunch of stuff about rake. 
 	# rake -T   to get all rake commands
 	# rake -T test: 
+	# rake about  to examine your rails installation
 
-#------------ terminal, console, shell, command line ----------Kenny Trionfo---1/14/2015--------
+#------------ terminal, console, shell, command line, bash stuff----------Kenny Trionfo---1/14/2015--------
+	# sudo -s to get into root
+	# man bash for a bash manual
+	# find . | grep -i rake to find all the instances of the word rake. The "." is the current directory, | 'pipe' passes the thing before it into the thing after it. grep = search, -i = case insensitive, rake is the word your searching for. 
+	# sqlite3 db/development.sqlite3   or sqlite3   from inside the app you want to see the db of = open the sqlite db from the console. get you inside the db? 	
+
+	# ls -p to mark directories with a / 
 	# What is this? 
 	# $ ls /bin 
 	# ls is a program
@@ -50,7 +74,8 @@
 	# $ echo $PATH
 	# Answer:
 
-	# The $PATH environment variable stores a list of directories, separated by colons. When a shell program is run, the shell looks for the program in these directories. All the programs we've been using thus far (cd, cat, touch, ls) are all defined in one of the directories listed in the $PATH environment variable.
+	# The $PATH environment variable stores a list of directories, separated by colons. When a shell program is run, the shell looks for the program in these directories. All the programs we've been using thus far (cd, cat, touch, ls, grep) are all defined in one of the directories listed in the $PATH environment variable. 
+	# Environment variables are global variables that live in your shell session, and help your shell fill in shortcuts or specify preferences.
 
 	# In this command:
 	# $ cd ~
@@ -63,7 +88,7 @@
 	# what is the '/'?
 	# Answer: 
 
-	# The path. 
+	# The path. (not right.?.?  should this be root? ask sensei)
 
 	# What file is ls program file defined in? 
 	# Answer: 
@@ -165,7 +190,7 @@
 	# rvm
 	# awesome print
 	# vagrant@ic-dev-box:~$
-
+ 
 #------------  Controller methods ----------Kenny Trionfo---1/8/2015--------
 	# Controllers make decisions in our application through methods. 
 	# In Rails, there are eight methods that let us Create, Read, Update, and Delete information in our application. These methods are commonly known as CRUD.
@@ -486,13 +511,56 @@
 	# 							= link_to "Delete", pin_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default"
 	# -Add teh ability to vote on a pin. insert acts-as-votable gem: 
 	# gem 'acts_as_votable', '~> 0.10.0'
-	# bundle install
+	# bundle install & restart server
+	# in documentation, do a migration. In console: 
+	# rake db:migrate
+	# Inside of pin model add 
+	# acts_as_votable
+	# at top. 
+	# Create some nested routes: 
+	# In routes file, below devise_for, replace resouces :pins with: 
+	# resources :pins do
+	# 	member do
+	# 		put "Like", to: "pins#upvote"
+	# 	end
+	# end
+	# Then in pins_controller, add:
+	# :upvote 
+	# to the params in brackets of the before_action at the top and add: 
+	# def upvote
+	# 	@pin.upvote_by current_user
+	# 	redirect_to :back
+	# end
+	# below the destroy block.
+	# In show page add a link_to under the last btn-group.. like so: 
+	# .btn-group.pull-right
+	# 	= link_to like_pin_path(@pin), method: :put, class: "btn btn-default" do 
+	# 		%span.glyphicon.glyphicon-heart
+	# 			=@pin.get_upvotes.size
+	# Add right below this: 
+	# - if user_signed_in?
+	# Add authenticate so users who aren't signed in can't do anything. below the first before_action in the pins_controller, add: 
+	# before_action :authenticate_user!, except: [:index, :show]
+	# test in an in congnito window and should see that you can't do stuff. 
+	# Now, pretty up the forms a bit. 
+	# Add this to the new form so it looks like this: 
+	# .col-md-6.col-md-offset-3
+	# .row
+	# 	.panel.panel-default
+	# 		.panel-heading
+	# 			%h1 New Form
+	# 		.panel-body
+	# 			= render 'form'
+	# Now pretty  up edit form for editing one's account. under views/devise/registration/edit.html.erb, 
+	# Kept the file in erb and add some things. (This was a lot of editing. I just copy code from hit github and pasted to make it work.)
+	# Also copied the code for the edit a pin page, sign up and sign in pages. 
+
 
 
 
 
 #----X------------ Create a Module as Namespace -------------Kenny Trionfo---12/16/2014--------
-	# 1 Create and initialize a class Ruler that creates a new 12 inch ruler. 
+	# 1 Create and initialize a class Ruler that has a method in it that creates a new 12 inch ruler. 
 	# 2 Create a module called PeopleRuler that has the same class in it with the same class Ruler in it with a method of the same name but that puts something about a ruler over the people. 
 	# 3 call each of the methods from the classes. be sure to namespace the one. 
 	# 4 create a new object and call each method from the two classes on them. 
@@ -892,7 +960,7 @@
 
 # --X--------------Array & loop practice--------------------
 	# -Create an array with two hashes in it with two values in each of them. 
-	# -Loop through the items in the array, put each of the keys for values in each hash. 
+	# -Loop through the items in the array, put each of the keys of each of the values in each hash. 
 	# 	Answer: 
 
 	# meals = [{food: 'pizza', drink: 'oj'}, {music: 'Rock n Roll', lighting: 'low'}]
@@ -914,12 +982,12 @@
 	# 	p first_item
 	# end
 
-#------------ INterpreter ----------Kenny Trionfo---12/31/2014--------
+#------------ Interpreter ----------Kenny Trionfo---12/31/2014--------
 	# A program that executes instructions written in a high-level language. There are two ways to run programs written in a high-level language. The most common is to compile the program; the other method is to pass the program through an interpreter.
 	# An interpreter translates high-level instructions into an intermediate form, which it then executes. In contrast, a compiler translates high-level instructions directly into machine language. Compiled programs generally run faster than interpreted programs. The advantage of an interpreter, however, is that it does not need to go through the compilation stage during which machine instructions are generated. 
 	# This process can be time-consuming if the program is long. The interpreter, on the other hand, can immediately execute high-level programs. For this reason, interpreters are sometimes used during the development of a program, when a programmer wants to add small sections at a time and test them quickly. In addition, interpreters are often used in education because they allow students to program interactively.
 
-#------------ Ruby Implmentation ----------Kenny Trionfo---12/31/2014--------
+#------------ Ruby Implementation ----------Kenny Trionfo---12/31/2014--------
 	# Answer: 
 	# A version of Ruby. ie. MRI, Mruby, Jruby, RubyMotion etc. 
 
@@ -940,7 +1008,7 @@
 		# Ansser: 
 
 		# the result of the last evaluated expression.
-
+ 
 # --X-------------------.respond_to?------------------
 	#  Remember when we mentioned that symbols are awesome for referencing method names? Well, .respond_to? takes a symbol and returns true if an object can receive that method and false otherwise. For example,
 	# [1, 2, 3].respond_to?(:push)
@@ -979,7 +1047,7 @@
 	# floats = [1.2, 3.45, 0.91, 7.727, 11.42, 482.911]
 	# puts floats
 	# round_down = Proc.new { |n| n.floor }
-	# ints = floats.collect(&round_down)
+	# ints = floats.collect(&round_down)f
 	# puts ints
 
 # -------Creating a method with params ---------------
@@ -993,7 +1061,12 @@
 
 # -------- turn if/else statements into ternury statements ---------------
 
-# -----------create a  one line if and unless statments ---------------
+# ----------- if and unless statments ---------------
+	# Create a create a  one line if statement and a one line unless statement: 
+	# Answer: 
+	# var = 3
+	# puts "I'm big" unless var < 4
+	# puts "I'm little" if var < 4
 
 # ---------Interactive Movie creating program ------------
 	# Create a movies hash that people can add, update display and delete from.
@@ -1067,6 +1140,10 @@
 	# Answer:
 	#
 	# class Monkey; end
+
+
+
+
 
 # -------- PROC VS LAMBDA -----------
 	# def batman_ironman_proc
