@@ -10,13 +10,13 @@
 	# source to run a file in your app from in irb. ie source "some_file_name.rb" 
 
 
-xgo_order_variable = File.open("xgo_order.xml", "r").read 
-hash_result = Hash.from_xml(xgo_order_variable)
+# xgo_order_variable = File.open("xgo_order.xml", "r").read 
+# hash_result = Hash.from_xml(xgo_order_variable)
 
 # json_var = File.open("json_var", "r")
 
 # puts JSON.parse(json_var) 
-puts hash_result
+# puts hash_result
 
 
 
@@ -1772,6 +1772,13 @@ puts hash_result
 	# lunch "pizza", drink:"coke"
 
 #-------------------string interpolation, include?, if else------
+	# Ask user to input a word with the letter R in it. 
+	# Downcase the sentence. 
+	# If the sentence has any r's, replace them with D's, otherwise puts "You didn't include the letter R anywhere." 
+	# Ask them if they like the name better in upper case or lower like: "do you like RICE better or rice better?"
+	# Respond with their answer in the sentence saying something like: "Yeah, I like RICE too."
+	# Answer: 
+
 	# puts "what's ur name man?"
 	# user_input = gets.chomp
 	# user_input.downcase!
@@ -1785,6 +1792,11 @@ puts hash_result
 	# answer = gets.chomp
 	# puts "me too. #{answer} is pretty cool"
 
+#------------ if else ----Kenny Trionfo---2/4/2015--------
+	# Ask user for a number. 
+	# If the number is less than 10, tell them that they picked such a little number, otherwise tell them that they picked a number over 10, then if it's not either of those, tell them that they picked the number 10. 
+	# Answer: 
+
 	# print "Pick a number"
 	# user_num = gets.to_i
 	#
@@ -1795,7 +1807,8 @@ puts hash_result
 	# else
 	# 	puts "You picked zero"
 	# end
-	#
+
+ 
 	#### while loop ######
 	# counter = 1
 	# while counter < 5
@@ -1811,38 +1824,52 @@ puts hash_result
 	#   puts k
 	# end
 
-#-------using loop-----
-	# k = 21
-	# loop do
-	#   k -= 1
-	#   next if k % 2 != 0
-	#   print "#{k} "
-	#   break if k == 12
+#-------using loop----------
+	# Create a loop that counts down from 20 by 2, printing each number and stop it if it gets to 12. 
+	# Answer: 
+	# 	k = 22
+	# 	loop do
+	# 	  k -= 1
+	# 	  next if k % 2 != 0
+	# 	  print "#{k} "
+	# 	  break if k == 12
+	# 	end
+	# EasyLang: 
+	# As I understand it, the loop reads as follows "If i divided by 2 produces no remainder, then put i"
+
+	# My attempt at another version: 
+	# n = 22
+	# loop do 
+	# 	n -=1
+	# 	next if n % 2 > 0 
+	# 	next if n > 11
+	# 	print "#{n} "
+	# 	break if n == -2
 	# end
 
-	# r = 0
-	# loop do
-	#     r += 1
-	#     print "Ruby!"
-	#     break if r == 30
-	# end
+# r = 0
+# loop do
+#     r += 1
+#     print "Ruby!"
+#     break if r == 30
+# end
 
-	#print the numbers 1-50 using a while loop:
-	# n = 1
-	# while n < 51 do
-	#     print n
-	#     n += 1
-	# end
-	#do the same thing but using until:
-	# n = 1
-	# until n > 50 do
-	#     print n
-	#     n += 1
-	# end
-	#do the samething using 'for':
-	# for n in 1..50
-	#     print n
-	# end
+#print the numbers 1-50 using a while loop:
+# n = 1
+# while n < 51 do
+#     print n
+#     n += 1
+# end
+#do the same thing but using until:
+# n = 1
+# until n > 50 do
+#     print n
+#     n += 1
+# end
+#do the samething using 'for':
+# for n in 1..50
+#     print n
+# end
 
 #----------NEXT if--------
 	# f = 0
@@ -1863,6 +1890,9 @@ puts hash_result
 	# end
 
 #------------- .times ------
+	# Use .times to puts something 3 times. 
+	# Answer: 
+
 	# 5.times do
 	#   puts "Kenny T rules!"
 	# end
