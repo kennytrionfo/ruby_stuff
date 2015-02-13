@@ -20,6 +20,40 @@
 
 
 
+#------------ Naviagting arrays and hashes using .select & .first ----------Kenny Trionfo---2/13/2015--------
+	# Use .select to find all of the hashes in the array below that have a key of :age. 
+	# Now find all of the hashes in the array where the key is :age and the value is 442. 
+	# Now find the first hash that has a key of :age and a value of 442. 
+	# Now return the value of the :color key of the first hash that has a key of :age and a value of 442. 
+
+	# a = [{:first_name=>"Bily", :age=>342, :color=>"Pinkish"}, {:last_name=>"sily", :age=>442, :color=>"grennkish"}, {:no_name=>"nothing", :age=>442, :size=>"tin
+	# y"}]
+
+	# In awesome print
+	# [
+	#     [0] {
+	#         :first_name => "Bily",
+	#                :age => 342,
+	#              :color => "Pinkish"
+	#     },
+	#     [1] {
+	#         :last_name => "sily",
+	#               :age => 442,
+	#             :color => "grennkish"
+	#     },
+	#     [2] {
+	#         :no_name => "nothing",
+	#             :age => 442,
+	#            :size => "tiny"
+	#     }
+	# ]
+
+	#Answer: 
+	# puts a.select{|x| x[:age]}
+	# puts a.select{|x| x[:age]==442}
+	# puts a.select{|x| x[:age]==442}.first
+	# puts a.select{|x| x[:age]==442}.first[:color]
+
 #------------ RVM stuff ----------Kenny Trionfo---1/19/2015--------
 	# hotkeys: 
 	# rvm info = to display all rvm info
@@ -1141,10 +1175,6 @@
 	#
 	# class Monkey; end
 
-
-
-
-
 # -------- PROC VS LAMBDA -----------
 	# def batman_ironman_proc
 	# 	victor = Proc.new { return "Batman will win!" }
@@ -1172,6 +1202,13 @@
 	# symbol_filter = lambda { |x| x.is_a? Symbol }
 	#
 	# symbols = my_array.select(&symbol_filter)
+
+#------------ using .select on arrays ----------Kenny Trionfo---2/12/2015--------
+	# Create an array. 
+	# Search through the array for a specific item using a .select block. 
+	# Answer: 
+	# array = ["one", "two", "boy", "girl"]
+	# array.select {|x| "two" == x}
 
 # --- iterating over hash
 	# lunch_order = {

@@ -59,4 +59,11 @@ NameError: undefined local variable or method `first' for #<TestIntegrator not i
     app/models/test_integrator.rb:5:in `initialize'
     test/models/integrator_test.rb:8:in `setup'
 
-    
+ TESTING: 
+vagrant@ic-dev-box:~/projects/center_canyon_3$ rake test test/models/yl_integrator_test.rb
+Starting in /home/vagrant/projects/center_canyon_3
+rake aborted!
+ActiveRecord::StatementInvalid: SQLite3::SQLException: cannot rollback - no transaction is active: rollback transaction
+
+Console: 
+rake aborted! Errno::ETXTBSY: Text file busy @ unlink_internal
