@@ -1,5 +1,6 @@
 
 
+
 #----- PUT ON TIMER!   ctrl + K, ctrl + 1 to fold. 
 
 # some bash stuff
@@ -16,7 +17,7 @@
 # json_var = File.open("json_var", "r")
 
 # puts JSON.parse(json_var) 
-# puts hash_result
+# puts hash_result 
 
 
 
@@ -266,6 +267,25 @@
 	# man ls = manual for ls
 	# -h = help (may only be for rails), ie: 
 	# rails -h 
+
+#------------Passing various kinds of parameters to methods----------Kenny Trionfo---2/18/2015--------
+	# Create a method that takes one generic parameter, call it, and just puts it.
+	# Create a method that takes a generice parameter and one defalut param, call it and try passing in different arguments. 
+	#Answer: 
+	# def cat_sound(meow)
+	# 	puts meow
+	# end
+	# cat_sound("roar")
+
+	# def dog_sound(bark, sound: "rough rough")
+	# 	puts bark + sound
+	# end
+	# dog_sound("loud", sound: "tweet tweet")
+		
+	# def person_sound(yell: "Yo dude!")
+	# 	puts yell
+	# end
+	# person_sound
 
 #------------ rm -rfv ./RubyMine* ----------Kenny Trionfo---12/31/2014--------
 	# rm = remove 
