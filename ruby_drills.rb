@@ -1,4 +1,7 @@
 
+do this exercise where you have to practice getting items from a few levels deep into an array 
+	weight:"customer_order.header['package']['weight']",
+
 
 
 #----- PUT ON TIMER!   ctrl + K, ctrl + 1 to fold. 
@@ -27,8 +30,7 @@
 	# Now find the first hash that has a key of :age and a value of 442. 
 	# Now return the value of the :color key of the first hash that has a key of :age and a value of 442. 
 
-	a = [{:first_name=>"Bily", :age=>342, :color=>"Pinkish"}, {:last_name=>"sily", :age=>442, :color=>"grennkish"}, {:no_name=>"nothing", :age=>442, :size=>"tin
-	y"}]
+	# a = [{:first_name=>"Bily", :age=>342, :color=>"Pinkish"}, {:last_name=>"sily", :age=>442, :color=>"grennkish"}, {:no_name=>"nothing", :age=>442, :size=>"tiny"}]
 
 	# In awesome print
 	# [
@@ -48,7 +50,6 @@
 	#            :size => "tiny"
 	#     }
 	# ]
-a.select {|x| puts x[:age] }
 
 	#Answer: 
 	# puts a.select{|x| x[:age]}
