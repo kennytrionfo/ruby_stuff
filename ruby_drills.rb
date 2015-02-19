@@ -22,13 +22,13 @@
 
 
 #------------ Naviagting arrays and hashes using .select & .first ----------Kenny Trionfo---2/13/2015--------
-	# Use .select to find all of the hashes in the array below that have a key of :age. 
+	# Use .select to find and puts the value of all of the hashes in the array below that have a key of :age. 
 	# Now find all of the hashes in the array where the key is :age and the value is 442. 
 	# Now find the first hash that has a key of :age and a value of 442. 
 	# Now return the value of the :color key of the first hash that has a key of :age and a value of 442. 
 
-	# a = [{:first_name=>"Bily", :age=>342, :color=>"Pinkish"}, {:last_name=>"sily", :age=>442, :color=>"grennkish"}, {:no_name=>"nothing", :age=>442, :size=>"tin
-	# y"}]
+	a = [{:first_name=>"Bily", :age=>342, :color=>"Pinkish"}, {:last_name=>"sily", :age=>442, :color=>"grennkish"}, {:no_name=>"nothing", :age=>442, :size=>"tin
+	y"}]
 
 	# In awesome print
 	# [
@@ -48,6 +48,7 @@
 	#            :size => "tiny"
 	#     }
 	# ]
+a.select {|x| puts x[:age] }
 
 	#Answer: 
 	# puts a.select{|x| x[:age]}

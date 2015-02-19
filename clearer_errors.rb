@@ -65,5 +65,38 @@ Starting in /home/vagrant/projects/center_canyon_3
 rake aborted!
 ActiveRecord::StatementInvalid: SQLite3::SQLException: cannot rollback - no transaction is active: rollback transaction
 
-Console: 
-rake aborted! Errno::ETXTBSY: Text file busy @ unlink_internal
+########################################################################
+#------------Console 2 Errors----------Kenny Trionfo---2/19/2015--------
+########################################################################
+
+#------------undefined local variable or method----------Kenny Trionfo---2/19/2015--------
+	# Didn't 
+	# Running a ruby drills in ruby_drills.rb and get this message when run ruby ruby_drills.rb in console: 
+	# Error: 
+	# vagrant@ic-dev-box:~/projects/kennysandbox/ruby_stuff$ ruby ruby_drills.rb
+	# ruby_drills.rb:51:in `<main>': undefined local variable or method `a' for main:Object (NameError)
+	# Meaning: 
+
+#------------undefined method `[]' for #<Enumerator:0x000000022a11e0>----------Kenny Trionfo---2/19/2015--------
+	# The code it's reading: 
+	# a = [{:first_name=>"Bily", :age=>342, :color=>"Pinkish"}, {:last_name=>"sily", :age=>442, :color=>"grennkish"}, {:no_name=>"nothing", :age=>442, :size=>"tin
+	# 	y"}]
+
+	# puts a.select[:age]
+
+	# The error in console:
+	# vagrant@ic-dev-box:~/projects/kennysandbox/ruby_stuff$ ruby ruby_drills.rb
+	# ruby_drills.rb:51:in `<main>': undefined method `[]' for #<Enumerator:0x000000022a11e0> (NoMethodError)
+
+#------------rake aborted! Errno::ETXTBSY: Text file busy @ unlink_internal----------Kenny Trionfo---2/19/2015--------
+	# Code: 
+
+
+	# Error: 
+	# rake aborted! Errno::ETXTBSY: Text file busy @ unlink_internal
+
+	# Meaning: 
+
+
+
+
