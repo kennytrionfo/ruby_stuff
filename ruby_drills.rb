@@ -1,10 +1,35 @@
 
-do this exercise where you have to practice getting items from a few levels deep into an array 
-	weight:"customer_order.header['package']['weight']",
+# MAKE THESE EXCERCISES SOMETHING WHERE i HAVE TO DESCRIBE WHAT'S GOING ON OR DESCRIBE THE CODE SO AS TO GET PRACTICE UNDERSTAND WHAT THINGS ARE DOING BY LOOKING AT THEM
+
+# do this exercise where you have to practice getting items from a few levels deep into an array 
+	# weight:"customer_order.header['package']['weight']",
+
+
+#----- PUT ON TIMER!   ctrl + K, ctrl + 1 to fold.
+
+Describe this: 
+self.order_map = IntegrationTables::OrderMap.where(cust_id:cust_id).where("#{"api_name=?" if api_name}",api_name).first
 
 
 
-#----- PUT ON TIMER!   ctrl + K, ctrl + 1 to fold. 
+#------------Describe .select & .first----------Kenny Trionfo---2/23/2015--------
+	# Describe the following: 
+	# return carrier_map.select{|x| x['cust_service_code']==cust_service_code}.first['ic_service_code'] unless carrier_map.blank?
+	# Answer here: 
+
+	#Search through the carrier_map array of hashes, select all of the hashes(objects) that have a key of 'cust_service_code' and a value of whatever string we pass into this find_ic_service_code method (cust_service_code), take the first one of those and return the value of the key 'ic_service_
+
+#------------Describe unless statment----------Kenny Trionfo---2/23/2015statement
+	# Describe the following statement: 
+	# unless customer_order.blank?
+	# 	import_header = convert_customer_order_to_import_header customer_order
+	# 	return import_header
+	# end
+	# Answer: 
+
+	# unless can be replaced with "is anything but.." or "if <the following object or expression> is true, skip the following block and keep going, otherwise do the following block".
+	# If customer_order is anything but blank (or in other words "not blank"), then do the following block, otherwise keep going. 
+
 
 # some bash stuff
 # http://cbednarski.com/articles/understanding-environment-variables-and-the-unix-path/
