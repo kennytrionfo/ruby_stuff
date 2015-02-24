@@ -1,11 +1,7 @@
+#----- PUT ON TIMER!   ctrl + K, ctrl + 1 to fold.
 
 # MAKE THESE EXCERCISES SOMETHING WHERE i HAVE TO DESCRIBE WHAT'S GOING ON OR DESCRIBE THE CODE SO AS TO GET PRACTICE UNDERSTAND WHAT THINGS ARE DOING BY LOOKING AT THEM
 
-# do this exercise where you have to practice getting items from a few levels deep into an array 
-	# weight:"customer_order.header['package']['weight']",
-
-
-#----- PUT ON TIMER!   ctrl + K, ctrl + 1 to fold.
 
 
 # Describe this: 
@@ -1294,9 +1290,11 @@
 # --------- Searching Arrays -------------------
 	# Multi dimentional arrays:
 	# multi_d_array = [[0,1,2,3],[01,10,20,30],[001,100,200,300],[0001,1000,2000,3000]]
+	# array_of_hashes = [[0,1,2], {"key"=>"value"}, 12, "girl", ["one", "two", "three"]]
 	# multi_d_array.each { |x| puts "#{x}\n" }
 	# print multi_d_array[0] 
 	# puts multi_d_array[0][]
+	# puts  array_of_hashes[0] 
 
 	# Arrays of hashes:
 	# array_of_hashes = [{"first_key"=>"first_value"}, {"key_2"=>"value_2"}]
