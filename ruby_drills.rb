@@ -7,10 +7,23 @@
 
 #----- PUT ON TIMER!   ctrl + K, ctrl + 1 to fold.
 
-Describe this: 
-self.order_map = IntegrationTables::OrderMap.where(cust_id:cust_id).where("#{"api_name=?" if api_name}",api_name).first
+
+# Describe this: 
+# self.order_map = IntegrationTables::OrderMap.where(cust_id:cust_id).where("#{"api_name=?" if api_name}",api_name).first
+Go to the OrderMap class within the IntegrationTables module and find the first order map that has a cust_id of cust_id and where api_name is api_name if 
 
 
+
+
+
+#------------.send----------Kenny Trionfo---2/24/2015--------
+	# How can you code this using .send?: 
+	# "hi i'm kenny".upcase 
+	# And, whey would you want to use this? 
+
+	# Answer: 
+	# "hi i'm kenny".send(:upcase)
+	# Use this when what you are passing in to send may change. 
 
 #------------Describe .select & .first----------Kenny Trionfo---2/23/2015--------
 	# Describe the following: 
