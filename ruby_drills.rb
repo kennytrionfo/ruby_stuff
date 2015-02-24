@@ -10,11 +10,12 @@
 
 # Describe this: 
 # self.order_map = IntegrationTables::OrderMap.where(cust_id:cust_id).where("#{"api_name=?" if api_name}",api_name).first
-Go to the OrderMap class within the IntegrationTables module and find the first order map that has a cust_id of cust_id and where api_name is api_name if 
+# Go to the OrderMap class within the IntegrationTables module and find the first order map that has a cust_id of cust_id and where api_name is api_name if 
 
 
-
-
+#------------Tic Tac Toe----------Kenny Trionfo---2/24/2015--------
+	# Build an interactive tic tac toe game.
+	# like the one we tried in dpl. 
 
 #------------.send----------Kenny Trionfo---2/24/2015--------
 	# How can you code this using .send?: 
@@ -1290,9 +1291,18 @@ Go to the OrderMap class within the IntegrationTables module and find the first 
 	#     end
 	# end
 
-# --------- Multi dimentional arrays
-	# multi_d_array = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+# --------- Searching Arrays -------------------
+	# Multi dimentional arrays:
+	# multi_d_array = [[0,1,2,3],[01,10,20,30],[001,100,200,300],[0001,1000,2000,3000]]
 	# multi_d_array.each { |x| puts "#{x}\n" }
+	# print multi_d_array[0] 
+	# puts multi_d_array[0][]
+
+	# Arrays of hashes:
+	# array_of_hashes = [{"first_key"=>"first_value"}, {"key_2"=>"value_2"}]
+	# puts array_of_hashes[0]
+	# puts array_of_hashes[0]["first_key"]
+
 
 #------------Redacted-------
 	# puts "Text to search through: "
