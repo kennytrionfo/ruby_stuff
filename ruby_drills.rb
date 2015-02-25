@@ -40,9 +40,9 @@
 	# unless can be replaced with "is anything but.." or "if <the following object or expression> is true, skip the following block and keep going, otherwise do the following block".
 	# If customer_order is anything but blank (or in other words "not blank"), then do the following block, otherwise keep going. 
 
-
-# some bash stuff
-# http://cbednarski.com/articles/understanding-environment-variables-and-the-unix-path/
+#----------bash stuff------------Kenny Trionfo---2/25/2015--------
+	# Here:
+	# http://cbednarski.com/articles/understanding-environment-variables-and-the-unix-path/
  
 #------------ irb and stuff ----------Kenny Trionfo---1/30/2015--------
 	#  http://www.justinweiss.com/blog/2014/11/17/what-are-the-differences-between-irb/
