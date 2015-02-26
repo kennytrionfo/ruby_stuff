@@ -97,6 +97,23 @@ ActiveRecord::StatementInvalid: SQLite3::SQLException: cannot rollback - no tran
 
 	# Meaning: 
 
+#------------wrong number of arguments----------Kenny Trionfo---2/25/2015--------
+	# Code: 
+		# def person_sound(yell: "Yo dude!")
+		# 	puts yell
+		# end
+		# person_sound("hey there big boy")
+
+	# Error:
+		# ruby_drills.rb:345:in `person_sound': wrong number of arguments (1 for 0) (ArgumentError)
+		#         from ruby_drills.rb:348:in `<main>'
+
+	# Meaning:
+		
+
+
+
+
 
 
 
