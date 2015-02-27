@@ -391,7 +391,7 @@
 	# =~: Matches a supplied regular expression against the string. The position of the first match is returned, otherwise nil. This technique is commonly used as a comparison expression to see if a string matches a regular expression.
 	# Write a one line "do this if that" expression that checks some string to see if it has any vowels.
 	# Answer: 
-	# ex: puts "This string has vowels" if "This is a test" =~ /[aeiou]/
+	# puts "This string has vowels" if "This is a test" =~ /[aeiou]/
 
 #---------------- Constructor -------------Kenny Trionfo---12/12/2014--------
 	# The Constructor in Ruby Is the xxxxx method. 
@@ -410,7 +410,7 @@
 	# - Constructors cannot be inherited. 
 	# - The constructor of a parent object is called with a super method. 
 	# - They are called in the order of inheritance.
-	# Ref:  http://zetcode.com/lang/rubytutorial/oop/    and 
+	# Ref:  http://zetcode.com/lang/rubytutorial/oop/    and  
 	# http://www.slideshare.net/ciscoleal/constructors-28459017
 
 #---------------- Action Controller -------------Kenny Trionfo---12/12/2014--------

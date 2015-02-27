@@ -1,5 +1,12 @@
 # This is a place to put better explanations of errors for the good of humankind. 
 
+IntegrationTables::CustomerOrder
+*** NameError Exception: uninitialized constant IntegrationTables::CustomerOrder
+
+
+
+
+
 # IRB: 
 	# NameError: undefined local variable or method `kenny' for main:Object
 		# code: 
