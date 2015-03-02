@@ -4,11 +4,10 @@
 
 
 
-#------------------NEW-------------------
-# Describe this: 
-# self.order_map = IntegrationTables::OrderMap.where(cust_id:cust_id).where("#{"api_name=?" if api_name}",api_name).first
-# Go to the OrderMap class within the IntegrationTables module and find the first order map that has a cust_id of cust_id and where api_name is api_name if 
-
+#-------Describe equation-----------------------------
+	# Describe this: 
+	# self.order_map = IntegrationTables::OrderMap.where(cust_id:cust_id).where("#{"api_name=?" if api_name}",api_name).first
+	# Go to the OrderMap class within the IntegrationTables module and find the first order map that has a cust_id of cust_id and where api_name is api_name if 
 
 #------------Tic Tac Toe----------Kenny Trionfo---2/24/2015--------
 	# Build an interactive tic tac toe game.
@@ -17,7 +16,7 @@
 #------------.send----------Kenny Trionfo---2/24/2015--------
 	# How can you code this using .send?: 
 	# "hi i'm kenny".upcase 
-	# And, whey would you want to use this? 
+	# And, why would you want to use this? 
 
 	# Answer: 
 	# "hi i'm kenny".send(:upcase)
@@ -55,28 +54,17 @@
 	# end
 	# Answer: 
 
-	# unless can be replaced with "is anything but.." or "if <the following object or expression> is true, skip the following block and keep going, otherwise do the following block".
+	# unless can be replaced with "is anything but.." or "if <whatever> is not blank, then..." or "if <the following object or expression> is true, skip the following block and keep going, otherwise do the following block".
 	# If customer_order is anything but blank (or in other words "not blank"), then do the following block, otherwise keep going. 
 
 #----------bash stuff------------Kenny Trionfo---2/25/2015--------
 	# Here:
 	# http://cbednarski.com/articles/understanding-environment-variables-and-the-unix-path/
  
-#------------ irb and stuff ----------Kenny Trionfo---1/30/2015--------
+#------------ irb, irb exec, rails c etc----------Kenny Trionfo---1/30/2015--------
+	#Website: 
 	#  http://www.justinweiss.com/blog/2014/11/17/what-are-the-differences-between-irb/
 	 
-
-
-# xgo_order_variable = File.open("xgo_order.xml", "r").read 
-# hash_result = Hash.from_xml(xgo_order_variable)
-
-# json_var = File.open("json_var", "r")
-
-# puts JSON.parse(json_var) 
-# puts hash_result 
-
-
-
 #------------ Naviagting arrays and hashes using .select & .first ----------Kenny Trionfo---2/13/2015--------
 	# Use .select to find and puts the value of all of the hashes in the array below that have a key of :age. 
 	# Now find all of the hashes in the array where the key is :age and the value is 442. 
