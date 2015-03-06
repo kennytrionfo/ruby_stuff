@@ -116,7 +116,26 @@ ActiveRecord::StatementInvalid: SQLite3::SQLException: cannot rollback - no tran
 		#         from ruby_drills.rb:348:in `<main>'
 
 	# Meaning:
-		
+
+
+########################################################################
+#------------ Debugger Console ----------Kenny Trionfo---2/19/2015------
+########################################################################
+
+#------------uniitialized contstant----------Kenny Trionfo---3/2/2015--------
+	# Code: 
+	# self.column_names[:customer_order]=IntegrationTables::CustomerOrder.column_names
+
+	# Error:
+	# IntegrationTables::CustomerOrder
+	# *** NameError Exception: uninitialized constant IntegrationTables::CustomerOrder
+
+	# Meaning:
+
+
+
+
+
 
 
 

@@ -17,8 +17,8 @@
 	# How can you code this using .send?: 
 	# "hi i'm kenny".upcase 
 	# And, why would you want to use this? 
-
 	# Answer: 
+
 	# "hi i'm kenny".send(:upcase)
 	# Use this when what you are passing in to send may change. 
 
@@ -65,6 +65,10 @@
 	#Website: 
 	#  http://www.justinweiss.com/blog/2014/11/17/what-are-the-differences-between-irb/
 	 
+# ############################################
+# ######### Right here Right now #############
+# ############################################
+
 #------------ Naviagting arrays and hashes using .select & .first ----------Kenny Trionfo---2/13/2015--------
 	# Use .select to find and puts the value of all of the hashes in the array below that have a key of :age. 
 	# Now find all of the hashes in the array where the key is :age and the value is 442. 
@@ -93,6 +97,7 @@
 	# ]
 
 	#Answer: 
+
 	# puts a.select{|x| x[:age]}
 	# puts a.select{|x| x[:age]==442}
 	# puts a.select{|x| x[:age]==442}.first
@@ -105,6 +110,15 @@
 	# Ref: https://rvm.io/ 
 	#ref: http://watirmelon.com/2011/01/17/easily-manage-your-rubies-with-rvm-bundler-and-pik/
 
+#------------splats in params----------Kenny Trionfo---3/5/2015--------
+	# def dog_sound(bark = "ruff", **attrs)
+	# 	puts  bark,  attrs
+	# end
+	# dog_sound(bark: "ruff ruff", tail_wagging: "yes")
+	# and try: 
+	# dog_sound("ruff ruff", tail_wagging: "yes")
+
+
 #------------ refactor excercise ----------Kenny Trionfo---1/19/2015--------
 	# refactor the first into something like the second.
 	# Also indentify the expressions in each of these blocks. 
@@ -116,6 +130,7 @@
 	# print fahrenheit
 	# puts "."
 	#Answer:  
+
 		# print "Hello. Please enter a Celsius vlaue: "
 		# print "The Fahrenheit equivalent is ", (gets.to_i * 9 / 5 + 32), ".\n"
 
