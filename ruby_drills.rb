@@ -69,6 +69,13 @@
 # ######### Right here Right now #############
 # ############################################
 
+#------------Regex----------Kenny Trionfo---3/12/2015--------
+
+Sensei used this: 
+order_number.*?shipping_lines":\[\]
+to find an order number in and order file by putting this in the search 
+
+
 #------------ Naviagting arrays and hashes using .select & .first ----------Kenny Trionfo---2/13/2015--------
 	# Use .select to find and puts the value of all of the hashes in the array below that have a key of :age. 
 	# Now find all of the hashes in the array where the key is :age and the value is 442. 
