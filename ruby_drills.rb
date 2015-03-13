@@ -71,9 +71,15 @@
 
 #------------Regex----------Kenny Trionfo---3/12/2015--------
 
+to change console logging: 
+ActiveRecord::Base.logger.level = 1
+
+
+
 Sensei used this: 
 order_number.*?shipping_lines":\[\]
 to find an order number in and order file by putting this in the search 
+
 
 
 #------------ Naviagting arrays and hashes using .select & .first ----------Kenny Trionfo---2/13/2015--------
@@ -89,7 +95,7 @@ to find an order number in and order file by putting this in the search
 	#     [0] {
 	#         :first_name => "Bily",
 	#                :age => 342,
-	#              :color => "Pinkish"
+	#              :color => "Pinkish"  
 	#     },
 	#     [1] {
 	#         :last_name => "sily",
