@@ -70,17 +70,25 @@
 # ############################################
 
 #------------Regex----------Kenny Trionfo---3/12/2015--------
+	# http://regex.learncodethehardway.org/book/ex0.html
+	# Sensei used this: 
+	# order_number.*?shipping_lines":\[\]
+	# to find an order number in and order file by putting this in the search 
 
-to change console logging: 
-ActiveRecord::Base.logger.level = 1
+Study YAML stuff  
 
+Study this from ic_integrator:  success = get_batch and	process_files and send_to_wms 
 
+#------------Rails Console----------Kenny Trionfo---3/16/2015--------
+	# to change console logging: 
+	# ActiveRecord::Base.logger.level = 1
+	# And to turn it back on?: 
+	# ActiveRecord::Base.logger.level = 0
+	# Does this only last for one session of the console? ?
 
-Sensei used this: 
-order_number.*?shipping_lines":\[\]
-to find an order number in and order file by putting this in the search 
-
-
+	# To find and error in rails console: 
+	# tmp = ImportError.find 1237
+	# YAmL::load(temp.message) to read message. (why yaml)
 
 #------------ Naviagting arrays and hashes using .select & .first ----------Kenny Trionfo---2/13/2015--------
 	# Use .select to find and puts the value of all of the hashes in the array below that have a key of :age. 
@@ -859,7 +867,7 @@ to find an order number in and order file by putting this in the search
 	# ints = floats.collect(&round_down)f
 	# puts ints
 
-# -------Creating a method with params ---------------
+# -------Yielding to a param that's a block ---------------
 	# Define your own method, double, that accepts a single parameter and yields to a block. Then call it with a block that multiplies the number parameter by 2. You can double any number you like!
 	# Answer:
 
