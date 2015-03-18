@@ -67,6 +67,7 @@
 	 
 # ############################################
 # ######### Right here Right now #############
+#        Go through IC Todos  !
 # ############################################
 
 #------------Regex----------Kenny Trionfo---3/12/2015--------
@@ -78,6 +79,15 @@
 Study YAML stuff  
 
 Study this from ic_integrator:  success = get_batch and	process_files and send_to_wms 
+
+how to use 
+--verbose
+
+return an array of items: 
+fb.print 1..15
+returns 
+=> ["1", "2", "fizz", etc... all the way up to "fizzbuzz"]
+
 
 #------------Rails Console----------Kenny Trionfo---3/16/2015--------
 	# to change console logging: 

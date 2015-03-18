@@ -63,4 +63,14 @@
 		# print "Hello. Please enter a Celsius vlaue: "
 		# print "The Fahrenheit equivalent is ", (gets.to_i * 9 / 5 + 32), ".\n"
 
-		
+
+
+
+# ================================================
+#   ==========     NEW DRILLS     ============
+# ================================================
+	# Rubies console drills with: 
+	# gem install rubies
+	# in the console then
+	# rubies
+	# in the console
