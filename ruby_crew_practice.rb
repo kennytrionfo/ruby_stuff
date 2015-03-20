@@ -69,8 +69,13 @@
 # ================================================
 #   ==========     NEW DRILLS     ============
 # ================================================
-	# Rubies console drills with: 
-	# gem install rubies
-	# in the console then
-	# rubies
-	# in the console
+# Rubies console drills with: 
+# gem install rubies
+# in the console then
+# rubies
+# in the console
+
+# https://www.bloc.io/ruby-warrior#/
+
+# Some git practice
+

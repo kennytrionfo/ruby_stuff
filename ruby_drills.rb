@@ -75,18 +75,10 @@
 	# Sensei used this: 
 	# order_number.*?shipping_lines":\[\]
 	# to find an order number in and order file by putting this in the search 
+	# http://regexcrossword.com/	
 
-Study YAML stuff  
-
-Study this from ic_integrator:  success = get_batch and	process_files and send_to_wms 
-
-how to use 
---verbose
-
-return an array of items: 
-fb.print 1..15
-returns 
-=> ["1", "2", "fizz", etc... all the way up to "fizzbuzz"]
+# Study YAML stuff  
+	# http://learnxinyminutes.com/docs/yaml/
 
 
 #------------Rails Console----------Kenny Trionfo---3/16/2015--------
