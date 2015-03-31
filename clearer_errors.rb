@@ -135,6 +135,30 @@ ActiveRecord::StatementInvalid: SQLite3::SQLException: cannot rollback - no tran
 
 
 
+########################################################################
+#------------ Rails Console Errors----------Kenny Trionfo---2/19/2015------
+########################################################################
+#-----------uninitialized constant----------Kenny Trionfo---3/27/2015--------
+	# Code: 
+	# When in rails c production
+	# ​and I run: 
+	# DevelopmentTools.transfer_integration_details PITAYAPLUS
+
+	# Error:
+	# NameError: uninitialized constant PITAYAPLUS
+	#         from (irb):1
+	#         from /home/vagrant/.rvm/gems/ruby-2.1.1/gems/railties-4.1.5/lib/rails/commands/console.rb:90:in `start'
+	#         from /home/vagrant/.rvm/gems/ruby-2.1.1/gems/railties-4.1.5/lib/rails/commands/console.rb:9:in `start'
+	#         from /home/vagrant/.rvm/gems/ruby-2.1.1/gems/railties-4.1.5/lib/rails/commands/commands_tasks.rb:69:in `console'
+	#         from /home/vagrant/.rvm/gems/ruby-2.1.1/gems/railties-4.1.5/lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+	#         from /home/vagrant/.rvm/gems/ruby-2.1.1/gems/railties-4.1.5/lib/rails/commands.rb:17:in `<top (required)>'
+	#         from bin/rails:4:in `require'
+	#         from bin/rails:4:in `<main>'
+
+	# Meaning:
+
+
+
 
 
 

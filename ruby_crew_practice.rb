@@ -75,7 +75,8 @@
 # rubies
 # in the console
 
-# https://www.bloc.io/ruby-warrior#/
+# https://www.bloc.io/ruby-warrior
 
 # Some git practice
 
+# Do a training on using github to do with the crew

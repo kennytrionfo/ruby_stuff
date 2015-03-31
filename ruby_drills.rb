@@ -70,6 +70,23 @@
 #        Go through IC Todos  !
 # ############################################
 
+ 
+#------------mysql =? in Ruby----------Kenny Trionfo---3/23/2015--------
+	# Used in mysql when you want to pass in the value of the key/value pair. 
+	# So instead of just: 
+	# .where(name:customer.name)
+	# which interprets into a=1 in the mysql query
+	# you would use: 
+	# .where("name=customer.name")
+	# and mysql interprets that into the same a=1 in the mysql queary as the above .where(a:1) does. 
+	# so
+	# .where("name=?", customer.name)
+	# allows you to pass customer name in to the ? instead of assigning it. 
+	# So this code from ic integrator: 
+	# self.order_map = OrderMap.where(cust_id:cust_id).where("#{"api_name=?" if api_name}",api_name).first
+	# translates to: 
+	# This instance of IcIntegrator.order_map is OrderMap where the cust_id is the cust_id passed in and where first api_name (the first one in the sentence above) is the api_name after the api_name after the comma but only if api_name is true (or exists). This prevents us from using one that is nil. 
+
 #------------Regex----------Kenny Trionfo---3/12/2015--------
 	# http://regex.learncodethehardway.org/book/ex0.html
 	# Sensei used this: 
@@ -77,6 +94,44 @@
 	# to find an order number in and order file by putting this in the search 
 	# http://regexcrossword.com/	
 
+#----------HTTP Requests & Stuff------------Kenny Trionfo---3/25/2015--------
+# HTTP: 
+# - Is an application-level protocol for distributed, collaborative, hypermedia information systems.
+# - Is a TCP/IP based communication protocol, that is used to deliver data (HTML files, image files, query results, etc.) on the World Wide Web. The default port is TCP 80, but other ports can be used as well.
+
+# There are three basic features that make HTTP a simple but powerful protocol:
+# 1. HTTP is connectionless: The HTTP client, i.e., a browser initiates an HTTP request and after a request is made, the client disconnects from the server and waits for a response. The server processes the request and re-establishes the connection with the client to send a response back.
+# 2. HTTP is media independent: It means, any type of data can be sent by HTTP as long as both the client and the server know how to handle the data content. It is required for the client as well as the server to specify the content type using appropriate MIME-type.
+# 3. HTTP is stateless: As mentioned above, HTTP is connectionless and it is a direct result of HTTP being a stateless protocol. The server and client are aware of each other only during a current request. Afterwards, both of them forget about each other. Due to this nature of the protocol, neither the client nor the browser can retain information between different requests across the web pages.
+
+# An HTTP client sends an HTTP request to a server in the form of a request message which includes following format:
+# 1. A Request-line
+# 2. Zero or more header (General|Request|Entity) fields followed by CRLF
+# 3. An empty line (i.e., a line with nothing preceding the CRLF) 
+# indicating the end of the header fields 
+# 4. Optionally a message-body  
+
+
+#------------APIs----------Kenny Trionfo---3/25/2015--------
+	# APIs: 
+	# - Are sets of requirements that govern how one application can talk to another.
+	# - that are  on the Web, make it possible for big services like Google Maps or Facebook to let other apps "piggyback" on their offerings.
+	# - simplify all that by limiting outside program access to a specific set of features—often enough, requests for data of one sort or another.
+	# - clearly define exactly how a program will interact with the rest of the software world.
+	# - 
+
+	
+# 	RestClient
+# http://www.theodinproject.com/ruby-on-rails/let-s-get-building      
+# http://www.theodinproject.com/ruby-on-rails/let-s-get-building      
+
+# var = RestClient.get 'http://example.com/resource'
+# puts var
+
+#------------JSON----------Kenny Trionfo---3/20/2015--------
+	# http://www.copterlabs.com/blog/json-what-it-is-how-it-works-how-to-use-it/
+	# Parse the following: 
+	
 # Study YAML stuff  
 	# http://learnxinyminutes.com/docs/yaml/
 
