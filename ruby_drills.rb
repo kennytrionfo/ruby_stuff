@@ -115,8 +115,8 @@
 #------------APIs----------Kenny Trionfo---3/25/2015--------
 	# APIs: 
 	# - Are sets of requirements that govern how one application can talk to another.
-	# - that are  on the Web, make it possible for big services like Google Maps or Facebook to let other apps "piggyback" on their offerings.
-	# - simplify all that by limiting outside program access to a specific set of features—often enough, requests for data of one sort or another.
+	# - that are on the Web, make it possible for big services like Google Maps or Facebook to let other apps "piggyback" on their offerings.
+	# - simplify things by limiting outside program access to a specific set of features—often enough, requests for data of one sort or another.
 	# - clearly define exactly how a program will interact with the rest of the software world.
 	# - 
 
@@ -127,6 +127,23 @@
 
 # var = RestClient.get 'http://example.com/resource'
 # puts var
+require 'pp'
+require 'rest_client'
+pitayaplus_shop_details_json_object = RestClient.get 'https://907103ce85446d8eaff1b41cfe73b7b9:663fc050410d0863d6a9f8d9092b858d@pitayaplus.myshopify.com/admin/shop.json?shop'.gsub(/ /,"%20")
+
+puts pitayaplus_shop_details_json_object   
+
+pitayaplus_shop_timezone_string = JSON.parse(pitayaplus_shop_details_json_object)["shop"]["timezone"]
+
+puts pitayaplus_shop_timezone_string
+
+# res = RestClient.get "#{url_base}/orders.json?status=open&fulfillment_status=unshipped&updated_at_min=#{api_detail[:last_import]}".gsub(/ /,"%20")
+
+# updated_at_min= api_detail[:last_import] - 1hr if customer_timezone = "(GMT-08:00) Pacific Time (US & Canada)", api_detail[:last_import]
+
+# puts api_detail_last_import
+
+# add logic in the api call (during the import) to adjust the last import time appropriate for the difference between their time zone and our time zone
 
 #------------JSON----------Kenny Trionfo---3/20/2015--------
 	# http://www.copterlabs.com/blog/json-what-it-is-how-it-works-how-to-use-it/
@@ -148,7 +165,7 @@
 	# YAmL::load(temp.message) to read message. (why yaml)
 
 #------------ Naviagting arrays and hashes using .select & .first ----------Kenny Trionfo---2/13/2015--------
-	# Use .select to find and puts the value of all of the hashes in the array below that have a key of :age. 
+	# Use .select to find and puts the value of all of the hashes in the array below  that have a key of :age. 
 	# Now find all of the hashes in the array where the key is :age and the value is 442. 
 	# Now find the first hash that has a key of :age and a value of 442. 
 	# Now return the value of the :color key of the first hash that has a key of :age and a value of 442. 
