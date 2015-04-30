@@ -64,14 +64,8 @@
 #------------ irb, irb exec, rails c etc----------Kenny Trionfo---1/30/2015--------
 	#Website: 
 	#  http://www.justinweiss.com/blog/2014/11/17/what-are-the-differences-between-irb/
-	 
-# ############################################
-# ######### Right here Right now #############
-#        Go through IC Todos  !
-# ############################################
-
- 
-#------------mysql =? in Ruby----------Kenny Trionfo---3/23/2015--------
+	  
+#------------mysql's =? in Ruby----------Kenny Trionfo---3/23/2015--------
 	# Used in mysql when you want to pass in the value of the key/value pair. 
 	# So instead of just: 
 	# .where(name:customer.name)
@@ -87,6 +81,11 @@
 	# translates to: 
 	# This instance of IcIntegrator.order_map is OrderMap where the cust_id is the cust_id passed in and where first api_name (the first one in the sentence above) is the api_name after the api_name after the comma but only if api_name is true (or exists). This prevents us from using one that is nil. 
 
+# ############################################
+# ######### Right here Right now #############
+#        Go through IC Todos  !
+# ############################################
+
 #------------Regex----------Kenny Trionfo---3/12/2015--------
 	# http://regex.learncodethehardway.org/book/ex0.html
 	# Sensei used this: 
@@ -94,23 +93,29 @@
 	# to find an order number in and order file by putting this in the search 
 	# http://regexcrossword.com/	
 
+	# Chris's regex example: I was using the regex search feature on sublime and I used an expression that I think does a pretty good job showcasing some things that I remember you guys having some difficult with, so I figured I'd take some time and break it down for you in the hopes that it will help you guys out.  Here's the expression that I used: 
+	# ('|")-table\1[ \t]*=>[ \t]*('|")_settings\2 
+	# I'll just break this down in terms of what I'm trying to match character by character.  So the first thing that I want to see is the start of a string. Because it will either start with a single- or double-quote, that's the first thing that I want to match. I accomplish this with the character group 
+	# ('|"). This will match either a single-quote or a double-quote. 
+	# I want the content of this string to be -table, so that's what I have next. After that, the character to close the string needs to exactly match the character that started it. In other words, if it started with a single-quote, it needs to end with a single-quote. This is accomplished in regular expressions using back references which match whatever is matched in the corresponding number's group (whatever is in parentheses). In this case, because it's \1 it will match whatever was matched in the first left parenthesis (\2 will match the second, \3 the third, etc.), so it does its job matching the character that closes the string. 
+	# The next thing I'm looking for is any amount of white space, other than new lines. I do this using a character class that I defined as [ \t] (there is a space before the \t in case you can't see it), and the * after that class indicates that there can be any number of them (including none). This is followed by => (because I'm looking for a value being set in an array) and again by [ \t]*. I'm then looking for another string that contains _settings, so I have a similar set-up to the beginning of this expression but I'm using \2 instead of \1 because I'm looking to match the second group rather than the first.  In this case it matched the following strings:  '-table'=>'_settings' '-table'=>"_settings"  These examples also would have matched if any of them were extant:  "-table"    => '_settings' "-table" =>    "_settings" "-table"                =>                                                                                    '_settings'  These would not match (and would cause problems in PHP anyway):  '-table" => "_settings" "-table' => '_settings"  One other thing about back references and groups is that you can have groups inside of groups, and you can use back references to reference these groups.  For example take the expression ([a-z]([a-z]))\1\2  This will always match a string that is exactly five characters long. The first and second characters will be any alphabet character followed by any single digit, but the next three are a little bit more complicated. As I said before back references work off of left parentheses (or opening parentheses), so \1 will match whatever is between the first left parenthesis and the matching parenthesis that closes it. In this case it's the entire ([a-z]([0-9])), so \1 will exactly match the first two characters meaning that the third character will be the same as the first, and the fourth will be the same as the second. Logically, this would mean that \2 would match whatever is between the second left parenthesis and its closing counterpart, which would be whatever is matched by in the highlighted portion here: ([a-z]([0-9])). This means that the fifth character will be the same as the second (and, incidentally, the fourth, but it's more important that it matches the second).  Here are a few examples of what would match:  a1a11 b2b22 a2a22 z8z88 x5x55  Historically, I feel that I haven't been very good at explaining things like this, so I tried to make it as comprehensive and unambiguous as I could. If anything is confusing or contradictory, or if you have any other questions about this or regular expressions in general, let me know and I'll try to clear it up or answer your questions.
+
 #----------HTTP Requests & Stuff------------Kenny Trionfo---3/25/2015--------
-# HTTP: 
-# - Is an application-level protocol for distributed, collaborative, hypermedia information systems.
-# - Is a TCP/IP based communication protocol, that is used to deliver data (HTML files, image files, query results, etc.) on the World Wide Web. The default port is TCP 80, but other ports can be used as well.
+	# HTTP: 
+	# - Is an application-level protocol for distributed, collaborative, hypermedia information systems.
+	# - Is a TCP/IP based communication protocol, that is used to deliver data (HTML files, image files, query results, etc.) on the World Wide Web. The default port is TCP 80, but other ports can be used as well.
 
-# There are three basic features that make HTTP a simple but powerful protocol:
-# 1. HTTP is connectionless: The HTTP client, i.e., a browser initiates an HTTP request and after a request is made, the client disconnects from the server and waits for a response. The server processes the request and re-establishes the connection with the client to send a response back.
-# 2. HTTP is media independent: It means, any type of data can be sent by HTTP as long as both the client and the server know how to handle the data content. It is required for the client as well as the server to specify the content type using appropriate MIME-type.
-# 3. HTTP is stateless: As mentioned above, HTTP is connectionless and it is a direct result of HTTP being a stateless protocol. The server and client are aware of each other only during a current request. Afterwards, both of them forget about each other. Due to this nature of the protocol, neither the client nor the browser can retain information between different requests across the web pages.
+	# There are three basic features that make HTTP a simple but powerful protocol:
+	# 1. HTTP is connectionless: The HTTP client, i.e., a browser initiates an HTTP request and after a request is made, the client disconnects from the server and waits for a response. The server processes the request and re-establishes the connection with the client to send a response back.
+	# 2. HTTP is media independent: It means, any type of data can be sent by HTTP as long as both the client and the server know how to handle the data content. It is required for the client as well as the server to specify the content type using appropriate MIME-type.
+	# 3. HTTP is stateless: As mentioned above, HTTP is connectionless and it is a direct result of HTTP being a stateless protocol. The server and client are aware of each other only during a current request. Afterwards, both of them forget about each other. Due to this nature of the protocol, neither the client nor the browser can retain information between different requests across the web pages.
 
-# An HTTP client sends an HTTP request to a server in the form of a request message which includes following format:
-# 1. A Request-line
-# 2. Zero or more header (General|Request|Entity) fields followed by CRLF
-# 3. An empty line (i.e., a line with nothing preceding the CRLF) 
-# indicating the end of the header fields 
-# 4. Optionally a message-body  
-
+	# An HTTP client sends an HTTP request to a server in the form of a request message which includes following format:
+	# 1. A Request-line
+	# 2. Zero or more header (General|Request|Entity) fields followed by CRLF
+	# 3. An empty line (i.e., a line with nothing preceding the CRLF) 
+	# indicating the end of the header fields 
+	# 4. Optionally a message-body  
 
 #------------APIs----------Kenny Trionfo---3/25/2015--------
 	# APIs: 
@@ -118,32 +123,17 @@
 	# - that are on the Web, make it possible for big services like Google Maps or Facebook to let other apps "piggyback" on their offerings.
 	# - simplify things by limiting outside program access to a specific set of features—often enough, requests for data of one sort or another.
 	# - clearly define exactly how a program will interact with the rest of the software world.
-	# - 
+	#
 
-	
-# 	RestClient
-# http://www.theodinproject.com/ruby-on-rails/let-s-get-building      
+	# listen to Jeff's explanation on apis on my phone
+
+#----------RestClient------------Kenny Trionfo---4/30/2015--------
+# it's a ruby gem that helps you make http requests. 
 # http://www.theodinproject.com/ruby-on-rails/let-s-get-building      
 
+# require 'rest_client'
 # var = RestClient.get 'http://example.com/resource'
 # puts var
-require 'pp'
-require 'rest_client'
-pitayaplus_shop_details_json_object = RestClient.get 'https://907103ce85446d8eaff1b41cfe73b7b9:663fc050410d0863d6a9f8d9092b858d@pitayaplus.myshopify.com/admin/shop.json?shop'.gsub(/ /,"%20")
-
-puts pitayaplus_shop_details_json_object   
-
-pitayaplus_shop_timezone_string = JSON.parse(pitayaplus_shop_details_json_object)["shop"]["timezone"]
-
-puts pitayaplus_shop_timezone_string
-
-# res = RestClient.get "#{url_base}/orders.json?status=open&fulfillment_status=unshipped&updated_at_min=#{api_detail[:last_import]}".gsub(/ /,"%20")
-
-# updated_at_min= api_detail[:last_import] - 1hr if customer_timezone = "(GMT-08:00) Pacific Time (US & Canada)", api_detail[:last_import]
-
-# puts api_detail_last_import
-
-# add logic in the api call (during the import) to adjust the last import time appropriate for the difference between their time zone and our time zone
 
 #------------JSON----------Kenny Trionfo---3/20/2015--------
 	# http://www.copterlabs.com/blog/json-what-it-is-how-it-works-how-to-use-it/
@@ -151,21 +141,9 @@ puts pitayaplus_shop_timezone_string
 	
 # Study YAML stuff  
 	# http://learnxinyminutes.com/docs/yaml/
-
-
-#------------Rails Console----------Kenny Trionfo---3/16/2015--------
-	# to change console logging: 
-	# ActiveRecord::Base.logger.level = 1
-	# And to turn it back on?: 
-	# ActiveRecord::Base.logger.level = 0
-	# Does this only last for one session of the console? ?
-
-	# To find and error in rails console: 
-	# tmp = ImportError.find 1237
-	# YAmL::load(temp.message) to read message. (why yaml)
-
+ 
 #------------ Naviagting arrays and hashes using .select & .first ----------Kenny Trionfo---2/13/2015--------
-	# Use .select to find and puts the value of all of the hashes in the array below  that have a key of :age. 
+	# Use .select to find and puts the value of all of the hashes in the array below that have a key of :age. 
 	# Now find all of the hashes in the array where the key is :age and the value is 442. 
 	# Now find the first hash that has a key of :age and a value of 442. 
 	# Now return the value of the :color key of the first hash that has a key of :age and a value of 442. 
@@ -181,7 +159,7 @@ puts pitayaplus_shop_timezone_string
 	#     },
 	#     [1] {
 	#         :last_name => "sily",
-	#               :age => 442,sour
+	#               :age => 442,
 	#             :color => "grennkish"
 	#     },
 	#     [2] {
@@ -190,6 +168,7 @@ puts pitayaplus_shop_timezone_string
 	#            :size => "tiny"
 	#     }
 	# ]
+
 
 	#Answer: 
 
@@ -951,7 +930,7 @@ puts pitayaplus_shop_timezone_string
 	# double(12) { |n| n * 2 }
 
 # -------- turn if/else statements into ternury statements ---------------
-
+ 
 # ----------- if and unless statments ---------------
 	# Create a create a  one line if statement and a one line unless statement: 
 	# Answer: 
@@ -1119,12 +1098,12 @@ puts pitayaplus_shop_timezone_string
 	# end
 
 #------------required and optional parameters and methods
-	#this syntax does the same as...
+	#this syntax... 
 	# def lunch (food, drink:"dew")
 	#   puts "For lunch I'm eating #{food} drinking #{drink}"
 	# end
-	# lunch ("pizza", drink=>"coke")
-	# #this syntax:
+	# lunch "pizza", drink:"OJ"
+	# #does the same as this syntax:
 	# def lunch food, drink:"dew"
 	#   puts "For lunch I'm eating #{food} drinking #{drink}"
 	# end

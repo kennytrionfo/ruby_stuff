@@ -64,35 +64,22 @@
 		# print "The Fahrenheit equivalent is ", (gets.to_i * 9 / 5 + 32), ".\n"
 
 
-
+# Rubies console drills for data types with: 
+	# gem install rubies
+	# in the console then
+	# rubies
+	# in the console
+ 
+# https://www.bloc.io/ruby-warrior
 
 # ================================================
 #   ==========     NEW DRILLS     ============
 # ================================================
-# Rubies console drills with: 
-# gem install rubies
-# in the console then
-# rubies
-# in the console
-
-# https://www.bloc.io/ruby-warrior
 
 # Some git practice
 
 # Do a training on using github to do with the crew
 
 #------------PUlling orders from shopify using RestClient HTTP REST API----------Kenny Trionfo---4/2/2015--------
-	# This is the code in shopify gem: 
-	# res = RestClient.get "#{url_base}/orders.json?status=open&fulfillment_status=unshipped&updated_at_min=#{api_detail[:last_import]}".gsub(/ /,"%20")
-	# this needs to be updated to account for timezone issues. 
-	# Try and get the timezone from Pitayapluses shopify account: 
-	# - start by testing in postman to get the timezone (see https://docs.shopify.com/api/shop)
-	# - then look at how I am calling the api in the shopify integrator and do a similar call, except to the shop endpoint to get the time zone
-	# - store the time zone as an api detail
-	# - add logic in the api call (during the import) to adjust the last import time appropriate for the difference between their time zone and our time zone
-	# Here's my code for testing in ruby_drills: 
-	# require 'rest_client'
-	# var = RestClient.get 'https://907103ce85446d8eaff1b41cfe73b7b9:663fc050410d0863d6a9f8d9092b858d@pitayaplus.myshopify.com/admin/shop.json?shop'
-	# timezone = JSON.parse(var)["shop"]["timezone"]
-	# puts timezone
+
 

@@ -47,8 +47,7 @@ IntegrationTables::CustomerOrder
 		# fatal: ambiguous argument 'production': unknown revision or path not in the working tree.
 		# Use '--' to separate paths from revisions, like this:
 		# 'git <command> [<revision>...] -- [<file>...]'
-		# Git error: command `git rev-parse production` in directory /home/vagrant/.bundler/cache/git/ic_integrator-a458a388e588bc0fdb2f1715a2b7c71c01cd550f has failed.
-
+		# Git error: command `git rev-parse production` in directory /home/vagrant/.bundler/cache/git/ic_integrator-a458a388e588bc0fdb2f1715a2b7c71c01cd550f has failecenter	
 
 put in this in console: 
 vagrant@ic-dev-box:~/projects/kennysandbox/ruby_stuff$ ruby ruby_drills.rb
@@ -157,8 +156,18 @@ ActiveRecord::StatementInvalid: SQLite3::SQLException: cannot rollback - no tran
 
 	# Meaning:
 
+#------------unexpected tSTRING_BEG----------Kenny Trionfo---4/22/2015--------
+When in rails console and running this: 
+2.1.1 :001 > bp = BrushpearlIntegrator.new
 
+ON this code: 
+self.customer = Customer.where(cust_id: cust_id).first || raise "No customer entry, please add a customer for this integration"
 
+Get this error: 
+SyntaxError: /home/vagrant/projects/center_canyon_3/app/models/ic_integrator.rb:12: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...t_id: cust_id).first || raise "No customer entry, please add...
+
+Means: 
 
 
 
