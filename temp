@@ -1,0 +1,12 @@
+This is cool. 
+This should be first. 
+where does this end up?
+#------------ echo cat touch ----------Kenny Trionfo---1/13/2015--------
+	# 1-cd to home drive in one command
+	# 2-cd to gemsets in .rvm
+	# 3-show the results in the gemset file
+	# 4-get back to the home drive
+	# 5-show the results of the file above without cd ing to it. 
+	# 6-create a new file on some safe directory and put something into it, replace it, add to it and show it. 
+	# 7-delete the temp file. 
+	# Answer: what does this do?

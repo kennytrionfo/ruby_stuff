@@ -4,6 +4,19 @@ IntegrationTables::CustomerOrder
 *** NameError Exception: uninitialized constant IntegrationTables::CustomerOrder
 
 
+########################################################################
+#------------IRB----------Kenny Trionfo---2/19/2015--------
+########################################################################
+
+# Code: 
+# vagrant@ic-dev-box:~/projects/kennysandbox/ruby_stuff$ ros = RecursiveOpenStruct.new( {names: {first_name: "Bily", age: 342, color: "Pinkish"}})
+
+# Error:
+# -bash: syntax error near unexpected token `('
+
+# Meaning:
+
+
 
 
 

@@ -81,10 +81,18 @@
 	# translates to: 
 	# This instance of IcIntegrator.order_map is OrderMap where the cust_id is the cust_id passed in and where first api_name (the first one in the sentence above) is the api_name after the api_name after the comma but only if api_name is true (or exists). This prevents us from using one that is nil. 
 
-# ############################################
-# ######### Right here Right now #############
-#        Go through IC Todos  !
-# ############################################
+#------------Raise for debugging and throwing errors----------Kenny Trionfo---5/6/2015--------
+	# Use raise to debug a method or through and error.
+	# Answer:
+
+	# def raise_test(random)
+	# 	raise "The random parameter you passed in is less than 5." if random < 5
+	# 	puts "The number #{random} is greater than 4"
+	# end
+	# raise_test 4
+
+#------------P and .inspect----------Kenny Trionfo---5/5/2015--------
+	# p foo does puts foo.inspect, i.e. it prints the value of inspect instead of to_s, which is more suitable for debugging (because you can e.g. tell the difference between 1, "1" and "2\b1", which you can't when printing without inspect).
 
 #------------Regex----------Kenny Trionfo---3/12/2015--------
 	# http://regex.learncodethehardway.org/book/ex0.html
@@ -123,33 +131,89 @@
 	# - that are on the Web, make it possible for big services like Google Maps or Facebook to let other apps "piggyback" on their offerings.
 	# - simplify things by limiting outside program access to a specific set of features—often enough, requests for data of one sort or another.
 	# - clearly define exactly how a program will interact with the rest of the software world.
-	#
-
-	# listen to Jeff's explanation on apis on my phone
+	# listen to Jeff's explanation on apis on my phone. 
 
 #----------RestClient------------Kenny Trionfo---4/30/2015--------
-# it's a ruby gem that helps you make http requests. 
-# http://www.theodinproject.com/ruby-on-rails/let-s-get-building      
+	# it's a ruby gem that helps you make http requests. 
+	# http://www.theodinproject.com/ruby-on-rails/let-s-get-building      
 
-# require 'rest_client'
-# var = RestClient.get 'http://example.com/resource'
-# puts var
+	# require 'rest_client'
+	# var = RestClient.get 'http://example.com/resource'
+	# puts var
 
 #------------JSON----------Kenny Trionfo---3/20/2015--------
 	# http://www.copterlabs.com/blog/json-what-it-is-how-it-works-how-to-use-it/
 	# Parse the following: 
-	
-# Study YAML stuff  
+
+#------------YAML----------Kenny Trionfo---5/4/2015--------
+	# Yaml is a string version of any ruby object
+	# Study YAML stuff  
 	# http://learnxinyminutes.com/docs/yaml/
- 
-#------------ Naviagting arrays and hashes using .select & .first ----------Kenny Trionfo---2/13/2015--------
+
+#------------STDOUT: Standard Output Definition?----------Kenny Trionfo---5/5/2015--------
+
+#------------Relative vs Absolute links----------Kenny Trionfo---5/5/2015--------
+	# relative & absolute links:  
+	#  http://www.coffeecup.com/help/articles/absolute-vs-relative-pathslinks/
+
+#------------defined?----------Kenny Trionfo---4/30/2015--------
+	# aaa = "I'm defined now."
+	# if defined?(aaa) # returns "expression" string, and thus true
+	#   puts aaa # the error comes from this part, since aaa is not defined.
+	# else
+	# 	puts "aaa is not defined"
+	# end
+
+# ############################################
+# ############################################
+# ######### Right here Right now #############
+# ############################################
+# ############################################
+
+#------------each_with_index----------Kenny Trionfo---5/19/2015--------
+	# Calls block with two arguments, the item and its index, for each item in enum. Given arguments are passed through to #each(). If no block is given, an enumerator is returned instead.
+	# Basically whatever group of objects you call this on, it will assign an index to them in a hash. 
+	# -Create a new hash 
+	# -Call .each_with_index on an actual array object (not a variable) and pass in a block that iterates through an item and an index and for each item in the hash assigns it an index. 
+	# Answer: 
+
+	# hash = Hash.new
+	# %w(cat dog wombat).each_with_index {|item, index|
+	# hash[item] = index
+	# }
+	# hash   #=> {"cat"=>0, "dog"=>1, "wombat"=>2}
+
+#------------%w----------Kenny Trionfo---5/19/2015--------
+	# Turns whatever you pass into it into an array of symbols like: 
+	# 2.1.1 :001 > %w(cat dog pig)
+	#  => ["cat", "dog", "pig"]
+
+#------------.all?----------Kenny Trionfo---5/5/2015--------
+	# .all? 
+	# Passes each element of the collection to the given block. The method returns true if the block never returns false or nil. 
+	# Write a method that uses .all to iterate through an array of words to check if ALL of the items are at least a certain length or not. 
+	# Answer: 
+
+	# def all_test
+	# 	a = ["one", "two", "boyzz", "girl"] 
+	# 	 if a.all? {|x| x.length <= 4}
+	# 	 	puts "a is all 4s or less"
+	# 	 else
+	# 	 	puts "not all in a are 4 or less"
+	# 	 end	
+	# end
+	# all_test
+
+	# http://ruby-doc.org/core-2.1.3/Enumerable.html
+
+#------------ Navigting arrays and hashes using .select & .first ----------Kenny Trionfo---2/13/2015--------
 	# Use .select to find and puts the value of all of the hashes in the array below that have a key of :age. 
 	# Now find all of the hashes in the array where the key is :age and the value is 442. 
 	# Now find the first hash that has a key of :age and a value of 442. 
 	# Now return the value of the :color key of the first hash that has a key of :age and a value of 442. 
-
+ 
 	# a = [{:first_name=>"Bily", :age=>342, :color=>"Pinkish"}, {:last_name=>"sily", :age=>442, :color=>"grennkish"}, {:no_name=>"nothing", :age=>442, :size=>"tiny"}]
-
+ 
 	# In awesome print
 	# [
 	#     [0] {
@@ -169,7 +233,6 @@
 	#     }
 	# ]
 
-
 	#Answer: 
 
 	# puts a.select{|x| x[:age]}
@@ -185,13 +248,34 @@
 	#ref: http://watirmelon.com/2011/01/17/easily-manage-your-rubies-with-rvm-bundler-and-pik/
 
 #------------splats in params----------Kenny Trionfo---3/5/2015--------
-	# def dog_sound(bark = "ruff", **attrs)
+	# Create a method that has a parameter with a double splat and try running the method and passing in a key value pair and they run it passing in multiple params. 
+
+	# Answer 
+
+	# def dog_sound(bark = "ruff", *attrs) #Single spat will let you pass in either a key value pair or multiple params. The k/v pair will be output as a hash. 
 	# 	puts  bark,  attrs
 	# end
-	# dog_sound(bark: "ruff ruff", tail_wagging: "yes")
-	# and try: 
-	# dog_sound("ruff ruff", tail_wagging: "yes")
+	# dog_sound("ruff ruff", tail_wagging: "yes") #Or this works:
+	# dog_sound("ruff ruff", "bark", "growl", "meow") #But this doesn't work: 
 
+	#But if you use the double spat:
+	# def dog_sound(bark = "ruff", **attrs)
+		# puts bark, attrs 
+	# end
+	#You can only pass in k/v pairs, not multiple params so this should work: 
+	# dog_sound(bark = "ruff ruff", tail_wagging: "yes") #But this shouldn't: 
+	# dog_sound(bark = "ruff ruff", "meow", "hi", "bark") #You'll get wrong number of arguments. 
+
+	# dog_sound #This works cuz the parameter bark = "ruff" is the default and will be passed in if nothing else is passed in. 
+
+	# dog_sound(bark: "ruff ruff") #doesn't work because it needs to be in the argument needs to be in the same format as the parameter like: bark = "ruff ruff".
+	
+	# dog_sound(bark = "ruff ruff") #This will work cuz it matches the syntax of the param: 
+
+	# dog_sound(bark = "ruff ruff", "yes")
+	 
+	#This also works: 
+	# dog_sound("ruff ruff", tail_wagging: "yes")
 
 #------------ refactor excercise ----------Kenny Trionfo---1/19/2015--------
 	# refactor the first into something like the second.
@@ -219,16 +303,12 @@
 	# rake about  to examine your rails installation
 
 #------------ terminal, console, shell, command line, bash stuff----------Kenny Trionfo---1/14/2015--------
-	# sudo -s to get into root
+	# sudo -s to get into root # I understand how this: / shows your root and this: cd / takes you to ur root but not what sudo -s does??
 	# man bash for a bash manual
-	# find . | grep -i rake to find all the instances of the word rake. The "." is the current directory, | 'pipe' passes the thing before it into the thing after it. grep = search, -i = case insensitive, rake is the word your searching for. 
-	# sqlite3 db/development.sqlite3   or sqlite3   from inside the app you want to see the db of = open the sqlite db from the console. get you inside the db? 	
+	# sqlite3 db/development.sqlite3  or sqlite3   from inside the app you want to see the db of to see what version ur using and to enter the sqlite db? get you inside the db? 	
 
 	# ls -p to mark directories with a / 
-	# What is this? 
-	# $ ls /bin 
-	# ls is a program
-	# /bin is an absolute path that is used as an argument to the ls program in this example
+	# $ ls /bin  - ls just lists what's in bin and bin is just a standard subdirectory of the root directory in Unix-like operating systems that contains the executable (i.e., ready to run) programs that must be available in order to attain minimal functionality for the purposes of booting (i.e., starting) and repairing a system.
 
 	# Explain what the following command prints to the shell: 
 	# $ echo $HOME
@@ -255,7 +335,7 @@
 	# Answer: 
 
 	# The path. (not right.?.?  should this be root? ask sensei)
-
+ 
 	# What file is ls program file defined in? 
 	# Answer: 
 
@@ -288,6 +368,7 @@
 	# http://en.wikipedia.org/wiki/Environment_variable
 
 #------------ vi ----------Kenny Trionfo---1/13/2015--------
+	# not going to use right now. too much time to learn for low amount of time using it. 
 	# 1-Open a file with it. 
 	# 2-add to the file? 
 	# 3-close the file? 
@@ -319,7 +400,7 @@
 	# bundler
 	# rake
 	# rvm
-	# vagrant@ic-dev-box:~/.rvm/gemsets$ man cat
+	# vagrant@ic-dev-box:~/.rvm/gemsets$ man cat  # for the manual for cat
 	# vagrant@ic-dev-box:~/.rvm/gemsets$ cd ~
 	# vagrant@ic-dev-box:~$ ls
 	# delete_me  projects  spring_tmp  team_city
@@ -389,7 +470,7 @@
 
 #------------ about echo ----------Kenny Trionfo---1/2/2015--------
 	#answer: 
-	# http://www.linfo.org/echo.html 
+	# http://www.linfo.org/echo.html
 
 #------------ man & -h ----------Kenny Trionfo---12/31/2014--------
 	# man = manual 
@@ -419,6 +500,29 @@
 	# end
 	# person_sound(yell="hey there big boy")
 
+#------------Recursive Openstruct----------Kenny Trionfo---5/5/2015--------
+	# RecursiveOpenStruct 
+	#  let's you access a k/v pair in a hash that doesn't normally take a method with a method. 
+	# It is a subclass that returns nested hash attributes as RecursiveOpenStructs.
+	# It allows for hashes within hashes to be called in a chain of methods:
+
+
+	# Require the RecursiveOpenStruct gem 
+	# Create a method that creates a variable that passes a hash with a hash in it into a new RecursiveOpenStruct object/var and then puts one of the items in the nested hash by method chaining the hashes onto the object/var.
+	# Call the method.
+	# Answer: 
+
+		# require 'recursive-open-struct'
+		# def ros
+		# 	var = RecursiveOpenStruct.new( { :names => {first_name: "Bily", age: 342, color: "Pinkish"} } )
+		# 	puts var.names.age
+		# end
+		# ros
+
+#------------Ruby is a dynamic language----------Kenny Trionfo---5/5/2015--------
+	# Ruby is dynamic language w/ no compiler. (but a interpreter)
+	#  as Ruby is a dynamic language, unit testing is even more important. In static languages the compiler will find many errors. With dynamically typed languages such as Ruby there is no compiler around to check the code
+
 #------------ rm -rfv ./RubyMine* ----------Kenny Trionfo---12/31/2014--------
 	# rm = remove 
 	# -rfv = recursive force verbose 
@@ -430,16 +534,16 @@
 	# Source code is often packed for download as a TAR (Tape ARchive) file, that is a standard format in the unix/Linux world. These files have a .tar extension; they can also be compressed, the extension is .tar.gz or .tar.bz2
 
 #----X------------ Create a Module as Namespace -------------Kenny Trionfo---12/16/2014--------
-	# 1 Create and initialize a class Ruler that has a method in it that creates a new 12 inch ruler. 
+	# 1 Create a class Ruler that has a method in it that creates a new 12 inch ruler. 
 	# 2 Create a module called PeopleRuler that has a same-named class Ruler in it with a method that's also the same name as the method of the previous class but that puts something about a ruler over the people. 
-	# 3 call each of the methods from the classes. be sure to namespace the one. 
+	# 3 Create a new instance of each of the classes and call each of the methods from the classes. be sure to namespace the one. 
 	# 4 create a new object and call each method from the two classes on them. 
 
-	# Answer: 
 
+	# Answer: 
 	# class Ruler
 	# 	def initialize
-	# end
+	#   end
 
 	# 	def new_ruler
 	# 		puts "I'm a new 12 inch ruler"
@@ -447,10 +551,7 @@
 	# end
 
 	# module PeopleRuler
-	# 	class Ruler
-	# 		def initialize
-	# 		end
-		
+	# 	class Ruler		
 	# 		def new_ruler
 	# 			puts "I'm your new boss. Ruler K-dog"
 	# 		end
@@ -467,6 +568,7 @@
 	# The =~ operator returns the position of the first match, if any, declaring that its true. 
 	# =~: Matches a supplied regular expression against the string. The position of the first match is returned, otherwise nil. This technique is commonly used as a comparison expression to see if a string matches a regular expression.
 	# Write a one line "do this if that" expression that checks some string to see if it has any vowels.
+
 	# Answer: 
 	# puts "This string has vowels" if "This is a test" =~ /[aeiou]/
 
@@ -686,7 +788,7 @@
 	
 	# Learn more about <tt>redirect_to</tt> and what options you have in ActionController::Redirecting.
 
-#------------ Calling multiipole redirects or renders ----------Kenny Trionfo---12/26/2014------
+#------------ Calling multipole redirects or renders ----------Kenny Trionfo---12/26/2014------
 	# An action may contain only a single render or a single redirect. Attempting to try to do either again will result in a DoubleRenderError:
 	#
 	#   def do_something
@@ -719,12 +821,15 @@
 	# b.is_a? C          #=> false
 	# b.is_a? M          #=> true
 
+	# Also kind_of? and is_a? are synonymous. instance_of? is different from the other two in that it only returns true if the object is an instance of that exact class, not a subclass.
+	
 	# b.kind_of? A       #=> true
 	# b.kind_of? B       #=> true
 	# b.kind_of? C       #=> false
 	# b.kind_of? M       #=> true
 
-	# Also kind_of? and is_a? are synonymous. instance_of? is different from the other two in that it only returns true if the object is an instance of that exact class, not a subclass.
+	# b.instance_of? A   #=> true
+	# b.instance_of? M   #=> false
 
 	# Example: 5.is_a? Integer and 5.kind_of? Integer return true because 5 is a Fixnum and Fixnum is a subclass of Integer. However 5.instance_of? Integer returns false.
 
@@ -783,9 +888,8 @@
 	# # Hello from an instance of the class Square.
 
 #---------------- |k,v| combo in a loop  -------------Kenny Trionfo---12/5/2014--------
-	# 1 create a method that:
-	# -creates a hash and assign it to an instance var
-	# -loops through each item in the hash and puts the value of each hash
+	# 1 create a method that creates a hash and assign it to an instance var
+	# -loops through each item in the hash and puts the value of each key/value pair.
 	# 3 call the method
 	# Answer: 
 
@@ -838,20 +942,6 @@
 	# 	puts x.values 
 	# end
 
-# ------------------- if ternury? maybe just if ---------------
-	# can't find the syntax on this one, ask Sensei
-	# Use the if method to call something? 
-	# second_item = true 
-	# third_item = "Third item here" 
-	# first_item = "I'm the first item"
-	# "If the second_item is true(exists), then set the first_item to the third_item"
-		# Answer: 
-
-	# def if_thing
-	# 	({first_item=? if second_item}, third_item)
-	# 	p first_item
-	# end
-
 #------------ Interpreter ----------Kenny Trionfo---12/31/2014--------
 	# A program that executes instructions written in a high-level language. There are two ways to run programs written in a high-level language. The most common is to compile the program; the other method is to pass the program through an interpreter.
 	# An interpreter translates high-level instructions into an intermediate form, which it then executes. In contrast, a compiler translates high-level instructions directly into machine language. Compiled programs generally run faster than interpreted programs. The advantage of an interpreter, however, is that it does not need to go through the compilation stage during which machine instructions are generated. 
@@ -873,11 +963,6 @@
 	# Asnswer: 
 
 	# Matz's Ruby Interpreter is the reference implementation of the Ruby programming language named after Ruby creator Yukihiro Matsumoto ("Matz").
-
-# --X----------Ruby's methods will return what? -------------------
-		# Ansser: 
-
-		# the result of the last evaluated expression.
  
 # --X-------------------.respond_to?------------------
 	#  Remember when we mentioned that symbols are awesome for referencing method names? Well, .respond_to? takes a symbol and returns true if an object can receive that method and false otherwise. For example,
@@ -1442,6 +1527,20 @@
 
 	# Ref: http://rubylearning.com/satishtalim/ruby_exceptions.html
 
+#------------REST & Restful Actions----------Kenny Trionfo---5/5/2015--------
+	# RESTful
+	#  Representational State Transfer (REST) for web services
+	# http://rest.elkstein.org/
+
+#------------Encapsulation----------Kenny Trionfo---5/5/2015--------
+	# Encapsulation----------Kenny
+	#  Encapsulation
+	# Encapsulation is the ability for an object to have certain methods and attributes available for use publicly (from any section of code), but for others to be visible only within the class itself or by other objects of the same class.
+
+#------------Validation----------Kenny Trionfo---5/5/2015--------
+	# review Validations & look up business validations for center Canyon app
+	#  http://guides.rubyonrails.org/active_record_validations.html
+
 #---------------- SUPER TO OVERLOAD METHODS -------------Kenny Trionfo---11/21/2014--------
 	# 1. Create a Class with a method in it that puts something.
 	# 2. Create a 2nd Class that inherits from the first with a method in it that has the same name as the method in the first class and both prints something different than the previous method and calls super.
@@ -1512,6 +1611,44 @@
 	# 	puts URI.split(address)
 	# end
 	# uri_tester
+
+	# URI Stuff
+	#  a string of characters used to identify a name of a resource. Such identification enables interaction with representations of the resource over a network, typically the World Wide Web, using specific protocols. 
+
+	# Schemes specifying a concrete syntax and associated protocols define each URI. The most common form of URI is the uniform resource locator (URL), frequently referred to informally as a web address. 
+
+	# More rarely seen in usage is the uniform resource name (URN), which was designed to complement URLs by providing a mechanism for the identification of resources in particular namespaces.
+
+	# URI: 
+	# Uniform resource identifier 
+	# -doesn't give specific protocol
+	# -doesn't give specific path
+	# -more general
+	# ex: just a name. ie Tim Warner
+
+	# URN: 
+	# Uniform resource Name
+	# ex: a name with a global unique identifier like ssn 
+
+	# URL:
+	# Uniform resource locator
+	# -Typical web address
+	# -The headers can be:
+	# http://
+	# ftp://
+	# file://
+	# ex: then add to the name and ssn a geospacial coordinator that gives the specific address.
+
+
+	# All URLs are (or are derived from) URIs, but not all URI's are derived from URLs.
+
+	# More on the relationship between URIs, URLs, and URNs
+	# http://en.wikipedia.org/wiki/Uniform_resource_identifier
+
+	# http://danielmiessler.com/study/url_vs_uri/
+
+	# Vid: 
+	# https://www.youtube.com/watch?v=if0pzXWZOfY
 
 #------------- Super -------------------
 	# Create a Class with a method in it that puts something.

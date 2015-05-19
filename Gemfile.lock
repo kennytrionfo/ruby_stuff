@@ -1,0 +1,10 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    recursive-open-struct (0.6.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  recursive-open-struct
