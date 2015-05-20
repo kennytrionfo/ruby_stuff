@@ -164,11 +164,13 @@
 	# 	puts "aaa is not defined"
 	# end
 
+
 # ############################################
 # ############################################
 # ######### Right here Right now #############
 # ############################################
 # ############################################
+
 
 #------------each_with_index----------Kenny Trionfo---5/19/2015--------
 	# Calls block with two arguments, the item and its index, for each item in enum. Given arguments are passed through to #each(). If no block is given, an enumerator is returned instead.
