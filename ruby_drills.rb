@@ -171,12 +171,14 @@
 # ############################################
 # ############################################
 
+# using ||= in ruby - what is this? how used?  
 
 #------------each_with_index----------Kenny Trionfo---5/19/2015--------
-	# Calls block with two arguments, the item and its index, for each item in enum. Given arguments are passed through to #each(). If no block is given, an enumerator is returned instead.
+	# Calls block with two arguments, the item and its index, for each item in enum. Given arguments are passed through to each(). If no block is given, an enumerator is returned instead.
 	# Basically whatever group of objects you call this on, it will assign an index to them in a hash. 
-	# -Create a new hash 
-	# -Call .each_with_index on an actual array object (not a variable) and pass in a block that iterates through an item and an index and for each item in the hash assigns it an index. 
+	# Or ur just taking each item in an array object and putting them into a hash and assigning their array index value as the has key/value value. 
+	# -Create a new empty hash 
+	# -Call .each_with_index on an actual array object (not a variable) and pass in a block that iterates through an item and an index and for each item in the array assigns it an index. 
 	# Answer: 
 
 	# hash = Hash.new
@@ -212,8 +214,7 @@
 	# Use .select to find and puts the value of all of the hashes in the array below that have a key of :age. 
 	# Now find all of the hashes in the array where the key is :age and the value is 442. 
 	# Now find the first hash that has a key of :age and a value of 442. 
-	# Now return the value of the :color key of the first hash that has a key of :age and a value of 442. 
- 
+	# Now return the value of the :color key of the first hash that has a key of :age and a value of 442.kentrionfo@gmail.com
 	# a = [{:first_name=>"Bily", :age=>342, :color=>"Pinkish"}, {:last_name=>"sily", :age=>442, :color=>"grennkish"}, {:no_name=>"nothing", :age=>442, :size=>"tiny"}]
  
 	# In awesome print
@@ -1514,6 +1515,7 @@
 	# 	  puts 'I am after the raise'  
 	# end  
 	# raise_exception  
+
 	#Another example: 
 	# def raise_and_rescue  
 	#   begin  
@@ -1526,8 +1528,71 @@
 	#   puts 'I am after the begin block.'  
 	# end  
 	# raise_and_rescue   
+	
+	# Another example: 
+	# def raise_test
+	# 	begin
+			
+	# 	   if number < 5
+	# 	      puts "number is less than 5"
+	# 	   end
+	# 	rescue
+	# 	      p "soemthing was wrong with number"
+	# 	end
+	# 	p "this is after the begin,rescue,end"
+	# end
+	# raise_test
 
-	# Ref: http://rubylearning.com/satishtalim/ruby_exceptions.html
+	# Another example: 
+	# def another_test
+	# 	begin
+	# 	if x > 2
+	# 		puts "big number"
+	# 	else
+	# 		p "little number"
+	# 	end
+	# 	rescue
+	# 		p "problem calculating number"
+	# 	end
+	# 	p "Thaks for playing"
+	# end
+	# another_test
+
+	# def last_example
+	# 	if x > 2
+	# 		puts "big number"
+	# 	else
+	# 		p "little number"
+	# 	end
+	# rescue 
+	# 	puts "if else is bad"
+	# end
+	# last_example
+
+	# def bad_numbers
+	# 	a = 10
+	# 	b = "42"
+
+	# 	begin
+	# 	   a + b
+	# 	rescue
+	# 	   puts "Could not add variables a (#{a.class}) and b (#{b.class})"
+	# 	else
+	# 	   puts "a + b is #{a + b}"
+	# 	end
+	# end
+	# bad_numbers
+
+	# Another example: 
+	def raise_example
+		number = 3
+		raise "number is less than 5 " if number < 5
+		p "number is greater than 5"
+	end
+raise_example
+
+	# Ref: http://rubylearning.com/satishtalim/ruby_exceptions.html 
+	# http://ruby.bastardsbook.com/chapters/exception-handling/
 
 #------------REST & Restful Actions----------Kenny Trionfo---5/5/2015--------
 	# RESTful
