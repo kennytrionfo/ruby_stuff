@@ -157,21 +157,36 @@
 	#  http://www.coffeecup.com/help/articles/absolute-vs-relative-pathslinks/
 
 #------------defined?----------Kenny Trionfo---4/30/2015--------
-	# aaa = "I'm defined now."
-	# if defined?(aaa) # returns "expression" string, and thus true
-	#   puts aaa # the error comes from this part, since aaa is not defined.
-	# else
-	# 	puts "aaa is not defined"
-	# end
+	def defined_test(some_string)
+		if defined?(some_string) # returns "expression" string, and thus true
+		  puts some_string # the error comes from this part, since aaa is not defined.
+		else
+			puts "aaa is not defined"
+		end
+	end
+	defined_test("I'm defined ok?")
 
-
+ 
 # ############################################
 # ############################################
 # ######### Right here Right now #############
 # ############################################
 # ############################################
 
-# using ||= in ruby - what is this? how used?  
+
+
+#------------ ||= Double Pipe Equal Operator ----------Kenny Trionfo---6/2/2015--------
+	# Stands for "If the first thing is undefined, false or nil, return the second thing"
+	# So "return what's on the left side of the pipes, unless it's nil, then return what's on the right side." 
+	# exammple: 
+	# a ||= b
+	# So in irb, if we did:
+	# a = nil
+	# b = 20
+	# a ||= b 
+	# So because a is nil, a ||= b should return 20. 
+
+	# http://www.rubyinside.com/what-rubys-double-pipe-or-equals-really-does-5488.html
 
 #------------each_with_index----------Kenny Trionfo---5/19/2015--------
 	# Calls block with two arguments, the item and its index, for each item in enum. Given arguments are passed through to each(). If no block is given, an enumerator is returned instead.
@@ -1493,7 +1508,7 @@
 	# frequencies.reverse!
 	# frequencies.each { |word, frequency| puts word + " " + frequency.to_s } 
 
-#---------------- BEGIN RESCUE RAISE EXCEPTION -------------Kenny Trionfo---11/13/2014--------
+# ---------------- BEGIN RESCUE RAISE EXCEPTION -------------Kenny Trionfo---11/13/2014--------
 	#1 Create an exception using the begin end clause. 
 	#I don't understand this first one. It's from center canyon. ask Sensei for help.
 	# puts "Please type in an even number"
@@ -1518,14 +1533,18 @@
 
 	#Another example: 
 	# def raise_and_rescue  
-	#   begin  
+	#   # begin  
+	#   	num = 3
+	#   	number = hi
 	#     puts 'I am before the raise.'  
-	#     raise  
-	#     puts 'I am after the raise.'  
+
 	#   rescue  
-	#     puts 'I am rescued.'  
-	#   end  
-	#   puts 'I am after the begin block.'  
+	#     puts "I'm just a puts that's after the rescue."
+	#     raise  "#{num} has a bad assignment somehow" if num < 5
+	#     raise "#{number} has a bad assignment somehow" if number < 5
+	#     puts 'I am a puts after the raise.'  
+	#   # end  
+	#   	puts 'I am after the begin block.'  
 	# end  
 	# raise_and_rescue   
 	
@@ -1584,12 +1603,13 @@
 	# bad_numbers
 
 	# Another example: 
-	def raise_example
-		number = 3
-		raise "number is less than 5 " if number < 5
-		p "number is greater than 5"
-	end
-raise_example
+	# 	def raise_example 
+	# 		number = 3 
+	# 	rescue  
+	# 		raise "number is less than 5 " if number < 5 
+	# 		p "number is greater than 5" 
+	# 	end 
+	# raise_example
 
 	# Ref: http://rubylearning.com/satishtalim/ruby_exceptions.html 
 	# http://ruby.bastardsbook.com/chapters/exception-handling/
