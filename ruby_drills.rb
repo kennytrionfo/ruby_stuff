@@ -157,27 +157,37 @@
 	#  http://www.coffeecup.com/help/articles/absolute-vs-relative-pathslinks/
 
 #------------defined?----------Kenny Trionfo---4/30/2015--------
-	def defined_test(some_string)
-		if defined?(some_string) # returns "expression" string, and thus true
-		  puts some_string # the error comes from this part, since aaa is not defined.
-		else
-			puts "aaa is not defined"
-		end
-	end
-	defined_test("I'm defined ok?")
+	# def defined_test(some_string)
+	# 	if defined?(some_string) # returns "expression" string, and thus true
+	# 	  puts some_string # the error comes from this part, since aaa is not defined.
+	# 	else
+	# 		puts "some_string argument is not defined"
+	# 	end
+	# end
+	# defined_test("I'm defined ok!")
 
  
+
+
+
 # ############################################
 # ############################################
 # ######### Right here Right now #############
+# #########                      #############
 # ############################################
 # ############################################
+
 
 
 
 #------------ ||= Double Pipe Equal Operator ----------Kenny Trionfo---6/2/2015--------
 	# Stands for "If the first thing is undefined, false or nil, return the second thing"
 	# So "return what's on the left side of the pipes, unless it's nil, then return what's on the right side." 
+	# Set two variables, the first one set to nil.
+	# Write an expression asking to return the first one unless it's nil then return the second. 
+	# This can be done quicly in irb. 
+	# Answer: 
+
 	# exammple: 
 	# a ||= b
 	# So in irb, if we did:
@@ -192,23 +202,30 @@
 	# Calls block with two arguments, the item and its index, for each item in enum. Given arguments are passed through to each(). If no block is given, an enumerator is returned instead.
 	# Basically whatever group of objects you call this on, it will assign an index to them in a hash. 
 	# Or ur just taking each item in an array object and putting them into a hash and assigning their array index value as the has key/value value. 
-	# -Create a new empty hash 
-	# -Call .each_with_index on an actual array object (not a variable) and pass in a block that iterates through an item and an index and for each item in the array assigns it an index. 
+	# Use this when you want to take items from an array and put them into a hash and assign each of their hash values whatever their index value was. 
+	# Create a method that creates a new empty hash 
+	# -Call .each_with_index on an actual array object (not a variable) and pass in a block that iterates through an item and an index, and for each item in the array assigns it an index. 
 	# Answer: 
 
-	# hash = Hash.new
-	# %w(cat dog wombat).each_with_index {|item, index|
-	# hash[item] = index
-	# }
-	# hash   #=> {"cat"=>0, "dog"=>1, "wombat"=>2}
+	# def each_with_index
+	# hash = {}
+	# [3, "fun", 12].each_with_index do |item,index| 
+	# 	hash[item] = index 
+	# end
+	# p hash 
+	# end
+	# each_with_index
 
 #------------%w----------Kenny Trionfo---5/19/2015--------
-	# Turns whatever you pass into it into an array of symbols like: 
+	# Turns whatever you pass into it into an array of objects. 
+	# Nice to use when you want to create an array that has a lot of strings in it and you don't wnat to type all of the quotes. Just pass raw objects into this. 
+	# In Irb Pass some raw string objects (without quotes) into this and assign it to a variable. 	
+	# Answer: 
+
 	# 2.1.1 :001 > %w(cat dog pig)
 	#  => ["cat", "dog", "pig"]
 
 #------------.all?----------Kenny Trionfo---5/5/2015--------
-	# .all? 
 	# Passes each element of the collection to the given block. The method returns true if the block never returns false or nil. 
 	# Write a method that uses .all to iterate through an array of words to check if ALL of the items are at least a certain length or not. 
 	# Answer: 
