@@ -183,12 +183,17 @@
 #------------ ||= Double Pipe Equal Operator ----------Kenny Trionfo---6/2/2015--------
 	# Stands for "If the first thing is undefined, false or nil, return the second thing"
 	# So "return what's on the left side of the pipes, unless it's nil, then return what's on the right side." 
-	# Set two variables, the first one set to nil.
-	# Write an expression asking to return the first one unless it's nil then return the second. 
-	# This can be done quicly in irb. 
+	# Use: this when you want to have an alternative to something being nil. ie - you don't want a variable that ur setting to be accidentally set to nil so in case it is set to nil, ||= will set it to the alternative option. 
+	# Exercise: Create a method to puts the name of a drink that you pass in for the drink makers at Ken's smoothies to make. Try it by passing in a var that you set to a string and then to nil and should get an alert if you pass in a var that is nil. 
 	# Answer: 
 
-	# exammple: 
+	# def order(drink_name)
+	# 	puts drink_name ||= "ALERT! Drink name can't be blank."
+	# end
+	# order_name_var = nil
+	# order order_name_var
+
+	# irb exammple: 
 	# a ||= b
 	# So in irb, if we did:
 	# a = nil
@@ -228,8 +233,20 @@
 #------------.all?----------Kenny Trionfo---5/5/2015--------
 	# Passes each element of the collection to the given block. The method returns true if the block never returns false or nil. 
 	# Write a method that uses .all to iterate through an array of words to check if ALL of the items are at least a certain length or not. 
+	# Write a method for a ride attendant that show him if each of the kids in a party are old enough for a ride or not. 
 	# Answer: 
 
+	# def attendant_list list_of_kids_ages
+	# 	if list_of_kids_ages.all? {|kid, age| age > 3 }
+	# 		puts "All good"
+	# 	else
+	# 		puts "Not all are over 3"
+	# 	end
+	# end
+	# kids_ages = {bily: 5, suzy: 6, seth: 4}	
+	# attendant_list kids_ages
+
+	# Another example:
 	# def all_test
 	# 	a = ["one", "two", "boyzz", "girl"] 
 	# 	 if a.all? {|x| x.length <= 4}
