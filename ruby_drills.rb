@@ -235,7 +235,7 @@
 	# Write a method that uses .all to iterate through an array of words to check if ALL of the items are at least a certain length or not. 
 	# Write a method for a ride attendant that show him if each of the kids in a party are old enough for a ride or not. 
 	# Answer: 
-
+	
 	# def attendant_list list_of_kids_ages
 	# 	if list_of_kids_ages.all? {|kid, age| age > 3 }
 	# 		puts "All good"
@@ -299,16 +299,29 @@
 	# Ref: https://rvm.io/ 
 	#ref: http://watirmelon.com/2011/01/17/easily-manage-your-rubies-with-rvm-bundler-and-pik/
 
-#------------splats in params----------Kenny Trionfo---3/5/2015--------
+#------------splats, parameters, arguments ----------Kenny Trionfo---3/5/2015--------
+	#DEFINE: A single splat '*' param will allow you to pass in multiple params, a list and turns it into an array. 
+	#USE: You want to pass in a list of things like ingredients for a recipe.
+
+	#EXAMPLE: You want to puts to the user a list of the ingredients passed in. 
+	#Exercise: Create and call a method that allows you to pass in a list of items that you simply repeat back to the user. 
+    #Answer: 
+
+	# def order_mapping *list_of_args
+	# 	puts "Here is a list of the items:"
+	# 	puts list_of_args
+	# end
+	# order_mapping "first", 2, order_detail: "ord_det"
+
 	# Create a method that has a parameter with a double splat and try running the method and passing in a key value pair and they run it passing in multiple params. 
 
 	# Answer 
 
-	# def dog_sound(bark = "ruff", *attrs) #Single spat will let you pass in either a key value pair or multiple params. The k/v pair will be output as a hash. 
-	# 	puts  bark,  attrs
+	# def dog_sound *splat #Single spat will let you pass in either a key value pair or multiple params. The k/v pair will be output as a hash.
+	# 	puts splat
 	# end
-	# dog_sound("ruff ruff", tail_wagging: "yes") #Or this works:
-	# dog_sound("ruff ruff", "bark", "growl", "meow") #But this doesn't work: 
+	# dog_sound tail_wagging: "yes" #Or this works:
+	# dog_sound("ruff ruff", "bark", "growl", "meow") #And this works too.
 
 	#But if you use the double spat:
 	# def dog_sound(bark = "ruff", **attrs)
