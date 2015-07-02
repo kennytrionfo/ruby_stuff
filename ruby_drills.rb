@@ -301,12 +301,14 @@
 
 #------------single splats, parameters, arguments ----------Kenny Trionfo---3/5/2015--------
 	#DEFINE: A single splat '*' param will allow you to pass in multiple params, a list and turns it into an array. 
-	#USE: You want to pass in a list of things that will be turned into and used as an array.
+	#USE BY: You want to pass in a list of things after a splat that will be turned into and used as an array.
 	#EXAMPLE: You want to pass in a list of ingredients that become an array that can be used to iterate through to see if there is a particular ingredient that someone could be alergic to. 
 	#Exercise: Create and call a method that allows you to pass in a list of items that you can iterate through and puts a message that "it's ok" if you don't find the alergic ingredient, and puts "no good" if the ingredient is found in the array. 
     #Answer: 
 
 	# def order_mapping *list_of_ingredients 
+	#   puts "what you passed in should be an array now. Let's see. Here is the list_of_ingredients:"
+	#   puts list_of_ingredients[0]
 	# 	if list_of_ingredients.include? 'poison'
 	# 		puts "No good, there's poison in these ingredients"
 	# 	else
@@ -315,22 +317,61 @@
 	# end
 	# order_mapping "butter", "flour", "sugar"
 
-#------------Double splats----------Kenny Trionfo---6/23/2015--------
+	# Here we try passing in an array and it gets turned into a list when we need to use it in our method. 
+    # def reverse_splat *array
+    # 	puts "Here's the array as a list:"
+    # 	puts array 		
+    # end	
+    # reverse_splat ["one", 2, 3]
+
+    #Another example:
 	# Create a method that has a parameter with a double splat and try running the method and passing in a key value pair and they run it passing in multiple params. 
 
 	# Answer 
 
-	# def dog_sound *splat #Single spat will let you pass in either a key value pair or multiple params. The k/v pair will be output as a hash.
-	# 	puts splat
+	# def dog_sound *multiple_items_or_a_hash #Single spat will let you pass in either a key value pair or multiple params. The k/v pair will be output as a hash.
+	# 	puts multiple_items_or_a_hash[0]
 	# end
-	# dog_sound tail_wagging: "yes" #Or this works:
-	# dog_sound("ruff ruff", "bark", "growl", "meow") #And this works too.
+	# dog_sound tail_wagging: "yes" #A hash works:
+	# dog_sound "ruff ruff", "bark", "growl", "meow" #And this works too.
+
+	# Splats resource:
+	# https://dev.firmafon.dk/blog/splat-goes-ruby/
+
+
+#------------Double splats----------Kenny Trionfo---6/23/2015--------
+	#DEFINE: ** allows you to pass in k/v objects for k/v arguments that can be returned/used as a Hash like (name: "bety", age: 60) not the actual hash. 
+	#USE BY: putting **before a parameter like **keyvalue_pairs
+	#EXAMPLE: In addition to passing in the title of a movie, you want to allow someone to pass in the time and dates as k/v's as well. 
+
+	#Answer: 
+
+	# def movie_info title, **time_and_date
+	# 	puts "The movie title is: #{title}"
+	# 	puts "The time and date are:"
+	# 	puts time_and_date
+	# end
+	# movie_info "Kenny's new world", Time: "12:30pm", Date: "6/30/2015"
+
+	# Another example: 
+	# def foo(a, *b, **c)
+	#  puts [a, b, c]
+	#  puts "next"
+	# end
+	# foo 10
+	# => [10, [], {}]
+	# foo 10, 20, 30
+	# => [10, [20, 30], {}]
+	# foo 10, 20, 30, d: 40, e: 50
+	# => [10, [20, 30], {:d=>40, :e=>50}]
+	# foo 10, d: 40, e: 50
+	# => [10, [], {:d=>40, :e=>50}]
 
 	#But if you use the double spat:
 	# def dog_sound(bark = "ruff", **attrs)
-		# puts bark, attrs 
+	# 	puts bark, attrs 
 	# end
-	#You can only pass in k/v pairs, not multiple params so this should work: 
+	# # You can only pass in k/v pairs, not multiple params so this should work: 
 	# dog_sound(bark = "ruff ruff", tail_wagging: "yes") #But this shouldn't: 
 	# dog_sound(bark = "ruff ruff", "meow", "hi", "bark") #You'll get wrong number of arguments. 
 
@@ -346,7 +387,7 @@
 	# dog_sound("ruff ruff", tail_wagging: "yes")
 
 #---------------- blocks -------------Kenny Trionfo---12/1/2014--------
-# blocks aren't _________. And they don't all the powers and abilities of an _________ and so therefor can't be saved as a ____________.
+# blocks aren't _________. And they don't have all the powers and abilities of an _________ and so therefor can't be saved as a ____________.
 # 	Answer:
 
 # ojects. object. variables.
@@ -660,7 +701,7 @@
 	#calls ack's value from the hash (but only if the format the hash was saved in was )
 	# my_path[:ack]  
 	#  => 12 
-	
+
 #---------------- 2 ways to do hash syntax -------------------
 	#create:
 	# hash = {"name" => "David", "age" => 49 }
