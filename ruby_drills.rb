@@ -285,23 +285,9 @@
 	# Ref: https://rvm.io/ 
 	#ref: http://watirmelon.com/2011/01/17/easily-manage-your-rubies-with-rvm-bundler-and-pik/
 
- 
-
-
-
-# ############################################
-# ############################################
-# ######### Right here Right now #############
-# #########                      #############
-# ############################################
-# ############################################
-
-
-
-
 #------------single splats, parameters, arguments ----------Kenny Trionfo---3/5/2015--------
-	#DEFINE: A single splat '*' param will allow you to pass in multiple params, a list and turns it into an array. 
-	#USE BY: You want to pass in a list of things after a splat that will be turned into and used as an array.
+	#DEFINE: A single splat '*' param will allow you to pass in multiple params, as a list of strings OR a hash of key value pairs and turns it into an array. 
+	#USE BY: Passing in a list of things after a splat that will be turned into and used as an array.
 	#EXAMPLE: You want to pass in a list of ingredients that become an array that can be used to iterate through to see if there is a particular ingredient that someone could be alergic to. 
 	#Exercise: Create and call a method that allows you to pass in a list of items that you can iterate through and puts a message that "it's ok" if you don't find the alergic ingredient, and puts "no good" if the ingredient is found in the array. 
     #Answer: 
@@ -317,6 +303,7 @@
 	# end
 	# order_mapping "butter", "flour", "sugar"
 
+	# Reversing the splat: 
 	# Here we try passing in an array and it gets turned into a list when we need to use it in our method. 
     # def reverse_splat *array
     # 	puts "Here's the array as a list:"
@@ -324,15 +311,15 @@
     # end	
     # reverse_splat ["one", 2, 3]
 
-    #Another example:
-	# Create a method that has a parameter with a double splat and try running the method and passing in a key value pair and they run it passing in multiple params. 
-
+    # A Hash example:
+	# Create a method that has a parameter with a double splat and try running the method and passing in a key value pair and then run it passing in multiple params. 
 	# Answer 
 
 	# def dog_sound *multiple_items_or_a_hash #Single spat will let you pass in either a key value pair or multiple params. The k/v pair will be output as a hash.
 	# 	puts multiple_items_or_a_hash[0]
+	# 	p multiple_items_or_a_hash
 	# end
-	# dog_sound tail_wagging: "yes" #A hash works:
+	# dog_sound tail_wagging: "yes", "second key" => "second value" #A hash works:
 	# dog_sound "ruff ruff", "bark", "growl", "meow" #And this works too.
 
 	# Splats resource:
@@ -345,7 +332,7 @@
 	#EXAMPLE: In addition to passing in the title of a movie, you want to allow someone to pass in the time and dates as k/v's as well. 
 
 	#Answer: 
-
+ 
 	# def movie_info title, **time_and_date
 	# 	puts "The movie title is: #{title}"
 	# 	puts "The time and date are:"
@@ -390,60 +377,84 @@
 # blocks aren't _________. And they don't have all the powers and abilities of an _________ and so therefor can't be saved as a ____________.
 # 	Answer:
 
-# ojects. object. variables.
+# ojects. object. variables. *But, ruby blocks can be turned into objects by using procs: https://www.youtube.com/watch?v=DBj6UDJVLW4
 
 
-#---------------- yield -------------Kenny Trionfo---12/1/2014--------
-# 1-write a method that puts something yields to a block outside of it and then puts something else. 
-# 	Answer: 
+#---------------- yield to call a block-------------Kenny Trionfo---12/1/2014--------
+	#DEFINE: Invoke a block by using the yield statement from within a method that has the same name as that of the block.
+	#USE BY: 
+	#EXAMPLE: You want to have some error message alert you if something is wrong so you pass a block into the method as an argument with the error statement and inside the method you invoke the block at certain points. Say ur proessing packages in bulk and there needs to be at least 10 in a group in order to take the order, so if there's less than 10, you invoke the block that has the error message in it. 
 
-# def block_test
-#   puts "We're in the method!"
-#   puts "Yielding to the block..."
-#   yield
-#   puts "We're back in the method!"
+	#ANSWER:
+# def bulk_processing number_of_orders
+# 	if number_of_orders > 10
+# 		puts "orders looking fine"
+# 	else
+# 		yield
+# 	end
 # end
+# bulk_processing(5) {|i| puts "Stop everything! Order too small!"}
 
-# block_test { puts ">>> We're in the block!" }
+# def orders number 
+# 	if number > 9
+# 		puts "great"
+# 	else
+# 		yield number 
+# 	end
+# end
+# orders(5) {|x| puts "#{x} is too low!"}
 
 # 2-now say that you want to execute a block of code that is outside of a method that you want to run. Use yield that takes a param inside of a method. 
 # 	Answer: 
 
-# def yield_with_param(word)
+
+# def yield_with_param word
 # 	puts "before yield"
-# 	yield(word)
+# 	yield word
 # 	puts "after yield"
+# 	yield "new word"
+# 	puts word
 # end
 # yield_with_param("shalasium") { |x| puts "#{x} is my word."}
 
+ 
+
 
 #---------------- LAMBDAS -------------Kenny Trionfo---12/1/2014--------
-# What is the difference between a proc and a lambda?
-# 	Answer: 
+	# What is the difference between a proc and a lambda?
+	# 	Answer: 
 
-# a lambda checks the number of arguments passed to it, while a proc does not. This means that a lambda will throw an error if you pass it the wrong number of arguments, whereas a proc will ignore unexpected arguments and assign nil to any that are missing.
+	# a lambda checks the number of arguments passed to it, while a proc does not. This means that a lambda will throw an error if you pass it the wrong number of arguments, whereas a proc will ignore unexpected arguments and assign nil to any that are missing.
 
-# Second, when a lambda returns, it passes control back to the calling method; when a proc returns, it does so immediately, without going back to the calling method.
-
-
-#---------------- Lambda proc puts -------------Kenny Trionfo---12/1/2014--------
-#   why do we have to use "puts" here to call these methods and not just call them with their name? ?
-# def batman_ironman_proc
-#   victor = Proc.new { return "Batman will win!" }
-#   victor.call
-#   "Iron Man will win!"
-# end
-
-# puts batman_ironman_proc
+	# Second, when a lambda returns, it passes control back to the calling method; when a proc returns, it does so immediately, without going back to the calling method.
 
 
-# def batman_ironman_lambda
-#   victor = lambda { return "Batman will win!" }
-#   victor.call
-#   "Iron Man will win!"
-# end
+	#---------------- Lambda proc puts -------------Kenny Trionfo---12/1/2014--------
+	# Definition: A lambda is 
+	# A block created with lambda behaves like a method when you use return and simply exits the block, handing control back to the calling method.
+	# Lambdas are referred to as closures in CS. 
+	# One difference in a Lambda from a proc is that, unlike Procs, lambdas check the number of arguments passed.
 
-# puts batman_ironman_lambda
+	# Use when: 
+
+	#   why do we have to use "puts" here to call these methods and not just call them with their name? ?
+
+	# def batman_ironman_proc
+	#   victor = Proc.new { return "Batman will win!" }
+	#   victor.call
+	#   "Iron Man will win!"
+	# end
+
+	# batman_ironman_proc
+
+
+	# def batman_ironman_lambda
+	#   victor = lambda { return "Batman will win!" }
+	#   victor.call
+	#   "Iron Man will win!"
+	# end
+
+	# puts batman_ironman_lambda
 
 
 #---------------- .collect & lambda -------------Kenny Trionfo---12/1/2014--------
@@ -458,6 +469,15 @@
 
 # >> ['a', 'b', 'c'].collect(&:capitalize)
 # => ["A", "B", "C"]
+
+
+
+# ############################################
+# ############################################
+# ######### Right here Right now #############
+# #########                      #############
+# ############################################
+# ############################################
 
 
 #---------------- RANGE -------------Kenny Trionfo---11/26/2014--------
@@ -1654,6 +1674,11 @@
 	# 	puts "You picked zero"
 	# end
 
+#------------Iterators----------Kenny Trionfo---7/29/2015--------
+# Description: Methods that cycle some block of code through the object it is being called on. 
+# Example: 
+# Use an iterate method to iterate through each element of an array and print it: 
+
 #---------- while loop -------------------
 	# counter = 1
 	# while counter < 5
@@ -1727,6 +1752,11 @@
 	# 5.times {puts "Kenny T crushes code!"}
 
 #---------------- blocks -------------Kenny Trionfo---12/1/2014--------
+	# A rguments- blocks are not method Arguments but are infact a separate construct
+	# P arameter - blocks can take Parameters of their own
+	# I terator - blocks are used to support Iterator-type methods
+	# S yntax - there are two types of block Syntax
+
 	# blocks aren't _________. And they don't all the powers and abilities of an _________ and so therefor can't be saved as a ____________.
 	# 	Answer:
 
